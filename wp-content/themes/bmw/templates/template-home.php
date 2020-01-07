@@ -8,4 +8,18 @@
 <?php get_header('header'); ?>
 
 
-<h1>home</h1>
+<h1 class="title">home</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php get_footer('footer'); ?>

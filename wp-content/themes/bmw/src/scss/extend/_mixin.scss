@@ -1,0 +1,199 @@
+$rzs: vpn, hpn, apn, vpd, hpd, apd, mbl, ltp, xlp, hdt, hdv, wsx, fhd, dtp;
+$zmn: 0, 480, 0, 768, 896, 768, 0, 1025, 1200, 1280, 1366, 1440, 1920, 1200;
+$zmx: 479, 767, 767, 895, 1024, 1024, 1024, 1199, 1279, 1365, 1439, 1679, 2560,
+  1919;
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
+$rsp: (
+  vpn: (
+    min: 0,
+    max: 479
+  ),
+  hpn: (
+    min: 480,
+    max: 767
+  ),
+  apn: (
+    min: 0,
+    max: 768
+  ),
+  vpd: (
+    min: 768,
+    max: 895
+  ),
+  hpd: (
+    min: 896,
+    max: 1024
+  ),
+  apd: (
+    min: 768,
+    max: 1024
+  ),
+  mbl: (
+    min: 0,
+    max: 1024
+  ),
+  ltp: (
+    min: 1025,
+    max: 1199
+  ),
+  xlp: (
+    min: 1200,
+    max: 1279
+  ),
+  hdt: (
+    min: 1280,
+    max: 1365
+  ),
+  hdv: (
+    min: 1366,
+    max: 1439
+  ),
+  wsx: (
+    min: 1440,
+    max: 1679
+  ),
+  fhd: (
+    min: 1920,
+    max: 2560
+  ),
+  dtp: (
+    min: 1200,
+    max: 1919
+  )
+);
+
+@mixin rsp-from($rz) {
+  @media (min-width: #{map-deep-get($rsp, $rz, min)}px) {
+    @content;
+  }
+}
+
+@mixin rsp-to($rz) {
+  @media (max-width: #{map-deep-get($rsp, $rz, max)}px) {
+    @content;
+  }
+}
+
+@mixin max-aspect-ratio($w, $h) {
+  @media screen and (max-aspect-ratio: #{$w}/#{$h}) {
+    @content;
+  }
+}
+
+@mixin min-aspect-ratio($w, $h) {
+  @media screen and (min-aspect-ratio: #{$w}/#{$h}) {
+    @content;
+  }
+}
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+@mixin rsp($min, $max: null) {
+  @if ($max == null) {
+    @if (map-deep-get($rsp, $min, min) == 0) {
+      @media (max-width: #{map-deep-get($rsp, $min, max)}px) {
+        @content;
+      }
+    } @else if(map-deep-get($rsp, $min, max) == 9999) {
+      @media (min-width: #{map-deep-get($rsp, $min, min)}px) {
+        @content;
+      }
+    } @else {
+      @media (min-width: #{map-deep-get($rsp, $min, min)}px) and (max-width: #{map-deep-get($rsp, $min, max)}px) {
+        @content;
+      }
+    }
+  } @else {
+    @media (min-width: #{map-deep-get($rsp, $min, min)}px) and (max-width: #{map-deep-get($rsp, $max, max)}px) {
+      @content;
+    }
+  }
+}
+
+@mixin make-lim-columns($columns: $grid-columns, $gutter: $grid-gutter-width) {
+  $list: '';
+  $i: 1;
+  @for $idx from 1 through $columns {
+    @each $key, $val in $rsp {
+      $ins: ', ';
+      @if $idx == 1 and $i == 1 {
+        $ins: '';
+      }
+      $list: '#{$list}#{$ins}.col-#{$key}-#{$idx}';
+      $i: $i + 1;
+    }
+  }
+  #{$list} {
+    position: relative;
+    min-height: 1px;
+    padding-left: ($gutter / 2);
+    padding-right: ($gutter / 2);
+  }
+  @for $cdx from 1 through $columns {
+    @each $key, $val in $rsp {
+      @include rsp-from($key) {
+        .col-#{$key}-#{$cdx} {
+          float: left;
+          width: percentage(($cdx / $columns));
+        }
+        .col-#{$key}-offset-#{$cdx} {
+          margin-left: percentage(($cdx / $columns));
+        }
+        .col-#{$key}-push-#{$cdx} {
+          left: percentage(($cdx / $columns));
+        }
+        .col-#{$key}-pull-#{$cdx} {
+          right: percentage(($cdx / $columns));
+        }
+      }
+    }
+  }
+}
+
+
+@mixin bg(){
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+%bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(-30px);
+  }
+  60% {
+    transform: translateX(-15px);
+  }
+}
+
+@keyframes bounce-down {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}

@@ -1,0 +1,84 @@
+/**
+ * inline grid
+ */
+@for $i from 1 through 12 {
+  .col-x#{$i} {
+    width: ($i / 12) * 100%;
+  }
+}
+
+@for $i from 1 through 12 {
+  .col-md-x#{$i} {
+    @include rsp(mbl) {
+      width: ($i / 12) * 100%;
+    }
+  }
+}
+
+.x-row-inline {
+  font-size: 0;
+  & > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.v-align-c {
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+.v-align-t {
+  vertical-align: top;
+  & > * {
+    vertical-align: top;
+  }
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: top;
+  }
+}
+
+.v-align-b {
+  vertical-align: bottom;
+  & > * {
+    vertical-align: bottom;
+  }
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: bottom;
+  }
+}
+
+.h-align-l {
+  text-align: left;
+}
+
+.h-align-c {
+  text-align: center;
+}
+
+.h-align-r {
+  text-align: right;
+}
+
+.x-abs-align-c {
+  position: relative;
+  & > * {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+}

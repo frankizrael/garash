@@ -1,0 +1,205 @@
+.footer {
+  background: #181818;
+  &__content {
+    display: flex;
+    color: white;
+    padding: 50px 0;
+    @include rsp(apn) {
+      flex-direction: column;
+      padding: 30px 15px;
+    }
+    .col {
+      flex: 1 1 100%;
+      max-width: 33%;
+
+      @include rsp(apn) {
+        max-width: 100%;
+
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+      }
+
+      &:nth-of-type(1) {
+        padding-right: 15px;
+        @include rsp(apn) {
+          padding-right: 0;
+        }
+      }
+      &:nth-of-type(3) {
+        padding-left: 15px;
+        @include rsp(apn) {
+          padding-left: 0;
+        }
+      }
+
+      .logo {
+        margin-bottom: 10px;
+        svg {
+          width: 130px;
+          height: 47px;
+        }
+      }
+      .title {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      .description {
+        font-size: 14px;
+        line-height: 25px;
+      }
+      .list {
+        width: 100%;
+        ul {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          li {
+            padding: 5px 0 10px;
+            display: flex;
+            align-items: center;
+            .icon {
+              svg {
+                width: 25px;
+                height: auto;
+              }
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      .newsletter {
+        position: relative;
+        width: 100%;
+        input {
+          height: 45px;
+          border: solid 1px white;
+          font-size: 14px;
+          line-height: 18px;
+          width: 100%;
+          border-radius: 5px;
+          padding: 13px 60px 12px 15px;
+          transition: 0.3s;
+          position: relative;
+          z-index: 1;
+          color: white;
+          -webkit-appearance: none;
+          background: #181818;
+          border-radius: 50px;
+        }
+        .icon {
+          position: absolute;
+          top: 50%;
+          right: 5px;
+          transform: translateY(-50%);
+          z-index: 2;
+          cursor: pointer;
+          svg {
+            width: 36px;
+            height: 36px;
+          }
+        }
+      }
+    }
+  }
+  .bar-bottom {
+    background: #000000;
+    width: 100%;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    @include rsp(apn) {
+      font-size: 12px;
+      padding: 10px 0;
+    }
+  }
+}
+
+.menu-mobile {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 9;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translate(-100%);
+  transition: 0.3s cubic-bezier(0.37, 0.31, 0.2, 0.85);
+  display: none;
+  &.active {
+    transform: translate(0);
+  }
+  .main {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 0;
+    .languages {
+      position: relative;
+      ul {
+        li {
+          color: black;
+          margin: 0 3px;
+          a {
+            color: black;
+            text-transform: uppercase;
+            &.active {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+
+    .button-close {
+      svg {
+        width: 25px;
+        polygon {
+          fill: black;
+        }
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 100%;
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      li {
+        a {
+          color: black;
+          padding: 10px 0;
+          font-size: 25px;
+          position: relative;
+          &[aria-current="page"] {
+            &:before {
+              content: "";
+              position: absolute;
+              width: 50px;
+              border: 1.5px solid $orange;
+              bottom: 5px;
+              z-index: 1;
+              left: 0;
+            }
+          }
+        }
+        .sub-menu {
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+}

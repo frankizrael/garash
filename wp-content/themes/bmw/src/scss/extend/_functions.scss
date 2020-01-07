@@ -1,0 +1,9 @@
+@function rem($size) {
+  $remSize: $size / $rootFontSize;
+  @return #{$remSize}rem;
+}
+
+@function vw($width, $target) {
+  $vw-context: ($width * 0.01) * 1px;
+  @return ($target / $vw-context) * 1vw;
+}

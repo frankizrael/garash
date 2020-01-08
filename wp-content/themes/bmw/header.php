@@ -65,13 +65,14 @@ error_reporting(E_ALL);
       }
       break;
   }
+
   ?>
   <!-- JavaScript -->
   <script type="text/javascript">
     var ajaxUrl = '<?php echo admin_url("admin-ajax.php"); ?>';
     var siteUrl = '<?php echo get_site_url(); ?>';
   </script>
+  
 </head>
-
-<body>
+<body <?php body_class(); ?>>
  

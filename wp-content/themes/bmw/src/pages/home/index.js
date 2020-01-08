@@ -1,12 +1,10 @@
-import "swiper/dist/css/swiper.min.css";
-import Swiper from "swiper";
 import "./index.scss";
 
-new Swiper('[data-swiper-id="swiper-home"]', {
-  pagination: ".sliderHome .swiper-pagination",
-  slidesPerView: "auto",
-  paginationClickable: true
-  // mousewheelControl: true,
-  // parallax: true,
-  // keyboardControl: true,
+import "slick-carousel";
+
+$(".sectionFeaturedProducts .products").slick({
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  dots: true,
+  arrows: false
 });

@@ -1,14 +1,12 @@
-
 <?php
+
+wp_footer();
 
 $filePath = 'dist/assets.json';
 $jsonFile = file_exists($filePath) ? file_get_contents($filePath) : file_get_contents(get_template_directory() . '/' . $filePath);
 $rootDir = file_exists($filePath) ? '' : get_template_directory_uri() . '/';
 $json = json_decode($jsonFile, true);
 $evn = str_replace('dist', '', $json['metadata']['env']);
-
-
-
 
 switch ($evn) {
     case 'production': {
@@ -31,7 +29,8 @@ switch ($evn) {
                     }
                 }
             }
-        } break;
+        }
+        break;
 
     case 'development': {
             foreach ($json as $key => $val) {
@@ -53,8 +52,10 @@ switch ($evn) {
                     }
                 }
             }
-        } break;
+        }
+        break;
 }
 ?>
 </body>
+
 </html>

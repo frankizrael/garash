@@ -1,3 +1,25 @@
-.title {
-  background: red !important;
+.sliderHome {
+  width: 100%;
+  position: relative;
+  height: 100vh;
+  .swiper-container {
+    width: 100%;
+    height: calc(100% - 30px);
+  }
+  .swiper-pagination {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .swiper-pagination-bullet {
+      margin: 0 5px;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+.sectionCategories {
+  padding: 120px 0;
+  background: red;
 }

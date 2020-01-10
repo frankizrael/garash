@@ -40,58 +40,6 @@
         }
       }
     }
-
-    .slick-dots {
-      position: absolute;
-      bottom: -25px;
-      display: block;
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      text-align: center;
-      li {
-        position: relative;
-        display: inline-block;
-        margin: 0 5px;
-        padding: 0;
-        button {
-          font-size: 0;
-          line-height: 0;
-          display: block;
-          width: 10px;
-          height: 10px;
-          padding: 5px;
-          cursor: pointer;
-          color: transparent;
-          border: 0;
-          outline: none;
-          background: transparent;
-          &:before {
-            font-size: 6px;
-            line-height: 20px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 10px;
-            height: 10px;
-            content: "•";
-            text-align: center;
-            opacity: 0.25;
-            color: black;
-            border-radius: 50%;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background: #707070;
-          }
-        }
-        &.slick-active button:before {
-          opacity: 1;
-          color: black;
-          background: #1c69d4;
-        }
-      }
-    }
   }
 }
 .sectionCategories {
@@ -101,7 +49,7 @@
       font-size: 35px;
     }
     .tabs {
-      ul {
+      &__links {
         position: relative;
         border-bottom: 1px solid #e6e6e6;
         .line {
@@ -134,10 +82,218 @@
           }
         }
       }
+      &__content {
+        padding: 30px 0;
+        .tab-item {
+          display: none;
+          &.active {
+            display: block;
+          }
+          ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            li {
+              max-width: calc(25% - 10px);
+              flex: 1 1 100%;
+              position: relative;
+              transition: 1s all ease;
+              cursor: pointer;
+              .overlay {
+                background: transparent linear-gradient(0deg, #000000 0%, #6e6e6e 100%) 0% 0% no-repeat padding-box;
+                opacity: 0.05;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: 1;
+              }
+              img {
+                position: relative;
+                z-index: 1;
+              }
+              .x-caption {
+                position: absolute;
+                z-index: 1;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                margin: 22px;
+                a {
+                  color: #262626;
+                  transition: 0.5s all ease-in;
+                  .name {
+                    font-size: 15px;
+                  }
+                  .icon {
+                    display: flex;
+                    align-items: center;
+                    display: none;
+                    i {
+                      svg {
+                        width: 16px;
+                        height: 16px;
+                        margin-right: 13px;
+                        path {
+                          fill: white;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              &:hover {
+                .overlay {
+                  opacity: 0.31;
+                }
+                .x-caption {
+                  .name {
+                    font-size: 20px;
+                    margin-bottom: 19px;
+                    color: white;
+                  }
+                  .icon {
+                    display: inline-flex;
+                    color: white;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .link {
+      text-align: center;
+      .button {
+        width: 285px;
+      }
     }
   }
 }
 
-.sectionFeaturedProducts {
-  padding: 50px;
+.sectionProducts {
+  &__content {
+    padding: 50px 0 0;
+
+    .title {
+      font-size: 35px;
+    }
+  }
+  .woocommerce {
+    padding: 30px 0;
+  }
+  .slick-slide {
+    height: 296px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #e6e6e6;
+    padding: 14px;
+    &:not(:last-child) {
+      margin-right: 19px;
+    }
+    li {
+      margin: 0 !important;
+    }
+    .add_to_cart_button {
+      background: url(/wp-content/themes/bmw/assets/cart-add.svg) no-repeat !important;
+      color: transparent !important;
+      position: absolute;
+      bottom: 12px;
+      right: 0;
+      width: 29px !important;
+      height: 26px !important;
+    }
+    .product {
+      a {
+        width: 100%;
+      }
+      img {
+        width: 200px !important;
+        height: 200px !important;
+        object-fit: contain;
+        margin: 0 auto !important;
+      }
+      ins {
+        font-size: 15px;
+        color: black;
+        text-decoration: none !important;
+      }
+    }
+    .woocommerce-loop-product__title {
+      font-size: 15px;
+      font-weight: 400;
+      position: relative;
+      &:before {
+        content: "";
+        height: 1px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -8px;
+        background: #e6e6e6;
+        z-index: 1;
+      }
+    }
+    &:hover {
+      background: #ffffff 0% 0% no-repeat padding-box;
+      box-shadow: 0px 0px 20px #0000001a;
+      opacity: 1;
+    }
+  }
+  .slick-list {
+    margin-bottom: 30px;
+  }
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: -25px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  li {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0;
+    button {
+      font-size: 0;
+      line-height: 0;
+      display: block;
+      width: 10px;
+      height: 10px;
+      padding: 5px;
+      cursor: pointer;
+      color: transparent;
+      border: 0;
+      outline: none;
+      background: transparent;
+      &:before {
+        font-size: 6px;
+        line-height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        content: "•";
+        text-align: center;
+        opacity: 0.25;
+        color: black;
+        border-radius: 50%;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: #707070;
+      }
+    }
+    &.slick-active button:before {
+      opacity: 1;
+      color: black;
+      background: #1c69d4;
+    }
+  }
 }

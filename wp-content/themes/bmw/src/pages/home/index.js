@@ -9,9 +9,9 @@ $(".sliderHome .slider").slick({
   arrows: false
 });
 
-$(".sectionFeaturedProducts .products").slick({
-  slidesToShow: 3,
-  slidesToScroll: 3,
+$(".sectionProducts .products").slick({
+  slidesToShow: 4,
+  slidesToScroll: 4,
   dots: true,
   arrows: false
 });
@@ -20,7 +20,6 @@ window.onload = function() {
   const actWidth = $(".tabs ul")
     .find(".active")
     .width();
-  console.log("width", actWidth);
   const actPosition = $(".tabs ul .active").position();
   $(".tabs .line").css({ left: +actPosition.left, width: actWidth });
 };

@@ -1,215 +1,124 @@
 .navbar {
-  position: relative;
-  &.fixed {
-    background-color: $white;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 3;
-  }
-  .bar-top {
-    width: 100%;
-    padding: 8px 0;
-    background: $black;
-    height: 36px;
-    @include rsp(apn) {
-      height: 55px;
-      padding: 8px 6px;
-    }
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 3;
+  &__content {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-
-    &__content {
-      width: 100%;
-      display: flex;
-      padding: 0 160px;
-      @include rsp(apn) {
-        padding: 0 5px;
+    nav {
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #e6e6e6;
+        z-index: -1;
       }
-      justify-content: space-between;
-      align-items: center;
-      .left {
-        .text {
-          color: white;
-          @include rsp(apn) {
-            display: none;
-          }
-        }
-        .icon {
-          display: none;
-          svg {
-            width: 30px;
-            line {
-              fill: none;
-              stroke: white;
-              stroke-miterlimit: 10;
-              stroke-width: 1px;
-            }
-          }
-          @include rsp(apn) {
-            display: block;
-          }
-        }
-      }
-      .right {
-        display: flex;
-        align-items: center;
-        .phone {
-          color: white;
-          margin-right: 10px;
-        }
-        .social {
-          display: flex;
-          align-items: center;
-          a {
-            margin-left: 4px;
-          }
-          .whatsapp {
-            svg {
-              width: 20.52px;
-              height: 20.52px;
-            }
-          }
 
-          .facebook {
-            svg {
-              width: 20.292px;
-              height: 20.292px;
-            }
-          }
-          .linkedin {
-            svg {
-              width: 20.724px;
-              height: 20.724px;
-            }
-          }
-          .instagram {
-            svg {
-              width: 20.205px;
-              height: 20.205px;
-            }
-          }
-        }
-        .languages {
-          margin-left: 10px;
+      .menu {
+        a {
+          color: white;
+          padding: 41px 10px;
           position: relative;
-          @include rsp(apn) {
-            display: none;
+        }
+        .menu-item {
+          &:not(:last-child) {
+            margin-right: 40px;
           }
-          &:before {
-            content: "|";
-            position: absolute;
-            left: 0;
-            color: white;
-          }
-          ul {
-            margin-left: 10px;
-            li {
-              color: white;
-              margin: 0 3px;
-              a {
-                color: white;
-                text-transform: uppercase;
-                &.active {
-                  font-weight: bold;
-                }
-              }
+          &:hover {
+            .sub-menu {
+              display: block;
             }
           }
         }
-      }
-    }
-  }
-  div.menu {
-    width: 100%;
-    padding: 10px 0;
-    height: 77px;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-    background-color: hsla(0, 0%, 100%, 0.95);
-    transition: 0.25s cubic-bezier(0.37, 0.31, 0.2, 0.85);
-    @include rsp(apn) {
-      display: none;
-    }
-    &__content {
-      width: 100%;
-      padding: 0 150px;
-      display: flex;
-      justify-content: space-between;
-      .left {
-        .logo {
-          svg {
-            width: 143px;
-            height: 53px;
+        .sub-menu {
+          display: none;
+          position: absolute;
+          background: white;
+          max-width: 200px;
+
+          .menu-item {
+            margin-right: 0;
+            padding: 5px 20px;
           }
-        }
-      }
-      .right {
-        display: flex;
-        align-items: center;
-        nav {
-          ul {
-            li {
-              margin-left: 20px;
-              position: relative;
-              a {
-                position: relative;
-                &[aria-current="page"] {
-                  &:before {
-                    content: "";
-                    left: 0;
-                    width: 23px;
-                    border: 1px solid $orange;
-                    position: absolute;
-                    bottom: -2px;
-                    background: $orange;
-                  }
-                }
-              }
+          li {
+            margin-left: 0;
+            width: 100%;
 
-              .sub-menu {
-                display: none;
-                position: absolute;
-                min-width: 236px;
-                background: white;
+            a {
+              padding: 10px 0;
+              width: 100%;
+              color: #8e8e8e;
 
-                padding: 10px 0;
-                li {
-                  margin-left: 0;
-                  width: 100%;
-                  a {
-                    padding: 10px 15px;
-                    width: 100%;
-                    &:hover {
-                      background: $orange;
-                      color: white;
-                    }
-                  }
-                }
-              }
               &:hover {
-                .sub-menu {
-                  display: block;
-                }
+                background: white;
+              }
+            }
+            &:not(:last-child) {
+              a {
+                border-bottom: 1px solid #e6e6e6;
               }
             }
           }
         }
       }
+      .current_page_item {
+        > a {
+          &:before {
+            content: "";
+            left: 0;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            background: $blue;
+            height: 4px;
+            z-index: 1;
+          }
+        }
+      }
     }
-  }
-}
-
-.current-menu-parent {
-  > a {
-    &:before {
-      content: "";
-      left: 0;
-      width: 23px;
-      border: 1px solid $orange;
-      position: absolute;
-      bottom: -2px;
-      background: $orange;
+    .icons {
+      button {
+        background: transparent;
+        svg {
+          path {
+            fill: white;
+          }
+        }
+      }
+      .search {
+        position: relative;
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      .account {
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+      .cart {
+        svg {
+          width: 23px;
+        }
+      }
+      .box-search {
+        display: none;
+        width: 300px;
+        position: absolute;
+        right: 0;
+        z-index: 1;
+        margin-top: 10px;
+      }
     }
   }
 }

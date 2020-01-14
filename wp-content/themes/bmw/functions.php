@@ -59,14 +59,15 @@ add_theme_support('title-tag');
 add_theme_support('woocommerce');
 
 
-add_action( 'widgets_init', 'my_register_sidebars' );
-function my_register_sidebars() {
+add_action('widgets_init', 'my_register_sidebars');
+function my_register_sidebars()
+{
     /* Register the 'primary' sidebar. */
     register_sidebar(
         array(
             'id'            => 'primary',
-            'name'          => __( 'Primary Sidebar' ),
-            'description'   => __( 'A short description of the sidebar.' ),
+            'name'          => __('Primary Sidebar'),
+            'description'   => __('A short description of the sidebar.'),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget'  => '</div>',
             'before_title'  => '<h3 class="widget-title">',
@@ -81,13 +82,13 @@ function my_register_sidebars() {
 /**
  * hide admin menu on front-end part
  */
-add_filter('show_admin_bar', 'no_admin_bar');
-
+// add_filter('show_admin_bar', 'no_admin_bar');
+/*
 function no_admin_bar()
 {
     return false;
 }
-
+*/
 /**
  * set content type for an email
  * @param [type] $content_type [description]
@@ -117,3 +118,60 @@ function custom_menus()
 }
 
 add_action('init', 'custom_menus');
+
+
+add_action('wp_ajax_nopriv_login_check', 'loginCheck');
+add_action('wp_ajax_login_check', 'loginCheck');
+
+/**
+ * login check
+ *
+ * @author  Joe Sexton <joe.sexton@bigideas.com>
+ */
+function loginCheck()
+{
+
+    if (is_user_logged_in()) {
+
+        echo json_encode(array('success' => true, 'message' => 'You are already logged in'));
+        die;
+    }
+
+    // check the nonce, if it fails the function will break
+    check_ajax_referer('ajax-login-nonce', 'security');
+
+    // get the POSTed credentials
+    $creds = array();
+    $creds['user_login']    = !empty($_POST['username']) ? $_POST['username'] : null;
+    $creds['user_password'] = !empty($_POST['password']) ? $_POST['password'] : null;
+    $creds['remember']      = !empty($_POST['rememberme']) ? $_POST['rememberme'] : null;
+
+    // check for empty fields
+    if (empty($creds['user_login']) || empty($creds['user_password'])) {
+
+        echo json_encode(array('success' => true, 'message' => 'The username or password is cannot be empty'));
+        die;
+    }
+
+    // check login
+    $user = wp_signon($creds, false);
+
+    if (is_wp_error($user)) {
+
+        if ($user->get_error_code() == "invalid_username" || $user->get_error_code() == "incorrect_password") {
+
+            echo json_encode(array('success' => true, 'message' => 'The username or password is incorrect'));
+            die;
+        } else {
+
+            echo json_encode(array('success' => true, 'message' => 'There was an error logging you in'));
+            die;
+        }
+
+        echo json_encode(array('success' => true, 'message' => 'Login successful'));
+        die;
+    }
+
+    echo json_encode(array('success' => false, 'message' => 'Err'));
+    die;
+}

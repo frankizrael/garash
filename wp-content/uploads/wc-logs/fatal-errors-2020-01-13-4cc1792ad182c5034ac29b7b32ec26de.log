@@ -1,0 +1,16 @@
+2020-01-13T17:01:11+00:00 CRITICAL syntax error, unexpected '?>' in /shared/httpd/bmw-ecommerce/htdocs/wp-content/themes/bmw/templates/template-my-account.php on line 20
+
+2020-01-13T17:01:15+00:00 CRITICAL syntax error, unexpected '?>' in /shared/httpd/bmw-ecommerce/htdocs/wp-content/themes/bmw/templates/template-my-account.php on line 20
+
+2020-01-13T20:34:27+00:00 CRITICAL Uncaught Error: Call to a member function authenticate() on null in /shared/httpd/bmw-ecommerce/htdocs/wp-content/plugins/yith-woocommerce-social-login-premium/includes/class-yith-social-login.php:180
+Stack trace:
+#0 /shared/httpd/bmw-ecommerce/htdocs/wp-includes/class-wp-hook.php(288): YITH_WC_Social_Login->get_login_request('')
+#1 /shared/httpd/bmw-ecommerce/htdocs/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#2 /shared/httpd/bmw-ecommerce/htdocs/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /shared/httpd/bmw-ecommerce/htdocs/wp-settings.php(523): do_action('init')
+#4 /shared/httpd/bmw-ecommerce/htdocs/wp-config.php(63): require_once('/shared/httpd/b...')
+#5 /shared/httpd/bmw-ecommerce/htdocs/wp-load.php(37): require_once('/shared/httpd/b...')
+#6 /shared/httpd/bmw-ecommerce/htdocs/wp-login.php(12): require('/shared/httpd/b...')
+#7 {main}
+  thrown in /shared/httpd/bmw-ecommerce/htdocs/wp-content/plugins/yith-woocommerce-social-login-premium/includes/class-yith-social-login.php on line 180
+

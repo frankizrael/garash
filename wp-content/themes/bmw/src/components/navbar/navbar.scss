@@ -8,19 +8,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #e6e6e6;
+      z-index: -1;
+    }
     nav {
       position: relative;
-      &:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 1px;
-        background-color: #e6e6e6;
-        z-index: -1;
-      }
 
       .menu {
         a {
@@ -118,6 +119,25 @@
         right: 0;
         z-index: 1;
         margin-top: 10px;
+      }
+    }
+  }
+  &.is-black {
+    nav {
+      .menu {
+        a {
+          color: black;
+          font-weight: bold;
+        }
+      }
+    }
+    .icons {
+      button {
+        svg {
+          path {
+            fill: black;
+          }
+        }
       }
     }
   }

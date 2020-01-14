@@ -56,8 +56,13 @@ define('WP_MEMORY_LIMIT', '256M');
 define('WP_DEBUG', false);
 define('AUTOSAVE_INTERVAL', 300);
 define('WP_POST_REVISIONS', false);
+define ('YWSL_FINAL_SLASH', true);
+
+
 
 $table_prefix  = 'wp_';
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
+// wp-content/plugins/yith-woocommerce-social-login-premium/includes/hybridauth/vendor/facebook.php

@@ -96,6 +96,7 @@ const config = {
     vendor: ['jquery'],
     app: mainEntry,
     page_home: './src/pages/home/index.js',
+    page_my_account: './src/pages/my-account/index.js',
     
 
   },

@@ -1,4 +1,4 @@
-<div class="navbar <?=isset($class)?$class: '';?>">
+<div class="navbar <?= isset($class) ? $class : ''; ?>">
     <div class="x-container">
         <div class="navbar__content">
             <nav>
@@ -19,7 +19,7 @@
                         </svg>
                     </i>
                 </button>
-                <button class="account">
+                <a href="/" class="account">
                     <i>
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="43.028px" height="43.028px" viewBox="0 0 43.028 43.028" style="enable-background:new 0 0 43.028 43.028;" xml:space="preserve">
                             <g>
@@ -31,8 +31,8 @@
 
                         </svg>
                     </i>
-                </button>
-                <button class="cart">
+                </a>
+                <a href="/" class="cart">
                     <i>
 
                         <svg height="512pt" viewBox="0 -31 512.00026 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +40,7 @@
                             <path d="m150 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0" />
                             <path d="m362 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0" /></svg>
                     </i>
-                </button>
+                </a>
 
                 <div class="box-search">
                     <?php if (function_exists('aws_get_search_form')) {

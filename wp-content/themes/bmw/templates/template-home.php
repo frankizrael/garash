@@ -127,7 +127,7 @@ get_template_part('partials/global/content', 'navbar');
             </p>
             <div class="slider">
                 <?php
-                echo do_shortcode('[products limit="4" columns="4" orderby="popularity" class="quick-sale" ]');
+                echo do_shortcode('[products limit="6" columns="6" orderby="popularity" class="quick-sale" ]');
                 ?>
             </div>
     </div>
@@ -194,7 +194,7 @@ get_template_part('partials/global/content', 'navbar');
             </p>
             <div class="slider">
                 <?php
-                echo do_shortcode('[products limit="4" columns="4" orderby="popularity" class="quick-sale" ]');
+                echo do_shortcode('[products limit="6" columns="6" orderby="popularity" class="quick-sale" ]');
                 ?>
             </div>
     </div>

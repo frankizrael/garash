@@ -82,13 +82,13 @@ function my_register_sidebars()
 /**
  * hide admin menu on front-end part
  */
-// add_filter('show_admin_bar', 'no_admin_bar');
-/*
+ add_filter('show_admin_bar', 'no_admin_bar');
+
 function no_admin_bar()
 {
     return false;
 }
-*/
+
 /**
  * set content type for an email
  * @param [type] $content_type [description]

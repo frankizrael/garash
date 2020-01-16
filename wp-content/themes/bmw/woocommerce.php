@@ -22,7 +22,7 @@ get_template_part('partials/global/content', 'navbar');
     <div class="sectionStore__content x-container">
         <?php
         if (is_singular('product')) : ?>
-            <div class="container">
+            <div class="singleProduct">
                 <?php woocommerce_content(); ?>
             </div>
         <?php else : ?>

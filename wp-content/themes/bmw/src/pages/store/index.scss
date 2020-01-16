@@ -16,6 +16,105 @@
   }
   &__content {
     padding: 30px 0;
+    .singleProduct {
+      .product_title.entry-title {
+        font-size: 25;
+        font-weight: 400;
+        color: $black;
+        margin-bottom: 30px;
+      }
+      .price {
+        margin-bottom: 30px;
+        span {
+          font-size: 20;
+          color: $black;
+          font-weight: bold;
+        }
+      }
+      .description-store {
+        padding: 20px 0;
+        position: relative;
+        cursor: pointer;
+        border-top: 1px solid #e6e6e6;
+        border-bottom: 1px solid #e6e6e6;
+        margin-bottom: 30px;
+        &:after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          background-image: url(/wp-content/themes/bmw/assets/down.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          width: 16px;
+          height: 16px;
+          transition: 0.25s cubic-bezier(0.37, 0.31, 0.2, 0.85);
+        }
+        &.active {
+          &:after {
+            transform: rotate(180deg);
+            top: 40%;
+          }
+        }
+      }
+      .woocommerce-product-details__short-description {
+        padding: 0px 0 30px 0;
+        border-bottom: 1px solid #e6e6e6;
+        margin-bottom: 30px;
+        p {
+          font-size: 12px;
+          line-height: 20px;
+          color: $black;
+        }
+      }
+      .cart {
+        display: flex;
+        .quantity {
+          margin-right: 35px !important;
+          display: flex;
+          align-items: center;
+          input {
+            font-size: 20px;
+            border-bottom: 1px solid #8e8e8e;
+            width: 50px;
+            height: 50px;
+          }
+          .x-left,
+          .x-right {
+            svg {
+              width: 15px;
+              height: 15px;
+              path {
+                fill: #8e8e8e;
+              }
+            }
+          }
+        }
+        button {
+          background-color: $blue;
+          background-image: url(/wp-content/themes/bmw/assets/cart-icon.svg);
+          background-repeat: no-repeat;
+          background-position: 4%;
+          &:hover {
+            background-color: $blue !important;
+          }
+        }
+      }
+      .variations_form.cart {
+        flex-direction: column;
+        .woocommerce-variation-add-to-cart {
+          display: flex;
+        }
+        .woocommerce-variation {
+          margin-bottom: 30px;
+        }
+        .woocommerce-variation-price {
+          margin-bottom: 10px;
+        }
+      }
+    }
     .store {
       display: flex;
       .sidebar {
@@ -44,6 +143,7 @@
             }
             &.active {
               &:after {
+                top: 40%;
                 transform: rotate(180deg);
               }
             }
@@ -73,6 +173,14 @@
         max-width: 75%;
         padding: 0 0 0 30px;
       }
+    }
+  }
+  .related.products {
+    clear: both;
+    h2 {
+      font-weight: 400;
+      margin-bottom: 30px;
+      font-size: 25px;
     }
   }
   .product-categories {

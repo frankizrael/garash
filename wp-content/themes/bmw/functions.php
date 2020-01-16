@@ -82,7 +82,7 @@ function my_register_sidebars()
 /**
  * hide admin menu on front-end part
  */
- add_filter('show_admin_bar', 'no_admin_bar');
+add_filter('show_admin_bar', 'no_admin_bar');
 
 function no_admin_bar()
 {
@@ -119,9 +119,45 @@ function custom_menus()
 
 add_action('init', 'custom_menus');
 
+function setup_woocommerce()
+{
+    add_theme_support('wc-product-gallery-lightbox');
+    add_theme_support('wc-product-gallery-slider');
+}
+add_action('after_setup_theme', 'setup_woocommerce');
+
 
 add_action('wp_ajax_nopriv_login_check', 'loginCheck');
 add_action('wp_ajax_login_check', 'loginCheck');
+
+
+function woo_remove_product_tabs($tabs)
+{
+    unset($tabs['description']);
+    unset($tabs['reviews']);
+    unset($tabs['additional_information']);
+    return $tabs;
+}
+add_filter('woocommerce_product_tabs', 'woo_remove_product_tabs', 98);
+
+add_action('woocommerce_single_product_summary', 'your_function_name', 19);
+
+function your_function_name()
+{
+
+    echo '<h3 class="description-store">Descripción</h3>';
+}
+
+add_filter('woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text');
+ 
+function woo_custom_cart_button_text() {
+return __('Agregar a la bolsa', 'woocommerce');
+}
+
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+
+
 
 /**
  * login check

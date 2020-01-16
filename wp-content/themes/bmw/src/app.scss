@@ -101,7 +101,8 @@
 
 /*Card product*/
 
-.woocommerceProducts, .related.products  {
+.woocommerceProducts,
+.related.products {
   .product {
     height: 290px;
     background: #ffffff 0% 0% no-repeat padding-box;
@@ -173,4 +174,15 @@
       }
     }
   }
+}
+.woocommerce button.button.alt.disabled {
+  background-color: #737171;
+}
+
+.woocommerce div.product form.cart .reset_variations {
+  display: none !important;
+}
+
+.woocommerce div.product form.cart .variations td, .woocommerce div.product form.cart .variations th {
+  padding-bottom: 10px;
 }

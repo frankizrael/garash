@@ -1,0 +1,95 @@
+.sectionStore {
+  position: relative;
+  margin-top: 100px;
+  &__header {
+    background: #f8f8f8;
+    .bar {
+      padding: 14.5px 0;
+      .woocommerce-breadcrumb {
+        margin: 0;
+        color: $blue;
+        a {
+          color: #4d4d4d;
+        }
+      }
+    }
+  }
+  &__content {
+    padding: 30px 0;
+    .store {
+      display: flex;
+      .sidebar {
+        flex: 1 1 100%;
+        max-width: 25%;
+        .widget {
+          border-bottom: 1px solid #e6e6e6;
+
+          &-title {
+            padding: 20px 0;
+            position: relative;
+            cursor: pointer;
+            &:after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              right: 0;
+              transform: translateY(-50%);
+              background-image: url(/wp-content/themes/bmw/assets/down.svg);
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: contain;
+              width: 16px;
+              height: 16px;
+              transition: 0.25s cubic-bezier(0.37, 0.31, 0.2, 0.85);
+            }
+            &.active {
+              &:after {
+                transform: rotate(180deg);
+              }
+            }
+          }
+          .product-categories {
+            padding: 20px 0;
+            display: none;
+            padding: 0 0 20px;
+          }
+          form {
+            display: none;
+          }
+          .ui-slider {
+            margin-left: 0;
+            margin-right: 0;
+          }
+          .ui-widget-content {
+            background-color: #6b6b6b;
+          }
+          .ui-slider-range {
+            background-color: $blue;
+          }
+          .ui-slider-handle {
+            background-color: $blue;
+          }
+        }
+      }
+      .content {
+        flex: 1 1 100%;
+        max-width: 75%;
+        padding: 0 0 0 30px;
+      }
+    }
+  }
+  .product-categories {
+    .cat-item {
+      display: block;
+      > a {
+        margin-bottom: 5px;
+      }
+      .children {
+        margin-left: 10px;
+      }
+    }
+  }
+  .price_slider_amount .button {
+    margin-top: 20px;
+  }
+}

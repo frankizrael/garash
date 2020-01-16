@@ -17,6 +17,7 @@
     transition: 0.25s cubic-bezier(0.37, 0.31, 0.2, 0.85);
   }
   &.is-active {
+    position: fixed;
     &:after {
       height: 100%;
     }
@@ -42,9 +43,10 @@
 
       .menu {
         a {
-          color: white;
+          color: #8e8e8e;
           padding: 41px 10px;
           position: relative;
+          font-weight: bold;
         }
         .menu-item {
           &:not(:last-child) {
@@ -89,6 +91,7 @@
       }
       .current_page_item {
         > a {
+          color: white;
           &:before {
             content: "";
             left: 0;
@@ -150,7 +153,7 @@
     nav {
       .menu {
         a {
-          color: black;
+          color: #8e8e8e;
           font-weight: bold;
         }
       }
@@ -160,7 +163,7 @@
       a {
         svg {
           path {
-            fill: black;
+            fill: #8e8e8e;
           }
         }
       }

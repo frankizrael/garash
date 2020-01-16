@@ -4,14 +4,12 @@
  * Template Name: Inicio
  */
 ?>
-<?php set_query_var('ASSETS_KEY_WORD', 'page_home'); ?>
-<?php get_header('header'); ?>
-
-
 <?php
-
+set_query_var('ASSETS_KEY_WORD', 'page_home');
+get_header('header');
 get_template_part('partials/global/content', 'navbar');
 ?>
+
 
 <section class="sliderHome">
     <ul class="slider">

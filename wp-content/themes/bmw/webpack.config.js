@@ -98,6 +98,7 @@ const config = {
     page_home: './src/pages/home/index.js',
     page_store: './src/pages/store/index.js',
     page_my_account: './src/pages/my-account/index.js',
+    page_cart: './src/pages/cart/index.js',
     
 
   },

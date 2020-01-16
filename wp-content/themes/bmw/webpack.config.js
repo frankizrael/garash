@@ -99,6 +99,7 @@ const config = {
     page_store: './src/pages/store/index.js',
     page_my_account: './src/pages/my-account/index.js',
     page_cart: './src/pages/cart/index.js',
+    page_checkout: './src/pages/checkout/index.js',
     
 
   },

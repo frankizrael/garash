@@ -100,74 +100,76 @@
 }
 
 /*Card product*/
-.product {
-  height: 290px;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  border: 1px solid #e6e6e6;
-  padding: 20px !important;
-
-  a {
-    width: 100%;
-  }
-  img {
-    width: 200px !important;
-    height: 200px !important;
-    object-fit: contain;
-    margin: 0 auto !important;
-  }
-  ins {
-    font-size: 15px;
-    color: black;
-    text-decoration: none !important;
-  }
-  .add_to_cart_button {
-    background: url(/wp-content/themes/bmw/assets/cart-add-gray.svg) no-repeat !important;
-    color: transparent !important;
-    position: absolute !important;
-    bottom: 27px;
-    right: 20px;
-    width: 29px !important;
-    height: 26px !important;
-  }
-
-  .woocommerce-loop-product__title {
-    font-size: 15px;
-    font-weight: 400;
-    position: relative;
-
-    &:before {
-      content: "";
-      height: 1px;
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: -8px;
-      background: #e6e6e6;
-      z-index: 1;
-    }
-  }
-  .price {
-    padding: 0 !important;
-  }
-  del {
-    .woocommerce-Price-amount {
-      color: #bbbbbb;
-      margin-right: 10px;
-    }
-  }
-
-  ins {
-    .woocommerce-Price-amount .amount {
-      color: $black;
-    }
-  }
-
-  &:hover {
+.woocommerce  {
+  .product {
+    height: 290px;
     background: #ffffff 0% 0% no-repeat padding-box;
-    box-shadow: 0px 0px 20px #0000001a;
-    opacity: 1;
+    border: 1px solid #e6e6e6;
+    padding: 20px !important;
+
+    a {
+      width: 100%;
+    }
+    img {
+      width: 200px !important;
+      height: 200px !important;
+      object-fit: contain;
+      margin: 0 auto !important;
+    }
+    ins {
+      font-size: 15px;
+      color: black;
+      text-decoration: none !important;
+    }
     .add_to_cart_button {
-      background: url(/wp-content/themes/bmw/assets/cart-add-blue.svg) no-repeat !important;
+      background: url(/wp-content/themes/bmw/assets/cart-add-gray.svg) no-repeat !important;
+      color: transparent !important;
+      position: absolute !important;
+      bottom: 27px;
+      right: 20px;
+      width: 29px !important;
+      height: 26px !important;
+    }
+
+    .woocommerce-loop-product__title {
+      font-size: 15px;
+      font-weight: 400;
+      position: relative;
+
+      &:before {
+        content: "";
+        height: 1px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -8px;
+        background: #e6e6e6;
+        z-index: 1;
+      }
+    }
+    .price {
+      padding: 0 !important;
+    }
+    del {
+      .woocommerce-Price-amount {
+        color: #bbbbbb;
+        margin-right: 10px;
+      }
+    }
+
+    ins {
+      .woocommerce-Price-amount .amount {
+        color: $black;
+      }
+    }
+
+    &:hover {
+      background: #ffffff 0% 0% no-repeat padding-box;
+      box-shadow: 0px 0px 20px #0000001a;
+      opacity: 1;
+      .add_to_cart_button {
+        background: url(/wp-content/themes/bmw/assets/cart-add-blue.svg) no-repeat !important;
+      }
     }
   }
 }

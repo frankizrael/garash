@@ -7,7 +7,7 @@ get_template_part('partials/global/content', 'navbar');
 ?>
 
 
-<section class="sectionStore">
+<section class="sectionStore ">
     <div class="sectionStore__header">
         <div class="bar x-container">
             <?php
@@ -26,7 +26,7 @@ get_template_part('partials/global/content', 'navbar');
                 <?php woocommerce_content(); ?>
             </div>
         <?php else : ?>
-            <div class="store">
+            <div class="store woocommerceProducts">
                 <div class="sidebar">
                     <?php dynamic_sidebar('primary'); ?>
                 </div>

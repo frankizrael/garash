@@ -117,7 +117,7 @@ get_template_part('partials/global/content', 'navbar');
 </section>
 
 
-<section class="sectionProducts">
+<section class="sectionProducts woocommerceProducts">
     <div class="sectionProducts__content x-container">
         <h3 class="title">Productos destacados</h1>
             <p class="ifo">
@@ -184,7 +184,7 @@ get_template_part('partials/global/content', 'navbar');
 </section>
 
 
-<section class="sectionProducts">
+<section class="sectionProducts woocommerceProducts">
     <div class="sectionProducts__content x-container">
         <h3 class="title">BMW Sale</h1>
             <p class="ifo">

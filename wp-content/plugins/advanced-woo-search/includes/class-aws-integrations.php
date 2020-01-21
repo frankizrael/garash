@@ -123,6 +123,11 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
                 add_filter( 'aws_posts_per_page', array( $this, 'wc_product_table_posts_per_page' ) );
             }
 
+            // Flatsome theme remove search page blocl
+            if ( isset( $_GET['type_aws'] ) && function_exists( 'flatsome_pages_in_search_results' ) ) {
+                remove_action('woocommerce_after_main_content','flatsome_pages_in_search_results', 10);
+            }
+
         }
 
         /*

@@ -236,3 +236,23 @@ function isa_woo_cart_attributes($cart_item, $cart_item_key)
     echo '<div id="checkout_thumbnail" style="float: left; padding-right: 8px">' . $thumb . '</div> ' . $post->post_title;
 }
 add_filter('woocommerce_cart_item_name', 'isa_woo_cart_attributes', 10, 2);
+
+
+add_filter('wc_add_to_cart_message', 'remove_add_to_cart_message');
+
+function remove_add_to_cart_message()
+{
+    return;
+}
+
+
+function ship_to_different_address_translation( $translated_text, $text, $domain ) {
+	switch ( $translated_text ) {
+	case '¿Enviar a una dirección diferente?' :
+	$translated_text = __( 'Activa esta opción para solicitar factura' );
+	break;
+	}
+	return $translated_text;
+	}	
+add_filter('gettext', 'ship_to_different_address_translation', 20, 3);
+ 

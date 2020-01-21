@@ -17,10 +17,10 @@ get_template_part('partials/global/content', 'navbar');
         for ($i = 1; $i <= 4; $i++) :
         ?>
             <li class="slider__item">
-                <img src="<?= get_template_directory_uri() ?>/assets/1.png" alt="">
+                <img src="<?php echo get_template_directory_uri() ?>/assets/1.png" alt="">
                 <div class="x-container">
                     <div class="x-caption">
-                        <h1 class="title">BMW LIFESTYLE <?= $i ?></h1>
+                        <h1 class="title">BMW LIFESTYLE <?php echo $i ?></h1>
                         <p class="info">
                             La vida esta llena de aventuras, las posibilidades son infinitas, la libertad y el estilo no conoce límites.
                         </p>
@@ -55,10 +55,10 @@ get_template_part('partials/global/content', 'navbar');
                     ?>
                         <div class="line"></div>
                     <?php endif; ?>
-                    <li class="<?= $key === 0 ? 'active' : '' ?>">
-                        <a href="javascript:void(0)"><?= $parent_product_cat->name ?></a>
+                    <li class="<?php echo $key === 0 ? 'active' : '' ?>">
+                        <a href="javascript:void(0)"><?php echo $parent_product_cat->name ?></a>
                     </li>
-                <? endforeach; ?>
+                <?php endforeach; ?>
             </ul>
             <div class="tabs__content">
                 <?php foreach ($product_cat as $key => $parent_product_cat) : ?>
@@ -70,7 +70,7 @@ get_template_part('partials/global/content', 'navbar');
                     );
                     $child_product_cats = get_terms($child_args);
                     ?>
-                    <div class="tab-item <?= $key === 0 ? 'active' : '' ?>">
+                    <div class="tab-item <?php echo $key === 0 ? 'active' : '' ?>">
                         <ul class="lists">
                             <?php
                             foreach ($child_product_cats as $child_product_cat) :
@@ -79,11 +79,11 @@ get_template_part('partials/global/content', 'navbar');
                             ?>
                                 <li>
                                     <div class="overlay"></div>
-                                    <img src="<?= $image ?>" width="50" alt="">
+                                    <img src="<?php echo $image ?>" width="50" alt="">
                                     <div class="x-caption">
-                                        <a href="<?= get_term_link($child_product_cat->term_id) ?>">
+                                        <a href="<?php echo get_term_link($child_product_cat->term_id) ?>">
                                             <div class="name">
-                                                <?= $child_product_cat->name ?>
+                                                <?php echo $child_product_cat->name ?>
                                             </div>
                                             <div class="icon">
                                                 <i>
@@ -153,7 +153,7 @@ get_template_part('partials/global/content', 'navbar');
                 Ver ofertas
             </a>
             <figure>
-                <img src="<?= get_template_directory_uri() ?>/assets/car.png" alt="">
+                <img src="<?php echo get_template_directory_uri() ?>/assets/car.png" alt="">
             </figure>
             <div class="not">-15%</div>
         </div>
@@ -176,7 +176,7 @@ get_template_part('partials/global/content', 'navbar');
                 Ver ofertas
             </a>
             <figure>
-                <img src="<?= get_template_directory_uri() ?>/assets/reloj.png" alt="">
+                <img src="<?php echo get_template_directory_uri() ?>/assets/reloj.png" alt="">
             </figure>
             <div class="not">-15%</div>
         </div>

@@ -38,33 +38,62 @@ get_template_part('partials/global/content', 'navbar');
                         Cambios y devoluciones
                     </h2>
                     <div class="subtitle">
-                        CLÁUSULA RETRASO POR CASO FORTUITO O FUERZA MAYOR
+                        Políticas de devolución y cambios BMW
                     </div>
                 </div>
                 <div class="sectionInfo__content">
+                    <strong>Condiciones generales:</strong>
+                    <ol>
+                        <li>
+                            Presentar el comprobante de compra ya sea boleta o factura respectiva.
+                        </li>
+                        <li>
+                            Presentar el Documento de Identidad
+                        </li>
+                        <li>
+                            El producto debe encontrarse sin uso (sellado de fábrica) y contar con todos sus accesorios.
+                        </li>
+                        <li>
+                            El producto debe contar con todos sus empaques originales y en perfectas condiciones.
+                        </li>
+                    </ol>
                     <p>
-                        BMW no incurrirá en responsabilidad si por caso fortuito fuerza mayor y/o desastres naturales BMW o la empresa que contrate para el servicio de Courier no entregase el producto en la fecha acordada con el CLIENTE.
+                        Para realizar cambios o devoluciones de productos, debes tener en cuenta su tamaño.
+
+                    </p>
+                    <ol>
+                        <li>
+                            Si tu producto es de fácil traslado a las tiendas (Por ejemplo: laptops, licuadoras, microondas, TV hasta 32”, vestuario, calzados, accesorios, etc) Deberás acercarse a cualquier centro de caja ubicadas en nuestras tiendas
+                        </li>
+                    </ol>
+                    <p>
+                        Deberás acercarse a cualquier centro de caja ubicadas en nuestras tiendas
+                    </p>
+                    <strong>¿Cómo realizo el cambio?</strong>
+                    <ol>
+                        <li>Dirígete a la tienda BMW más cercana. </li>
+                        <li>Registra el producto en la puerta de ingreso. </li>
+                        <li>Para cambio de talla/producto elije el producto y acércate a los centros de caja y realiza tu cambio.</li>
+                        <li>Para nota de crédito/devolución acércate a los centros de caja de tienda y realiza la devolución de tu compra. </li>
+
+                        <div class="note">
+                            Nota: En el caso de devolución de prendas íntimas, estas serán destruidas para su salida definitiva del mercado.
+                        </div>
+                    </ol>
+
+                    <ol class="m-l-15">
+                        <li>
+                            Si el tamaño de tu producto no te permite trasladarlo a una tienda (Por ejemplo: Lavadoras, refrigerados, colchones, etc): Deberás generar tu solicitud a través de nuestra Asistente Virtual Amanda o en la opción Mis Órdenes, en www.BMW.com, o a través del Call Center 512-3333
+
+                        </li>
+                    </ol>
+                    <p>
+                        Tener en cuenta que los servicios de retiro de productos por motivos ajenos de responsabilidad a BMW, tienen un costo adicional dependiendo del lugar de recojo, tamaño y peso del producto. Adicionalmente se deberá abonar el costo de embalaje y/o desarmado en caso lo requiera. Así mismo, el costo de envío pagado inicialmente no será devuelto.
+                    </p>
+                    <p>
+                        Si desistes de una compra, que implique un despacho a domicilio, deberá ser comunicado antes de la fecha acordada, a través de nuestro asistente virtual Amanda o en la opción Mis Órdenes, en www.BMW.com, para su respectiva anulación
                     </p>
 
-                    <p>
-                        El acceso y uso de este sitio web se rige por los “Términos y Condiciones” descritos a continuación, así como por la legislación que se aplique en la República de Perú. En consecuencia, todas las visitas y todos los contratos y transacciones que se realicen en este sitio, como asimismo sus efectos jurídicos, quedarán regidos por estas reglas y sometidas a esta legislación.
-                    </p>
-
-                    <p>
-                        Los Términos y Condiciones contenidos en este instrumento se aplicarán y se entenderá que forman parte de todos los actos y contratos que se ejecuten o celebren mediante los sistemas de oferta y comercialización comprendidos en este sitio web entre los usuarios de este sitio y BMW S.A., la cual se denominará en adelante también en forma indistinta como “la empresa”, o bien “la empresa oferente”, “el proveedor” o “la empresa proveedora”, según convenga al sentido del texto.
-                    </p>
-                    <p>
-                        Es requisito para comprar en la Tienda Virtual de BMW la aceptación de los Términos y Condiciones de ventas descritos a continuación. Cualquier persona que realice una transacción en la Tienda Virtual de BMW o a través del número telefónico que BMW S.A. destine para tal efecto, declara y reconoce, por el hecho de efectuar la compra, que conoce y acepta todos y cada uno de los Términos y Condiciones descritos a continuación. Se entenderán conocidos y aceptados los Términos y Condiciones por el solo hecho del redelgistro y/o la compra de productos a través de este sitio.
-                    </p>
-                    <p>
-                        BMW se reserva el derecho de actualizar y/o modificar los Términos y Condiciones que detallamos a continuación en cualquier momento, sin previo aviso. Por esta razón recomendamos revisar los Términos y Condiciones cada vez que utilice este Sitio. Los consumidores quedarán sujetos a los Términos y Condiciones del presente sitio, en el momento en el que envíen su solicitud de compra. Realizaremos nuestros mejores esfuerzos para asegurar la disponibilidad, sin interrupciones, de los servicios de la presente página web, así como en la ausencia de errores en cualquier transmision de información que pudiera tener lugar. No obstante, y debido a la naturaleza misma de internet, no es posible garantizar tales extremos.
-                    </p>
-
-                    <p>
-
-
-                        Asimismo, el acceso a los servicios de la presente página web podría ocasionalmente verse suspendido o restringido a efectos de la realización de trabajos de reparación o mantenimiento, o la introducción de nuevos productos o servicios. Procuraremos limitar la frecuencia y duración de tales suspensiones o restricciones.
-                    </p>
                 </div>
             </div>
         </div>

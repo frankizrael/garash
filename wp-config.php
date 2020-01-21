@@ -1,7 +1,7 @@
 <?php
 
 $environments = array(
-    'local'       => 'dev.bmw.com',
+    'local'       => 'bmw-ecommerce.loc',
     'development' => 'bmw-ecommerce.seekdev.com',
     'production'  => 'bmw.com.pe'
 );

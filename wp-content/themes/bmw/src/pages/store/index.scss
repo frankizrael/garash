@@ -3,16 +3,6 @@
   margin-top: 100px;
   &__header {
     background: #f8f8f8;
-    .bar {
-      padding: 14.5px 0;
-      .woocommerce-breadcrumb {
-        margin: 0;
-        color: $blue;
-        a {
-          color: #4d4d4d;
-        }
-      }
-    }
   }
   &__content {
     padding: 30px 0;
@@ -71,7 +61,7 @@
       }
       .cart {
         display: flex;
-        
+
         button {
           background-color: $blue;
           background-image: url(/wp-content/themes/bmw/assets/cart-icon.svg);

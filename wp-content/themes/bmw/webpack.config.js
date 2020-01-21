@@ -10,7 +10,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const isProd = process.env.NODE_ENV.trim() === 'prod';
 const isDev = process.env.NODE_ENV.trim() === 'dev';
-const basePath = 'wp-content/themes/inchcape';
+const basePath = 'wp-content/themes/bmw';
 const metadata = {
   env: isProd ? 'production' : 'development'
 };

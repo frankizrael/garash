@@ -5,7 +5,7 @@
  */
 ?>
 <?php
-set_query_var('ASSETS_KEY_WORD', 'page_returns_exchanges');
+set_query_var('ASSETS_KEY_WORD', 'page_faq');
 get_header('header');
 get_template_part('partials/global/content', 'navbar');
 ?>
@@ -37,34 +37,34 @@ get_template_part('partials/global/content', 'navbar');
                     <h2 class="title">
                         Preguntas frecuentes
                     </h2>
-                    <div class="subtitle">
-                        CLÁUSULA RETRASO POR CASO FORTUITO O FUERZA MAYOR
-                    </div>
+
                 </div>
                 <div class="sectionInfo__content">
-                    <p>
-                        BMW no incurrirá en responsabilidad si por caso fortuito fuerza mayor y/o desastres naturales BMW o la empresa que contrate para el servicio de Courier no entregase el producto en la fecha acordada con el CLIENTE.
-                    </p>
+                    <ul class="list">
+                        <?php
+                        for ($i = 0; $i < 10; $i++) {
 
-                    <p>
-                        El acceso y uso de este sitio web se rige por los “Términos y Condiciones” descritos a continuación, así como por la legislación que se aplique en la República de Perú. En consecuencia, todas las visitas y todos los contratos y transacciones que se realicen en este sitio, como asimismo sus efectos jurídicos, quedarán regidos por estas reglas y sometidas a esta legislación.
-                    </p>
+                        ?>
+                            <li class="list__item">
+                                <h3 class="title">Aliquam tincidunt mauris eu risus</h3>
+                                <div>
+                                    <p>
 
-                    <p>
-                        Los Términos y Condiciones contenidos en este instrumento se aplicarán y se entenderá que forman parte de todos los actos y contratos que se ejecuten o celebren mediante los sistemas de oferta y comercialización comprendidos en este sitio web entre los usuarios de este sitio y BMW S.A., la cual se denominará en adelante también en forma indistinta como “la empresa”, o bien “la empresa oferente”, “el proveedor” o “la empresa proveedora”, según convenga al sentido del texto.
-                    </p>
-                    <p>
-                        Es requisito para comprar en la Tienda Virtual de BMW la aceptación de los Términos y Condiciones de ventas descritos a continuación. Cualquier persona que realice una transacción en la Tienda Virtual de BMW o a través del número telefónico que BMW S.A. destine para tal efecto, declara y reconoce, por el hecho de efectuar la compra, que conoce y acepta todos y cada uno de los Términos y Condiciones descritos a continuación. Se entenderán conocidos y aceptados los Términos y Condiciones por el solo hecho del redelgistro y/o la compra de productos a través de este sitio.
-                    </p>
-                    <p>
-                        BMW se reserva el derecho de actualizar y/o modificar los Términos y Condiciones que detallamos a continuación en cualquier momento, sin previo aviso. Por esta razón recomendamos revisar los Términos y Condiciones cada vez que utilice este Sitio. Los consumidores quedarán sujetos a los Términos y Condiciones del presente sitio, en el momento en el que envíen su solicitud de compra. Realizaremos nuestros mejores esfuerzos para asegurar la disponibilidad, sin interrupciones, de los servicios de la presente página web, así como en la ausencia de errores en cualquier transmision de información que pudiera tener lugar. No obstante, y debido a la naturaleza misma de internet, no es posible garantizar tales extremos.
-                    </p>
+                                        Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat
+                                    </p>
 
-                    <p>
+                                    <p>
+                                        Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.
+                                    </p>
+                                    <p>
 
 
-                        Asimismo, el acceso a los servicios de la presente página web podría ocasionalmente verse suspendido o restringido a efectos de la realización de trabajos de reparación o mantenimiento, o la introducción de nuevos productos o servicios. Procuraremos limitar la frecuencia y duración de tales suspensiones o restricciones.
-                    </p>
+                                        Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.
+                                    </p>
+                                </div>
+                            </li>
+                        <?php } ?>
+                    </ul>
                 </div>
             </div>
         </div>

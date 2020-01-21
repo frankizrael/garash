@@ -61,31 +61,33 @@ get_template_part('partials/global/content', 'navbar');
                         Para realizar cambios o devoluciones de productos, debes tener en cuenta su tamaño.
 
                     </p>
-                    <ol>
+                    <ol class="m-l-15">
                         <li>
                             Si tu producto es de fácil traslado a las tiendas (Por ejemplo: laptops, licuadoras, microondas, TV hasta 32”, vestuario, calzados, accesorios, etc) Deberás acercarse a cualquier centro de caja ubicadas en nuestras tiendas
+
+                            <div class="m-15">
+
+                                <p>
+                                    Deberás acercarse a cualquier centro de caja ubicadas en nuestras tiendas
+                                </p>
+                                <strong>¿Cómo realizo el cambio?</strong>
+                                <ol>
+                                    <li>Dirígete a la tienda BMW más cercana. </li>
+                                    <li>Registra el producto en la puerta de ingreso. </li>
+                                    <li>Para cambio de talla/producto elije el producto y acércate a los centros de caja y realiza tu cambio.</li>
+                                    <li>Para nota de crédito/devolución acércate a los centros de caja de tienda y realiza la devolución de tu compra. </li>
+
+                                    <div class="note">
+                                        Nota: En el caso de devolución de prendas íntimas, estas serán destruidas para su salida definitiva del mercado.
+                                    </div>
+                                </ol>
+                            </div>
                         </li>
-                    </ol>
-                    <p>
-                        Deberás acercarse a cualquier centro de caja ubicadas en nuestras tiendas
-                    </p>
-                    <strong>¿Cómo realizo el cambio?</strong>
-                    <ol>
-                        <li>Dirígete a la tienda BMW más cercana. </li>
-                        <li>Registra el producto en la puerta de ingreso. </li>
-                        <li>Para cambio de talla/producto elije el producto y acércate a los centros de caja y realiza tu cambio.</li>
-                        <li>Para nota de crédito/devolución acércate a los centros de caja de tienda y realiza la devolución de tu compra. </li>
-
-                        <div class="note">
-                            Nota: En el caso de devolución de prendas íntimas, estas serán destruidas para su salida definitiva del mercado.
-                        </div>
-                    </ol>
-
-                    <ol class="m-l-15">
                         <li>
                             Si el tamaño de tu producto no te permite trasladarlo a una tienda (Por ejemplo: Lavadoras, refrigerados, colchones, etc): Deberás generar tu solicitud a través de nuestra Asistente Virtual Amanda o en la opción Mis Órdenes, en www.BMW.com, o a través del Call Center 512-3333
 
                         </li>
+
                     </ol>
                     <p>
                         Tener en cuenta que los servicios de retiro de productos por motivos ajenos de responsabilidad a BMW, tienen un costo adicional dependiendo del lugar de recojo, tamaño y peso del producto. Adicionalmente se deberá abonar el costo de embalaje y/o desarmado en caso lo requiera. Así mismo, el costo de envío pagado inicialmente no será devuelto.

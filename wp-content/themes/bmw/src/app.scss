@@ -1,4 +1,161 @@
-/* Slider */
+.form-checkbox {
+  display: block;
+  input {
+    padding: 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 0;
+    display: none;
+    cursor: pointer;
+  }
+
+  label {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    &:before {
+      content: "";
+      -webkit-appearance: none;
+      background-color: transparent;
+      border: 2px solid #bbbbbb;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+      padding: 10px;
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+      cursor: pointer;
+      margin-right: 14px;
+    }
+  }
+  input:checked + label:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 45%;
+    left: 7px;
+    width: 6px;
+    height: 14px;
+    border: solid $blue;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) translate(-50%, -50%);
+  }
+  input:checked + label:before {
+    border: 2px solid $blue;
+  }
+}
+
+.chekbox {
+  display: flex;
+  align-items: center;
+  .left {
+  }
+  .right {
+    display: flex;
+    margin-left: 30px;
+    .form-checkbox {
+      margin-right: 30px;
+    }
+  }
+}
+/****************************/
+
+form {
+  .row {
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  .control {
+    position: relative;
+    width: calc(50% - 10px);
+    &.full {
+      width: 100%;
+    }
+    .error {
+      font-size: 10px;
+    }
+    @include rsp(apn) {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      display: block;
+    }
+    input {
+      border: solid 1px #bbbbbb;
+      font-size: 14px;
+      line-height: 18px;
+      width: 100%;
+
+      padding: 18px 30px 12px 15px;
+      transition: 0.3s;
+      position: relative;
+      z-index: 2;
+      color: $gray-text;
+      -webkit-appearance: none;
+    }
+
+    textarea {
+      border: solid 1px #bbbbbb;
+      font-size: 14px;
+      line-height: 18px;
+      width: 100%;
+      border-radius: 5px !important;
+      padding: 13px 30px 12px 15px;
+      transition: 0.3s;
+      position: relative;
+      z-index: 2;
+      min-height: 105px;
+      color: $gray-text;
+      -webkit-appearance: none;
+    }
+  }
+  .customSelect {
+    width: calc(50% - 5px);
+    position: relative;
+    &.full {
+      width: 100%;
+    }
+    .label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      display: block;
+    }
+    @include rsp(apn) {
+      width: 100%;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      pointer-events: none;
+      cursor: pointer;
+      transform: translateY(0);
+      width: 20px;
+      height: 20px;
+      right: 18px;
+      z-index: 10;
+      background: url(/wp-content/themes/bmw/assets/down-arrow.svg) no-repeat;
+    }
+    select {
+      border: solid 1px #bbbbbb;
+      font-size: 12px;
+      line-height: 18px;
+      width: 100%;
+
+      padding: 18px 30px 12px 11px;
+      -webkit-appearance: none;
+      transition: 0.3s;
+      color: #665c57;
+    }
+  }
+}
 
 .bar {
   padding: 14.5px 0;

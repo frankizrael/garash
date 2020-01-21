@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Complaints book
+ * Template Name: Returns / Exchanges
  */
 ?>
 <?php
@@ -35,36 +35,230 @@ get_template_part('partials/global/content', 'navbar');
             <div class="sectionInfo">
                 <div class="sectionInfo__header">
                     <h2 class="title">
-                        Libro de reclamaciones
+                        Cambios y devoluciones
                     </h2>
-                    <div class="subtitle">
-                        CLÁUSULA RETRASO POR CASO FORTUITO O FUERZA MAYOR
-                    </div>
+
                 </div>
                 <div class="sectionInfo__content">
-                    <p>
-                        BMW no incurrirá en responsabilidad si por caso fortuito fuerza mayor y/o desastres naturales BMW o la empresa que contrate para el servicio de Courier no entregase el producto en la fecha acordada con el CLIENTE.
-                    </p>
+                    <form id="form-contact-us">
+                        <div class="subtitle">
+                            DATOS DE LA PERSONA QUE PRESENTA EL RECLAMO:
+                        </div>
 
-                    <p>
-                        El acceso y uso de este sitio web se rige por los “Términos y Condiciones” descritos a continuación, así como por la legislación que se aplique en la República de Perú. En consecuencia, todas las visitas y todos los contratos y transacciones que se realicen en este sitio, como asimismo sus efectos jurídicos, quedarán regidos por estas reglas y sometidas a esta legislación.
-                    </p>
+                        <div class="row">
+                            <div class="customSelect">
+                                <label class="label">Tipo de documentos</label>
+                                <select name="interest" id="interest">
+                                    <option value="">Seleccionar</option>
+                                    <option value="DNI">DNI</option>
+                                    <option value="CE">CE</option>
+                                </select>
+                            </div>
+                            <div class="control">
+                                <label class="label">Nro de documentos</label>
+                                <input type="text" id="company" name="company" autocomplete="off">
+                            </div>
+                        </div>
 
-                    <p>
-                        Los Términos y Condiciones contenidos en este instrumento se aplicarán y se entenderá que forman parte de todos los actos y contratos que se ejecuten o celebren mediante los sistemas de oferta y comercialización comprendidos en este sitio web entre los usuarios de este sitio y BMW S.A., la cual se denominará en adelante también en forma indistinta como “la empresa”, o bien “la empresa oferente”, “el proveedor” o “la empresa proveedora”, según convenga al sentido del texto.
-                    </p>
-                    <p>
-                        Es requisito para comprar en la Tienda Virtual de BMW la aceptación de los Términos y Condiciones de ventas descritos a continuación. Cualquier persona que realice una transacción en la Tienda Virtual de BMW o a través del número telefónico que BMW S.A. destine para tal efecto, declara y reconoce, por el hecho de efectuar la compra, que conoce y acepta todos y cada uno de los Términos y Condiciones descritos a continuación. Se entenderán conocidos y aceptados los Términos y Condiciones por el solo hecho del redelgistro y/o la compra de productos a través de este sitio.
-                    </p>
-                    <p>
-                        BMW se reserva el derecho de actualizar y/o modificar los Términos y Condiciones que detallamos a continuación en cualquier momento, sin previo aviso. Por esta razón recomendamos revisar los Términos y Condiciones cada vez que utilice este Sitio. Los consumidores quedarán sujetos a los Términos y Condiciones del presente sitio, en el momento en el que envíen su solicitud de compra. Realizaremos nuestros mejores esfuerzos para asegurar la disponibilidad, sin interrupciones, de los servicios de la presente página web, así como en la ausencia de errores en cualquier transmision de información que pudiera tener lugar. No obstante, y debido a la naturaleza misma de internet, no es posible garantizar tales extremos.
-                    </p>
+                        <div class="row">
+                            <div class="control">
+                                <label class="label">Nombres</label>
+                                <input type="text" id="name" name="name" autocomplete="off">
+                            </div>
+                            <div class="control">
+                                <label class="label">Apellidos</label>
+                                <input type="text" id="lastname" name="lastname" autocomplete="off">
+                            </div>
+                        </div>
 
-                    <p>
+                        <div class="row">
+                            <div class="customSelect full">
+                                <label class="label">Tipo de propuesta</label>
+                                <select name="interest" id="interest">
+                                    <option value="">Seleccionar</option>
+                                    <option value="DNI">Pr</option>
+                                    <option value="CE">CE</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="control">
+                                <label class="label">Dirección</label>
+                                <input type="text" id="name" name="name" autocomplete="off">
+                            </div>
+                            <div class="control">
+                                <label class="label">Departamento</label>
+                                <input type="text" id="lastname" name="lastname" autocomplete="off">
+                            </div>
+                        </div>
 
 
-                        Asimismo, el acceso a los servicios de la presente página web podría ocasionalmente verse suspendido o restringido a efectos de la realización de trabajos de reparación o mantenimiento, o la introducción de nuevos productos o servicios. Procuraremos limitar la frecuencia y duración de tales suspensiones o restricciones.
-                    </p>
+                        <div class="row">
+                            <div class="control">
+                                <label class="label">Provincia</label>
+                                <input type="text" id="name" name="name" autocomplete="off">
+                            </div>
+                            <div class="control">
+                                <label class="label">Distrito</label>
+                                <input type="text" id="lastname" name="lastname" autocomplete="off">
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="control">
+                                <label class="label">Teléfono</label>
+                                <input type="text" id="name" name="name" autocomplete="off">
+                            </div>
+                            <div class="control">
+                                <label class="label">Email</label>
+                                <input type="text" id="lastname" name="lastname" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="subtitle">
+                            INFORMACIÓN GENERAL
+                        </div>
+
+                        <div class="row">
+                            <div class="customSelect full">
+                                <label class="label">Tienda de compra</label>
+                                <select name="interest" id="interest">
+                                    <option value="">Seleccionar</option>
+                                    <option value="DNI">Pr</option>
+                                    <option value="CE">CE</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="chekbox">
+                                <div class="left">
+                                    Identificación del bien contratado:
+                                </div>
+                                <div class="right">
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="producto">
+                                        <label for="producto">Producto</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="servicio">
+                                        <label for="servicio">Servicio</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="control">
+                                <label class="label">Monto reclamado S/</label>
+                                <input type="text" id="name" name="name" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="control full">
+                                <label class="label">Descripción</label>
+                                <textarea id="message" name="message"></textarea>
+                            </div>
+                        </div>
+                        <div class="subtitle">
+                            DETALLE DE SU RECLAMO
+                        </div>
+
+                        <div class="row">
+                            <div class="chekbox">
+                                <div class="left">
+                                    Tipo:
+                                </div>
+                                <div class="right">
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="reclamo">
+                                        <label for="reclamo">Reclamo</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="queja">
+                                        <label for="queja">Queja</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="control full">
+                                <label class="label">Detalle del reclamo:</label>
+                                <textarea id="message" name="message"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="control full">
+                                <label class="label">Pedido:</label>
+                                <textarea id="message" name="message"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="subtitle">
+                            DETALLE DE SU RECLAMO
+                        </div>
+
+
+                        <div class="row">
+                            <div class="customSelect">
+                                <label class="label">Tipo de documentos</label>
+                                <select name="interest" id="interest">
+                                    <option value="">Seleccionar</option>
+                                    <option value="DNI">DNI</option>
+                                    <option value="CE">CE</option>
+                                </select>
+                            </div>
+                            <div class="control">
+                                <label class="label">Nro de documentos</label>
+                                <input type="text" id="company" name="company" autocomplete="off">
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="control">
+                                <label class="label">Nombres</label>
+                                <input type="text" id="name" name="name" autocomplete="off">
+                            </div>
+                            <div class="control">
+                                <label class="label">Apellidos</label>
+                                <input type="text" id="lastname" name="lastname" autocomplete="off">
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="control">
+                                <label class="label">Teléfono</label>
+                                <input type="text" id="name" name="name" autocomplete="off">
+                            </div>
+                            <div class="control">
+                                <label class="label">Email</label>
+                                <input type="text" id="lastname" name="lastname" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="chekbox">
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="1">
+                                    <label for="1">Al enviar este formulario acepto el flujo transfronterizo de mis datos personales, según la Ley de Protección de Datos Personales.</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row call-action">
+
+                            <button class="button button-primary">
+                                <span>ENVIAR</span>
+                            </button>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>

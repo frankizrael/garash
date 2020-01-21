@@ -4,3 +4,161 @@
   height: calc(100vh - 100px);
   margin-top: 100px;
 }
+
+.myLogin {
+	height: calc(100vh - 100px);
+	display: flex;
+	&__left {
+		flex: none;
+		width: 50%;
+		height: 100%;
+		&__content {			
+			height: 100%;
+			&__carousel {				
+				height: 100%;
+				display: flex;
+    			overflow: hidden;
+				&__item {
+					height: 100%;
+					width: 100%;
+				    flex: none;
+				    transition: 0.5s;
+				    &.moved {
+				    	margin-left: -100%;
+				    }
+				}
+			}
+		}
+	}
+	&__right {
+		flex: none;
+	    width: 50%;
+	    display: flex;
+	    align-items: center;
+	    &__content {
+	    	width: 100%;
+		    padding-right: calc(50vw - 585px);
+		    padding-left: 90px;
+		    &__carousel {
+		    	display: flex;
+    			overflow: hidden;
+		    	&__item {
+		    		width: 100%;
+				    flex: none;
+				    transition: 0.5s;
+				    margin-right: 50px;
+				    &.moved {
+				    	margin-left: calc(-100% - 50px);
+				    }
+		    	}
+		    }
+	    }
+	}
+	&__control {
+		position: relative;
+		ul {
+			border-bottom: 1px solid #E6E6E6;
+			li {
+				color: #8E8E8E;
+			    font-size: 14px;
+			    font-weight: 700;
+			    cursor: pointer;
+			    padding: 30px 20px;
+			    width: 137px;
+    			text-align: center;
+    			&.active {
+    				color: #1C69D4;
+    			}
+			}
+		}
+		.move {
+		    width: 137px;
+		    position: absolute;
+		    height: 3px;
+		    background: #1C69D4;
+		    transition: 0.5s;
+		    bottom: 0px;
+		    &.moved {
+		    	transform:translateX(137px);
+		    }
+		}
+	}
+	&__form {
+		form {
+			margin: 0px !important;
+		    border: none !important;
+		    padding: 0px !important;
+		    margin-top: 30px !important;
+		    .wc-social-login {
+		    	display: none;
+		    }	    
+		}
+		&__row {
+			display: block;
+			padding: 0px !important;
+    		margin-bottom: 30px !important;
+			label {
+		    	color: #4D4D4D;
+			    font-size: 14px;
+			    font-weight: 700;
+		    }
+		    input {
+		    	min-height: 50px;
+			    border: 1px solid #BBBBBB;
+			    padding: 0px 10px;
+		    }
+		    button {
+			    float: none !important;
+			}
+			a {
+			    text-align: center;
+			    display: block;
+			    text-decoration: underline;
+			    color: #8E8E8E;
+			    font-size: 14px;
+			}
+		}
+		&__checkrow {
+			margin-bottom: 20px;
+			label {
+			    color: #1c69d4;
+			    font-weight: 700;
+			    position: relative;
+			    display: block !important;
+			    span {
+				    display: block;
+				    position: relative;
+				    padding-left: 20px;
+				    &:after {
+					    content: '';
+					    position: absolute;
+					    width: 4px;
+					    height: 8px;
+					    border-bottom: solid 1px white;
+					    border-right: solid 1px white;
+					    z-index: 2;
+					    left: 5px;
+					    transform: rotate(45deg);
+					    top: 4px;
+					}
+					&:before {
+					    content: '';
+					    position: absolute;
+					    width: 14px;
+					    height: 14px;
+					    border: solid 2px #1c69d4;
+					    left: 0px;
+					    top: 2px;
+					}
+				}
+			}
+			input {
+			    position: absolute;
+			    opacity: 0;
+			}
+		}
+	}
+}
+.remember-row.myLogin__form__checkrow label input + span:before {
+    background: #1c69d4;
+}

@@ -9,14 +9,18 @@ get_template_part('partials/global/content', 'navbar');
 
 <section class="sectionStore ">
     <div class="sectionStore__header">
-        <div class="bar x-container">
-            <?php
-            $args = array(
-                'delimiter' => ' / ',
-                'before' => ''
-            );
-            ?>
-            <?php woocommerce_breadcrumb($args); ?>
+        <div class="bar">
+            <div class="x-container">
+                <div class="bg">
+                    <?php
+                    $args = array(
+                        'delimiter' => ' / ',
+                        'before' => ''
+                    );
+                    ?>
+                    <?php woocommerce_breadcrumb($args); ?>
+                </div>
+            </div>
         </div>
     </div>
     <div class="sectionStore__content x-container">

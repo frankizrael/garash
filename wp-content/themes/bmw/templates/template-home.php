@@ -10,7 +10,6 @@ get_header('header');
 get_template_part('partials/global/content', 'navbar');
 ?>
 
-
 <section class="sliderHome">
     <ul class="slider">
         <?php

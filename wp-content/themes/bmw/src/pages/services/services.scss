@@ -1,0 +1,53 @@
+.services {
+    width: 100%;
+    margin-top: 100px;
+    position: relative;
+    &__content {
+      padding: 30px 0;
+      display: flex;
+      .sidebar {
+        max-width: 25%;
+        flex: 1 1 100%;
+        .list {
+          &__item {
+            width: 100%;
+            &:not(:last-child) {
+              border-bottom: 1px solid #e6e6e6;
+            }
+            a {
+              padding: 20px 0;
+              display: block;
+              color: #8e8e8e;
+              position: relative;
+              font-weight: $medium;
+              &.active {
+                color: $black;
+                font-weight: $bold;
+              }
+              &.active,
+              &:hover {
+                color: $black;
+                &:after {
+                  content: "";
+                  position: absolute;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  right: 10px;
+                  background: url(/wp-content/themes/bmw/assets/right.svg) no-repeat center;
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .content {
+        max-width: 75%;
+        flex: 1 1 100%;
+        padding: 0 90px;
+        
+      }
+    }
+  }
+  

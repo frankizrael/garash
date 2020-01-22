@@ -36,8 +36,9 @@ get_template_part('partials/global/content', 'navbar');
                     <?php dynamic_sidebar('primary'); ?>
                 </div>
                 <div class="content">
-                    
-                    <?php do_action('woocommerce_before_shop_loop'); ?>
+                    <div class="filter-top">
+                        <?php do_action('woocommerce_before_shop_loop'); ?>
+                    </div>
 
                     <?php if (woocommerce_product_loop()) : ?>
                         <?php woocommerce_product_loop_start(); ?>

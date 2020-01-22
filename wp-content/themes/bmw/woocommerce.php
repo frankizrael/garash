@@ -24,6 +24,7 @@ get_template_part('partials/global/content', 'navbar');
         </div>
     </div>
     <div class="sectionStore__content x-container">
+
         <?php
         if (is_singular('product')) : ?>
             <div class="singleProduct">
@@ -35,6 +36,9 @@ get_template_part('partials/global/content', 'navbar');
                     <?php dynamic_sidebar('primary'); ?>
                 </div>
                 <div class="content">
+                    
+                    <?php do_action('woocommerce_before_shop_loop'); ?>
+
                     <?php if (woocommerce_product_loop()) : ?>
                         <?php woocommerce_product_loop_start(); ?>
                         <?php if (wc_get_loop_prop('total')) : ?>

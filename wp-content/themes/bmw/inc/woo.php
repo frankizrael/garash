@@ -8,7 +8,7 @@ function setup_woocommerce()
 add_action('after_setup_theme', 'setup_woocommerce');
 
 
- 
+
 
 function woo_remove_product_tabs($tabs)
 {
@@ -38,7 +38,7 @@ function woo_custom_cart_button_text()
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
 
 
- 
+
 
 add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
 function custom_override_checkout_fields($fields)
@@ -124,3 +124,5 @@ function add_company_data_field($address_fields)
 
     return $address_fields;
 }
+
+ 

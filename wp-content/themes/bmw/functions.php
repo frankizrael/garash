@@ -217,12 +217,13 @@ function loginCheck()
 add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
 function custom_override_checkout_fields($fields)
 {
-
     unset($fields['order']['order_comments']);
-
+    unset($fields['billing']['billing_company']);
+    unset($fields['billing']['billing_address_2']);
+    unset($fields['shipping']['shipping_company']);
+    unset($fields['shipping']['shipping_address_2']);
     return $fields;
 }
-
 
 function isa_woo_cart_attributes($cart_item, $cart_item_key)
 {
@@ -246,13 +247,54 @@ function remove_add_to_cart_message()
 }
 
 
-function ship_to_different_address_translation( $translated_text, $text, $domain ) {
-	switch ( $translated_text ) {
-	case '¿Enviar a una dirección diferente?' :
-	$translated_text = __( 'Activa esta opción para solicitar factura' );
-	break;
-	}
-	return $translated_text;
-	}	
+function ship_to_different_address_translation($translated_text, $text, $domain)
+{
+    switch ($translated_text) {
+        case '¿Enviar a una dirección diferente?':
+            $translated_text = __('Activa esta opción para solicitar factura');
+            break;
+    }
+    return $translated_text;
+}
 add_filter('gettext', 'ship_to_different_address_translation', 20, 3);
- 
+
+add_filter('woocommerce_shipping_fields', 'add_company_data_field', 10, 1);
+
+function add_company_data_field($address_fields)
+{
+    if (!isset($address_fields['shipping_razon_social'])) {
+        $address_fields['shipping_razon_social'] = array(
+            'label'        => __('Razón Social', 'bmw'),
+            'required'     => true,
+            'class'        => array('form-row-first'),
+            'autocomplete' => 'given-name',
+            'priority'     => 1,
+            'value'        => '',
+        );
+    }
+
+    if (!isset($address_fields['shipping_ruc'])) {
+        $address_fields['shipping_ruc'] = array(
+            'label'        => __('Ruc', 'bmw'),
+            'required'     => true,
+            'class'        => array('form-row-last'),
+            'autocomplete' => 'given-name',
+            'priority'     => 2,
+            'value'        => '',
+        );
+    }
+
+    if (!isset($address_fields['shipping_fiscal'])) {
+        $address_fields['shipping_fiscal'] = array(
+            'label'        => __('Dirección del domicilio fiscal', 'bmw'),
+            'required'     => true,
+            'class'        => array('form-row-wide'),
+            'autocomplete' => 'given-name',
+            'priority'     => 3,
+            'value'        => '',
+        );
+    }
+
+
+    return $address_fields;
+}

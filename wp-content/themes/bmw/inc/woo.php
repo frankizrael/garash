@@ -123,4 +123,12 @@ function add_company_data_field($address_fields)
     return $address_fields;
 }
 
- 
+
+
+function woocommerce_button_proceed_to_checkout()
+{
+    $checkout_url = WC()->cart->get_checkout_url();
+?>
+    <a href="<?php echo $checkout_url; ?>" class="checkout-button button alt wc-forward"><?php _e('Continuar con mi compra', 'woocommerce'); ?></a>
+<?php
+}

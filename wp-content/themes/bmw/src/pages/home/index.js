@@ -1,5 +1,4 @@
 import "./index.scss";
-
 import "slick-carousel";
 
 $(".sliderHome .slider").slick({

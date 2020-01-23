@@ -1,4 +1,5 @@
 import "./index.scss";
+import "slick-carousel";
 
 $(function($) {
   $(".sidebar .widget").on("click", ".widget-title", function(e) {
@@ -73,3 +74,17 @@ $(function($) {
     input.val(quantity);
   });
 });
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    $(".woocommerce-product-gallery .flex-control-nav").slick({
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      dots: false,
+      arrows: true,
+      vertical: true
+    });
+  },
+  false
+);

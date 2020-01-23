@@ -120,8 +120,6 @@ function add_company_data_field($address_fields)
             'value'        => '',
         );
     }
-
-
     return $address_fields;
 }
 

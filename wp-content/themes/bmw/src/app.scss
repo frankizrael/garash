@@ -611,68 +611,74 @@ form {
   }
 }
 
+#bill-to-data-company {
+  margin-top: 30px;
+}
+
+#ship-to-different-address,
+#bill-to-data-company {
+  input[type="checkbox"] {
+    display: none;
+  }
+  .group {
+    display: flex;
+    align-items: center;
+    span {
+      margin-left: 15px;
+      font-size: 14px;
+      color: #bbbbbb;
+    }
+  }
+  label {
+    position: relative;
+    cursor: pointer;
+
+    .check {
+      display: flex;
+      align-items: center;
+      .left {
+        width: 46px;
+        height: 40px;
+        background-color: #4d4d4d;
+        position: relative;
+        background-image: url(http://bmw-ecommerce.loc/wp-content/themes/bmw/assets/close.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 11px 11px;
+      }
+      .right {
+        width: 34px;
+        height: 40px;
+        background-color: #8e8e8e;
+      }
+    }
+  }
+}
+
+.woocommerce-form__label {
+  &.active {
+    .left {
+      width: 34px !important;
+      height: 40px !important;
+      background-color: $blue !important;
+      background-image: none !important;
+    }
+    .right {
+      width: 46px !important;
+      height: 40px !important;
+      background-color: white !important;
+      background-image: url(http://bmw-ecommerce.loc/wp-content/themes/bmw/assets/check-form.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 15px 11px;
+      box-shadow: 0px 1px 6px #00000026;
+    }
+  }
+}
+
 .woocommerce-shipping-fields {
   .shipping_address {
     margin-top: 30px;
-  }
-  #ship-to-different-address {
-    input[type="checkbox"] {
-      display: none;
-    }
-    .group {
-      display: flex;
-      align-items: center;
-      span {
-        margin-left: 15px;
-        font-size: 14px;
-        color: #bbbbbb;
-      }
-    }
-    label {
-      position: relative;
-      cursor: pointer;
-
-      .check {
-        display: flex;
-        align-items: center;
-        .left {
-          width: 46px;
-          height: 40px;
-          background-color: #4d4d4d;
-          position: relative;
-          background-image: url(http://bmw-ecommerce.loc/wp-content/themes/bmw/assets/close.svg);
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: 11px 11px;
-        }
-        .right {
-          width: 34px;
-          height: 40px;
-          background-color: #8e8e8e;
-        }
-      }
-    }
-  }
-
-  .woocommerce-form__label {
-    &.active {
-      .left {
-        width: 34px !important;
-        height: 40px !important;
-        background-color: $blue !important;
-        background-image: none !important;
-      }
-      .right {
-        width: 46px !important;
-        height: 40px !important;
-        background-color: white !important;
-        background-image: url(http://bmw-ecommerce.loc/wp-content/themes/bmw/assets/check-form.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 15px 11px;
-        box-shadow: 0px 1px 6px #00000026;
-      }
-    }
   }
 }
 .woocommerce button.button.alt.disabled {

@@ -77,7 +77,7 @@ function ship_to_different_address_translation($translated_text, $text, $domain)
 {
     switch ($translated_text) {
         case '¿Enviar a una dirección diferente?':
-            $translated_text = __('Activa esta opción para solicitar factura');
+            $translated_text = __('Yo no retiro esta orden');
             break;
     }
     return $translated_text;
@@ -94,7 +94,7 @@ function add_company_data_field($address_fields)
             'required'     => true,
             'class'        => array('form-row-first'),
             'autocomplete' => 'given-name',
-            'priority'     => 1,
+            'priority'     => 111,
             'value'        => '',
         );
     }
@@ -105,7 +105,7 @@ function add_company_data_field($address_fields)
             'required'     => true,
             'class'        => array('form-row-last'),
             'autocomplete' => 'given-name',
-            'priority'     => 2,
+            'priority'     => 112,
             'value'        => '',
         );
     }
@@ -116,7 +116,7 @@ function add_company_data_field($address_fields)
             'required'     => true,
             'class'        => array('form-row-wide'),
             'autocomplete' => 'given-name',
-            'priority'     => 3,
+            'priority'     => 113,
             'value'        => '',
         );
     }
@@ -132,5 +132,3 @@ function woocommerce_button_proceed_to_checkout()
 <?php
 }
 ?>
-
-

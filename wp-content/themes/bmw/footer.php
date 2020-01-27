@@ -71,7 +71,25 @@ if (is_checkout()) {
 }
 ?>
 
+<?php
+if (!(is_shop() || is_product() || is_cart() || is_checkout())) {
+?>
+    <script>
+        jQuery(window).scroll(function() {
+            const top = jQuery(window).scrollTop();
 
+            if (top > 300) {
+                if (!jQuery(".navbar").hasClass("is-active")) {
+                    jQuery(".navbar").addClass("is-active");
+                }
+            } else {
+                jQuery(".navbar").removeClass("is-active");
+            }
+        });
+    </script>
+<?php
+}
+?>
 </body>
 
 </html>

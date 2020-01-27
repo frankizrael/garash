@@ -9,13 +9,3 @@ $(".search").on("click", function(e) {
       right: width - 10 + "px"
     });
 });
-
-$(window).scroll(function() {
-  const top = $(window).scrollTop();
-
-  if (top > 300) {
-    if (!$(".navbar").hasClass("is-active")) {
-      $(".navbar").addClass("is-active");
-    }
-  }
-});

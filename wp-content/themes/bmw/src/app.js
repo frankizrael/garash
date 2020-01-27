@@ -21,7 +21,10 @@ window.onload = function() {
     .find(".active")
     .width();
   const actPosition = $(".tabs ul .active").position();
-  $(".tabs .line").css({ left: +actPosition.left, width: actWidth });
+
+  if (actPosition) {
+    $(".tabs .line").css({ left: +actPosition.left, width: actWidth });
+  }
 };
 
 $(".tabs ul li a").click(function() {

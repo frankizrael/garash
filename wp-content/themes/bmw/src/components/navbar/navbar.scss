@@ -127,6 +127,10 @@
         svg {
           width: 24px;
           height: 24px;
+          g {
+            isolation: isolate;
+          }
+
           path {
             fill: white;
           }
@@ -136,6 +140,9 @@
         svg {
           width: 23px;
           path {
+            fill: white;
+          }
+          circle {
             fill: white;
           }
         }
@@ -152,6 +159,7 @@
   }
   &.is-black,
   &.is-active {
+    background: white;
     nav {
       .menu {
         a {
@@ -165,6 +173,9 @@
       a {
         svg {
           path {
+            fill: #8e8e8e;
+          }
+          circle {
             fill: #8e8e8e;
           }
         }

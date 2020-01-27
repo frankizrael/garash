@@ -124,6 +124,24 @@ function add_company_data_field($address_fields)
 }
 
 
+
+add_filter('woocommerce_shipping_fields', 'add_local_data_field', 10, 1);
+
+function add_local_data_field($address_fields)
+{
+    if (!isset($address_fields['shipping_local'])) {
+        $address_fields['shipping_local'] = array(
+            'label'        => __('Local de envio', 'bmw'),
+            'required'     => true,
+            'class'        => array('form-row-wide'),
+            'autocomplete' => 'given-name',
+            'priority'     => 220,
+            'value'        => '',
+        );
+    }
+    return $address_fields;
+}
+
 function woocommerce_button_proceed_to_checkout()
 {
     $checkout_url = WC()->cart->get_checkout_url();

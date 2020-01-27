@@ -84,12 +84,12 @@ function ship_to_different_address_translation($translated_text, $text, $domain)
 }
 add_filter('gettext', 'ship_to_different_address_translation', 20, 3);
 
-add_filter('woocommerce_shipping_fields', 'add_company_data_field', 10, 1);
+add_filter('woocommerce_billing_fields', 'add_company_data_field', 10, 1);
 
 function add_company_data_field($address_fields)
 {
-    if (!isset($address_fields['shipping_razon_social'])) {
-        $address_fields['shipping_razon_social'] = array(
+    if (!isset($address_fields['billing_razon_social'])) {
+        $address_fields['billing_razon_social'] = array(
             'label'        => __('Razón Social', 'bmw'),
             'required'     => true,
             'class'        => array('form-row-first'),
@@ -99,8 +99,8 @@ function add_company_data_field($address_fields)
         );
     }
 
-    if (!isset($address_fields['shipping_ruc'])) {
-        $address_fields['shipping_ruc'] = array(
+    if (!isset($address_fields['billing_ruc'])) {
+        $address_fields['billing_ruc'] = array(
             'label'        => __('Ruc', 'bmw'),
             'required'     => true,
             'class'        => array('form-row-last'),
@@ -110,8 +110,8 @@ function add_company_data_field($address_fields)
         );
     }
 
-    if (!isset($address_fields['shipping_fiscal'])) {
-        $address_fields['shipping_fiscal'] = array(
+    if (!isset($address_fields['billing_fiscal'])) {
+        $address_fields['billing_fiscal'] = array(
             'label'        => __('Dirección del domicilio fiscal', 'bmw'),
             'required'     => true,
             'class'        => array('form-row-wide'),
@@ -124,7 +124,6 @@ function add_company_data_field($address_fields)
 }
 
 
-
 function woocommerce_button_proceed_to_checkout()
 {
     $checkout_url = WC()->cart->get_checkout_url();
@@ -132,3 +131,6 @@ function woocommerce_button_proceed_to_checkout()
     <a href="<?php echo $checkout_url; ?>" class="checkout-button button alt wc-forward"><?php _e('Continuar con mi compra', 'woocommerce'); ?></a>
 <?php
 }
+?>
+
+

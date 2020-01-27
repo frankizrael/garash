@@ -55,7 +55,5 @@ fabric.properties
 nbproject/private/
 build/
 nbbuild/
-dist/
-nbdist/
 .nb-gradle/
 wp-content/uploads/cache/

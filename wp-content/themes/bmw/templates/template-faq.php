@@ -6,6 +6,7 @@
 ?>
 <?php
 set_query_var('ASSETS_KEY_WORD', 'page_faq');
+set_query_var('class', 'is-active');
 get_header('header');
 get_template_part('partials/global/content', 'navbar');
 ?>

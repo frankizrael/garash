@@ -21,6 +21,11 @@
     background-color: $blue;
     border-color: $blue;
   }
+  &-outline {
+    color: $blue;
+    background-color: white;
+    border-color: $blue;
+  }
 
   &[disabled] {
     border: 1px solid transparent;

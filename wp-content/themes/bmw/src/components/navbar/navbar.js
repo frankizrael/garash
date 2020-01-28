@@ -1,6 +1,6 @@
 import "./navbar.scss";
 
-$(".search").on("click", function(e) {
+$(".navbar .search").on("click", function(e) {
   e.preventDefault();
-  $(".box").toggle();
+  $(".navbar .box").toggle();
 });

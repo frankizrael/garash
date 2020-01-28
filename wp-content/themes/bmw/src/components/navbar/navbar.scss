@@ -195,7 +195,6 @@
     }
   }
   .box {
-    height: 200px;
     position: absolute;
     width: 100%;
     left: 0;
@@ -203,10 +202,9 @@
     display: none;
     z-index: -1;
     &__search {
-      height: 206px;
       background-color: white;
-      padding: 40px 95px 40px 40px;
-      .title{ 
+      padding: 40px 95px 40px 65px;
+      .title {
         margin-bottom: 30px;
         font-size: 20px;
       }
@@ -220,12 +218,14 @@
           label {
             display: block;
             margin-bottom: 5px;
-
+          }
+          input {
+            color: black;
+            font-weight: $bold;
           }
         }
-        .action{ 
-           
-          button  {
+        .action {
+          button {
             width: 225px;
           }
         }

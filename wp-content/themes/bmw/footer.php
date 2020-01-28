@@ -71,8 +71,10 @@ if (is_checkout()) {
 }
 ?>
 
+ 
+
 <?php
-if (!(is_shop() || is_product() || is_cart() || is_checkout())) {
+if (is_page('inicio')) {
 ?>
     <script>
         jQuery(window).scroll(function() {

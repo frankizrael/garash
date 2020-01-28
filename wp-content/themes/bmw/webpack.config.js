@@ -103,7 +103,8 @@ const config = {
     page_complaints_book: "./src/pages/services/complaints-book/index.js",
     page_faq: "./src/pages/services/faq/index.js",
     page_returns_exchanges: "./src/pages/services/returns-exchanges/index.js",
-    page_terms_conditions: "./src/pages/services/terms-conditions/index.js"
+    page_terms_conditions: "./src/pages/services/terms-conditions/index.js",
+    page_search: "./src/pages/search/index.js"
   },
   resolve: {
     modules: [

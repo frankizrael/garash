@@ -54,15 +54,16 @@
     <div class="box">
         <div class="box__search x-container">
             <div class="title">Ingrese el nombre de un producto</div>
-            <form action="">
+            <form action="/" method="GET">
+                <input type="hidden" name="post_type" value="product">
                 <div class="row">
                     <div class="control full">
                         <label>Buscar</label>
-                        <input type="text">
+                        <input type="text" name="s" id="s">
                     </div>
                 </div>
                 <div class="action">
-                    <button type="button" class="button button-primary" tabindex="0">Buscar</button>
+                    <button type="submit" class="button button-primary" tabindex="0">Buscar</button>
                 </div>
             </form>
         </div>

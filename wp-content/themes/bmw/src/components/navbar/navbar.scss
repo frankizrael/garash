@@ -4,6 +4,10 @@
   right: 0;
   top: 0;
   z-index: 3;
+  &__content {
+    display: flex;
+    align-items: center;
+  }
   &:after {
     content: "";
     position: absolute;
@@ -22,11 +26,12 @@
       height: 100%;
     }
   }
-  &__content {
+  .menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    margin-right: 30px;
     &:after {
       content: "";
       position: absolute;
@@ -38,6 +43,7 @@
       background-color: #e6e6e6;
       z-index: -1;
     }
+    flex: 1 1 100%;
     nav {
       position: relative;
 
@@ -157,6 +163,20 @@
       }
     }
   }
+  .logo {
+    position: relative;
+    width: 90px;
+    height: 100px;
+    figure {
+      width: 90px;
+      height: 100px;
+      top: 10px;
+      z-index: 1;
+      position: absolute;
+      background: white;
+      box-shadow: 0px 1px 6px #00000026;
+    }
+  }
   &.is-black,
   &.is-active {
     background: white;
@@ -173,10 +193,10 @@
       a {
         svg {
           path {
-            fill: #8e8e8e;
+            fill: #8e8e8e !important;
           }
           circle {
-            fill: #8e8e8e;
+            fill: #8e8e8e !important;
           }
         }
       }

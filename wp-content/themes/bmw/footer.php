@@ -1,8 +1,9 @@
+<div class="menuMobile">
+
+</div>
+
 <?php
-
 wp_footer();
-
-
 $filePath = 'dist/assets.json';
 $jsonFile = file_exists($filePath) ? file_get_contents($filePath) : file_get_contents(get_template_directory() . '/' . $filePath);
 $rootDir = file_exists($filePath) ? '' : get_template_directory_uri() . '/';
@@ -71,21 +72,24 @@ if (is_checkout()) {
 }
 ?>
 
- 
+
 
 <?php
 if (is_page('inicio')) {
 ?>
     <script>
         jQuery(window).scroll(function() {
-            const top = jQuery(window).scrollTop();
-
-            if (top > 300) {
+            var top = jQuery(window).scrollTop();
+            var isSearch = jQuery('.navbar').hasClass('is-search');
+            if (top > 150 && !isSearch) {
                 if (!jQuery(".navbar").hasClass("is-active")) {
                     jQuery(".navbar").addClass("is-active");
                 }
             } else {
-                jQuery(".navbar").removeClass("is-active");
+                if (top <= 150 && !isSearch) {
+                    jQuery(".navbar").removeClass("is-active");
+                }
+
             }
         });
     </script>

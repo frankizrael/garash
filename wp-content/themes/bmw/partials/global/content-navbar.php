@@ -1,6 +1,23 @@
 <div class="navbar <?= isset($class) ? $class : ''; ?>">
     <div class="navbar__content x-container">
+
+
         <div class="menu">
+            <button type="button" class="button-menu">
+                <i>
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
+                        <g id="Grupo_7465" data-name="Grupo 7465" transform="translate(-39 -114)">
+                            <rect width="17" height="3" transform="translate(39 114)" fill="#fff" />
+                            <rect width="17" height="3" transform="translate(39 121)" fill="#fff" />
+                            <rect width="17" height="3" transform="translate(39 128)" fill="#fff" />
+                        </g>
+                    </svg>
+
+
+                </i>
+            </button>
             <nav>
                 <?php wp_nav_menu(); ?>
             </nav>
@@ -44,12 +61,12 @@
             <!-- /Icons -->
 
         </div>
+
         <div class="logo">
             <figure>
                 <img src="<?php echo get_template_directory_uri() . '/assets/logo.png'  ?>" alt="Logo BMW">
             </figure>
         </div>
-
     </div>
     <div class="box">
         <div class="box__search x-container">
@@ -68,5 +85,4 @@
             </form>
         </div>
     </div>
-
 </div>

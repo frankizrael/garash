@@ -32,6 +32,7 @@ get_template_part('partials/global/content', 'navbar');
         ?>
 
     </ul>
+   
 </section>
 
 <section class="sectionCategories">
@@ -196,7 +197,7 @@ get_template_part('partials/global/content', 'navbar');
             </div>
     </div>
 </section>
-
+<div class="bg"></div>
 <?php
 
 get_template_part('partials/global/content', 'footer');

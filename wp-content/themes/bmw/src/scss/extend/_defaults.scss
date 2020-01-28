@@ -165,6 +165,10 @@ body {
   margin-right: auto;
   position: relative;
   z-index: 1;
+  @include rsp(apn) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 .flex {

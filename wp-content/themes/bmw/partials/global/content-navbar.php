@@ -39,11 +39,7 @@
                     </i>
                 </a>
 
-                <div class="box-search">
-                    <?php if (function_exists('aws_get_search_form')) {
-                        aws_get_search_form();
-                    } ?>
-                </div>
+
             </div>
             <!-- /Icons -->
 
@@ -53,5 +49,23 @@
                 <img src="<?php echo get_template_directory_uri() . '/assets/logo.png'  ?>" alt="Logo BMW">
             </figure>
         </div>
+
     </div>
+    <div class="box">
+        <div class="box__search x-container">
+            <div class="title">Ingrese el nombre de un producto</div>
+            <form action="">
+                <div class="row">
+                    <div class="control full">
+                        <label>Buscar</label>
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="action">
+                    <button type="button" class="button button-primary" tabindex="0">Buscar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </div>

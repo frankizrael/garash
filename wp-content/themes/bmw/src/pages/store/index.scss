@@ -3,19 +3,62 @@
   margin-top: 100px;
   &__header {
     background: #f8f8f8;
-    .bar {
-      padding: 14.5px 0;
-      .woocommerce-breadcrumb {
-        margin: 0;
-        color: $blue;
-        a {
-          color: #4d4d4d;
-        }
-      }
-    }
   }
   &__content {
     padding: 30px 0;
+    .filter-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .woocommerce-notices-wrapper {
+        display: none;
+      }
+      border-bottom: 1px solid #e6e6e6;
+      margin-bottom: 30px;
+      padding-bottom: 16px;
+    }
+    .woocommerce-ordering {
+      .customSelect {
+        width: 285px;
+        position: relative;
+        &.full {
+          width: 100%;
+        }
+        .label {
+          font-size: 14px;
+          margin-bottom: 5px;
+          display: block;
+        }
+        @include rsp(apn) {
+          width: 100%;
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          pointer-events: none;
+          cursor: pointer;
+          transform: translateY(-50%);
+          width: 20px;
+          height: 12px;
+          right: 18px;
+          z-index: 10;
+          background: url(/wp-content/themes/bmw/assets/down-arrow.svg) no-repeat;
+        }
+        select {
+          border: solid 1px #bbbbbb;
+          font-size: 12px;
+          line-height: 18px;
+          width: 100%;
+
+          padding: 18px 30px 12px 11px;
+          -webkit-appearance: none;
+          transition: 0.3s;
+          color: #665c57;
+        }
+      }
+    }
+
     .singleProduct {
       .product_title.entry-title {
         font-size: 25;
@@ -71,7 +114,7 @@
       }
       .cart {
         display: flex;
-        
+
         button {
           background-color: $blue;
           background-image: url(/wp-content/themes/bmw/assets/cart-icon.svg);
@@ -176,5 +219,10 @@
   }
   .price_slider_amount .button {
     margin-top: 20px;
+  }
+
+  .clear {
+    clear: both;
+    margin-bottom: 57px;
   }
 }

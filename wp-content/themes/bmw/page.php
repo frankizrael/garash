@@ -1,9 +1,9 @@
-<h1>dsada</h1>
+<h1>PAGE</h1>
 <?php
- 
-			while ( have_posts() ) :
-				the_post();
 
-				 the_content();
+while (have_posts()) :
+	the_post();
 
-			endwhile; // End of the loop.
+	the_content();
+
+endwhile; // End of the loop.

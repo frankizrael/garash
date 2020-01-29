@@ -1,21 +1,14 @@
 import "./navbar.scss";
 
-$(".search").on("click", function(e) {
+$(".navbar .search").on("click", function(e) {
   e.preventDefault();
-  const width = parseInt($(".icons").width());
-  $(".box-search")
-    .toggle()
-    .css({
-      right: width - 10 + "px"
-    });
+  $(".navbar .box").toggle();
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    $(".navbar").addClass("is-active is-search");
+    $(".bg").toggle();
+  }
 });
 
-$(window).scroll(function() {
-  const top = $(window).scrollTop();
-
-  if (top > 300) {
-    if (!$(".navbar").hasClass("is-active")) {
-      $(".navbar").addClass("is-active");
-    }
-  }
+$(".button-menu").on("click", function(event) {
+  event.preventDefault();
 });

@@ -1,7 +1,9 @@
+<div class="menuMobile">
+
+</div>
+
 <?php
-
 wp_footer();
-
 $filePath = 'dist/assets.json';
 $jsonFile = file_exists($filePath) ? file_get_contents($filePath) : file_get_contents(get_template_directory() . '/' . $filePath);
 $rootDir = file_exists($filePath) ? '' : get_template_directory_uri() . '/';
@@ -54,6 +56,44 @@ switch ($evn) {
             }
         }
         break;
+}
+?>
+<?php
+if (is_checkout()) {
+?>
+    <script>
+        window.triggerFields = () => {
+            window.jQuery("#billing_razon_social").trigger("change");
+            window.jQuery("#billing_ruc").trigger("change");
+            window.jQuery("#billing_fiscal").trigger("change");
+        };
+    </script>
+<?php
+}
+?>
+
+
+
+<?php
+if (is_page('inicio')) {
+?>
+    <script>
+        jQuery(window).scroll(function() {
+            var top = jQuery(window).scrollTop();
+            var isSearch = jQuery('.navbar').hasClass('is-search');
+            if (top > 150 && !isSearch) {
+                if (!jQuery(".navbar").hasClass("is-active")) {
+                    jQuery(".navbar").addClass("is-active");
+                }
+            } else {
+                if (top <= 150 && !isSearch) {
+                    jQuery(".navbar").removeClass("is-active");
+                }
+
+            }
+        });
+    </script>
+<?php
 }
 ?>
 </body>

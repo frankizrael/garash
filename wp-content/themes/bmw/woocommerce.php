@@ -9,17 +9,22 @@ get_template_part('partials/global/content', 'navbar');
 
 <section class="sectionStore ">
     <div class="sectionStore__header">
-        <div class="bar x-container">
-            <?php
-            $args = array(
-                'delimiter' => ' / ',
-                'before' => ''
-            );
-            ?>
-            <?php woocommerce_breadcrumb($args); ?>
+        <div class="bar">
+            <div class="x-container">
+                <div class="bg">
+                    <?php
+                    $args = array(
+                        'delimiter' => ' / ',
+                        'before' => ''
+                    );
+                    ?>
+                    <?php woocommerce_breadcrumb($args); ?>
+                </div>
+            </div>
         </div>
     </div>
     <div class="sectionStore__content x-container">
+
         <?php
         if (is_singular('product')) : ?>
             <div class="singleProduct">
@@ -31,6 +36,10 @@ get_template_part('partials/global/content', 'navbar');
                     <?php dynamic_sidebar('primary'); ?>
                 </div>
                 <div class="content">
+                    <div class="filter-top">
+                        <?php do_action('woocommerce_before_shop_loop'); ?>
+                    </div>
+
                     <?php if (woocommerce_product_loop()) : ?>
                         <?php woocommerce_product_loop_start(); ?>
                         <?php if (wc_get_loop_prop('total')) : ?>

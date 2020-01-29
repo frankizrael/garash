@@ -14,6 +14,21 @@ get_template_part('partials/global/content', 'navbar');
 ?>
 
 <section class="sectionCheckout">
+    <div class="sectionCheckout__header">
+        <div class="bar">
+            <div class="x-container">
+                <div class="bg">
+                    <?php
+                    $args = array(
+                        'delimiter' => ' / ',
+                        'before' => ''
+                    );
+                    ?>
+                    <?php woocommerce_breadcrumb($args); ?>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="sectionCheckout__content x-container">
         <?php
         while (have_posts()) :

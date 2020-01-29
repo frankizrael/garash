@@ -4,6 +4,24 @@
   right: 0;
   top: 0;
   z-index: 3;
+  .button-menu {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: none;
+    @include rsp(apn) {
+      display: block;
+    }
+    svg {
+      rect {
+        fill: white;
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+  }
   &:after {
     content: "";
     position: absolute;
@@ -22,11 +40,16 @@
       height: 100%;
     }
   }
-  &__content {
+  .menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    margin-right: 30px;
+    @include rsp(apn) {
+      padding: 16px 0;
+      margin-right: 10px;
+    }
     &:after {
       content: "";
       position: absolute;
@@ -38,9 +61,12 @@
       background-color: #e6e6e6;
       z-index: -1;
     }
+    flex: 1 1 100%;
     nav {
       position: relative;
-
+      @include rsp(apn) {
+        display: none;
+      }
       .menu {
         a {
           color: #8e8e8e;
@@ -127,6 +153,10 @@
         svg {
           width: 24px;
           height: 24px;
+          g {
+            isolation: isolate;
+          }
+
           path {
             fill: white;
           }
@@ -138,20 +168,40 @@
           path {
             fill: white;
           }
+          circle {
+            fill: white;
+          }
         }
       }
-      .box-search {
-        display: none;
-        width: 300px;
-        position: absolute;
-        right: 0;
-        z-index: 1;
-        margin-top: 10px;
+    }
+  }
+  .logo {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    @include rsp(apn) {
+      width: 54px;
+      height: auto;
+    }
+    figure {
+      width: 90px;
+      height: 100px;
+      top: 10px;
+      z-index: 1;
+      position: absolute;
+      background: white;
+      box-shadow: 0px 1px 6px #00000026;
+      @include rsp(apn) {
+        width: 54px;
+        position: relative;
+        height: auto;
+        top: auto;
       }
     }
   }
   &.is-black,
   &.is-active {
+    background: white;
     nav {
       .menu {
         a {
@@ -165,7 +215,71 @@
       a {
         svg {
           path {
-            fill: #8e8e8e;
+            fill: #8e8e8e !important;
+          }
+          circle {
+            fill: #8e8e8e !important;
+          }
+        }
+      }
+    }
+    .button-menu {
+      svg {
+        rect {
+          fill: $black;
+        }
+      }
+    }
+  }
+  .box {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: -1;
+    &__search {
+      background-color: white;
+      padding: 40px 95px 40px 65px;
+      @include rsp(apn) {
+        padding: 20px;
+      }
+      .title {
+        margin-bottom: 30px;
+        font-size: 20px;
+      }
+      form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include rsp(apn) {
+          flex-direction: column;
+        }
+        .row {
+          flex: 1 1 100%;
+          margin-right: 30px;
+          @include rsp(apn) {
+            margin-right: 0;
+            width: 100%;
+          }
+          label {
+            display: block;
+            margin-bottom: 5px;
+          }
+          input {
+            color: black;
+            font-weight: $bold;
+          }
+        }
+        .action {
+          @include rsp(apn) {
+            width: 100%;
+          }
+          button {
+            width: 225px;
+            @include rsp(apn) {
+              width: 100%;
+            }
           }
         }
       }

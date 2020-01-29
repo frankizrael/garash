@@ -16,15 +16,15 @@ $(".sectionProducts .products").slick({
   slidesToScroll: 4,
   dots: true,
   arrows: false,
+  infinite: false,
   responsive: [
     {
       breakpoint: 768,
       settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToShow: 1.3,
+        slidesToScroll: 1
       }
     }
-     
   ]
 });
 

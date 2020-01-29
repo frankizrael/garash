@@ -10,7 +10,7 @@ get_header('header');
 get_template_part('partials/global/content', 'navbar');
 ?>
 
-<section class="sliderHome">
+<section class="sliderHome" id="home">
     <ul class="slider">
         <?php
         for ($i = 1; $i <= 4; $i++) :
@@ -19,9 +19,9 @@ get_template_part('partials/global/content', 'navbar');
                 <img src="<?php echo get_template_directory_uri() ?>/assets/1.png" alt="">
                 <div class="x-container">
                     <div class="x-caption">
-                        <h1 class="title">BMW LIFESTYLE <?php echo $i ?></h1>
+                        <h1 class="title">BMW LIFESTYLE</h1>
                         <p class="info">
-                            La vida esta llena de aventuras, las posibilidades son infinitas, la libertad y el estilo no conoce límites.
+                        La vida esta llena de aventuras, las posibilidades son infinitas, la libertad y el estilo no conoce límites.
                         </p>
                         <a href="/" class="button button-primary">BMW Sale</a>
                     </div>

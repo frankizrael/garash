@@ -79,6 +79,13 @@ if (is_page('inicio')) {
 ?>
     <script>
         jQuery(window).scroll(function() {
+            initScroll();
+        });
+        window.onload = function() {
+            initScroll();
+        };
+
+        function initScroll() {
             var top = jQuery(window).scrollTop();
             var isSearch = jQuery('.navbar').hasClass('is-search');
             if (top > 150 && !isSearch) {
@@ -91,7 +98,7 @@ if (is_page('inicio')) {
                 }
 
             }
-        });
+        }
     </script>
 <?php
 }

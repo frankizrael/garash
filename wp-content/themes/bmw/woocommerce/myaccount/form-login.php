@@ -67,6 +67,19 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 							</div>							
 							<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
 							<?php do_action( 'woocommerce_login_form_end' ); ?>
+							<div class="complementd-social-login">
+								<h4><?php esc_html_e( 'También puedes iniciar sesión con:', 'woocommerce' ); ?></h4>
+								<div class="social-login__links">
+									<a href="#" class="social-login__links__facebook">
+										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><defs><style>.ar{fill:#fff;}</style></defs><path class="ar" d="M17.857,2.25H2.143A2.143,2.143,0,0,0,0,4.393V20.107A2.143,2.143,0,0,0,2.143,22.25H8.27v-6.8H5.458v-3.2H8.27V9.811C8.27,7.036,9.922,5.5,12.452,5.5a17.039,17.039,0,0,1,2.479.216V8.443h-1.4a1.6,1.6,0,0,0-1.8,1.729V12.25H14.8l-.491,3.2H11.73v6.8h6.127A2.143,2.143,0,0,0,20,20.107V4.393A2.143,2.143,0,0,0,17.857,2.25Z" transform="translate(0 -2.25)"/></svg>
+										<span>Facebook</span>
+									</a>
+									<a href="#" class="social-login__links__google">
+										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><defs><style>.a{fill:#fbbb00;}.b{fill:#518ef8;}.c{fill:#28b446;}.d{fill:#f14336;}</style></defs><path class="a" d="M4.36,144.844,3.675,147.4l-2.5.053a9.854,9.854,0,0,1-.072-9.186h0l2.228.409.976,2.215a5.871,5.871,0,0,0,.055,3.953Z" transform="translate(0 -132.79)"/><path class="b" d="M271.077,208.176a9.834,9.834,0,0,1-3.507,9.509h0l-2.807-.143-.4-2.48a5.863,5.863,0,0,0,2.523-2.994h-5.26v-3.892h9.449Z" transform="translate(-251.249 -199.851)"/><path class="c" d="M45.332,315.027h0a9.84,9.84,0,0,1-14.823-3.01l3.188-2.609a5.851,5.851,0,0,0,8.431,3Z" transform="translate(-29.337 -297.194)"/><path class="d" d="M43.64,2.265,40.453,4.874a5.85,5.85,0,0,0-8.624,3.063l-3.2-2.624h0A9.839,9.839,0,0,1,43.64,2.265Z" transform="translate(-27.524)"/></svg>
+										<span>Google</span>									
+									</a>
+								</div>
+							</div>
 						</form>
 					</div>			
 				</div>
@@ -110,7 +123,19 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 						</div>
 
 						<?php do_action( 'woocommerce_register_form_end' ); ?>
-
+						<div class="complementd-social-login">
+							<h4><?php esc_html_e( 'También puedes iniciar sesión con:', 'woocommerce' ); ?></h4>
+							<div class="social-login__links">
+								<a href="#" class="social-login__links__facebook">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><defs><style>.ar{fill:#fff;}</style></defs><path class="ar" d="M17.857,2.25H2.143A2.143,2.143,0,0,0,0,4.393V20.107A2.143,2.143,0,0,0,2.143,22.25H8.27v-6.8H5.458v-3.2H8.27V9.811C8.27,7.036,9.922,5.5,12.452,5.5a17.039,17.039,0,0,1,2.479.216V8.443h-1.4a1.6,1.6,0,0,0-1.8,1.729V12.25H14.8l-.491,3.2H11.73v6.8h6.127A2.143,2.143,0,0,0,20,20.107V4.393A2.143,2.143,0,0,0,17.857,2.25Z" transform="translate(0 -2.25)"/></svg>
+									<span>Facebook</span>
+								</a>
+								<a href="#" class="social-login__links__google">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><defs><style>.a{fill:#fbbb00;}.b{fill:#518ef8;}.c{fill:#28b446;}.d{fill:#f14336;}</style></defs><path class="a" d="M4.36,144.844,3.675,147.4l-2.5.053a9.854,9.854,0,0,1-.072-9.186h0l2.228.409.976,2.215a5.871,5.871,0,0,0,.055,3.953Z" transform="translate(0 -132.79)"/><path class="b" d="M271.077,208.176a9.834,9.834,0,0,1-3.507,9.509h0l-2.807-.143-.4-2.48a5.863,5.863,0,0,0,2.523-2.994h-5.26v-3.892h9.449Z" transform="translate(-251.249 -199.851)"/><path class="c" d="M45.332,315.027h0a9.84,9.84,0,0,1-14.823-3.01l3.188-2.609a5.851,5.851,0,0,0,8.431,3Z" transform="translate(-29.337 -297.194)"/><path class="d" d="M43.64,2.265,40.453,4.874a5.85,5.85,0,0,0-8.624,3.063l-3.2-2.624h0A9.839,9.839,0,0,1,43.64,2.265Z" transform="translate(-27.524)"/></svg>
+									<span>Google</span>									
+								</a>
+							</div>
+						</div>
 					</form>
 				</div>
 				<?php endif; ?>
@@ -136,5 +161,9 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 		}
 		jQuery('.myLogin__control li').removeClass('active');
 		jQueryThis.addClass('active');
-	});	
+	});
+	var SocialLinkFacebook = jQuery('.ywsl-facebook').attr('href');
+	var SocialLinkGoogle = jQuery('.ywsl-google').attr('href');
+	jQuery('.social-login__links__facebook').attr('href',SocialLinkFacebook);
+	jQuery('.social-login__links__google').attr('href',SocialLinkGoogle);
 </script>

@@ -17,17 +17,20 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$page_title = ( 'billing' === $load_address ) ? esc_html__( 'Billing address', 'woocommerce' ) : esc_html__( 'Shipping address', 'woocommerce' );
+$page_title = ( 'billing' === $load_address ) ? esc_html__( 'Mi dirección', 'woocommerce' ) : esc_html__( 'Mi dirección de facturación', 'woocommerce' );
 
 do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 
 <?php if ( ! $load_address ) : ?>
 	<?php wc_get_template( 'myaccount/my-address.php' ); ?>
 <?php else : ?>
-
-	<form method="post">
-
-		<h3><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title, $load_address ); ?></h3><?php // @codingStandardsIgnoreLine ?>
+<div class="formAccount">
+	<div class="formAccount__title">
+		<h1><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title, $load_address ); ?></h1>
+		<a href="javascript:void(0)" class="btn btnWhite">Editar</a>
+	</div>
+	<div class="formAccount__form">
+		<form method="post">
 
 		<div class="woocommerce-address-fields">
 			<?php do_action( "woocommerce_before_edit_address_form_{$load_address}" ); ?>
@@ -54,3 +57,14 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 <?php endif; ?>
 
 <?php do_action( 'woocommerce_after_edit_account_address_form' ); ?>
+<?php if ( ! $load_address ) : ?>
+	<script type="text/javascript">
+		jQuery('#titlePageAccount').html('<?php _e('Mi dirección de facturación'); ?>');
+		jQuery('.woocommerce-MyAccount-navigation li').eq(2).addClass('active');
+	</script>
+<?php else : ?>
+	<script type="text/javascript">
+		jQuery('#titlePageAccount').html('<?php _e('Mi dirección'); ?>');
+		jQuery('.woocommerce-MyAccount-navigation li').eq(1).addClass('active');
+	</script>
+<?php endif; ?>

@@ -33,3 +33,17 @@ $("#loginForm").on("submit", function(e) {
     }
   });
 });
+//modal
+$('.btnWhite').on('click',function(){
+  let $this = $(this);
+  let $input = $this.closest('.formAccount__form__input');
+  $('.myModal').removeClass('active');
+  $input.find('.myModal').addClass('active');
+});
+$('.myModal__content__close').on('click',function(){
+  $('.myModal').removeClass('active');
+});
+//submit
+$('.btnSubmit').on('click',function(){
+  $('#buttonForm').trigger('click');
+});

@@ -75,3 +75,4 @@ $col    = 1;
 	</div>
 	<?php
 endif;
+?>

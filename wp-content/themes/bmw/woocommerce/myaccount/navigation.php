@@ -18,18 +18,48 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
+$linkk = get_permalink(get_option( 'woocommerce_myaccount_page_id' ));
 do_action( 'woocommerce_before_account_navigation' );
 ?>
-
-<nav class="woocommerce-MyAccount-navigation">
-	<ul>
-		<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
-			<li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
-				<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
-			</li>
-		<?php endforeach; ?>
-	</ul>
-</nav>
-
+<div class="woocommerce-MyAccount-container">
+	<div class="breadcrumb-MyAccount">
+		<div class="x-container">
+			<ul>
+				<li>
+					Inicio
+				</li>
+				<li class="indicator">
+					<i></i>
+				</li>
+				<li>
+					Mi Cuenta
+				</li>
+				<li class="indicator">
+					<i></i>
+				</li>
+				<li class="active">
+					<span id="titlePageAccount"></span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="woocommerce-MyAccount-flex">
+		<div class="x-container">
+			<nav class="woocommerce-MyAccount-navigation">
+				<ul>
+					<li>
+						<a href="<?php echo $linkk.'edit-account'; ?>"><?php _e('Perfil de usuarios'); ?> <i></i></a>
+					</li>
+					<li>
+						<a href="<?php echo $linkk.'edit-address'.'/billing'; ?>"><?php _e('Mi dirección'); ?> <i></i></a>
+					</li>
+					<li>
+						<a href="<?php echo $linkk.'edit-address'.'/shipping'; ?>"><?php _e('Mi dirección de facturación'); ?> <i></i></a>
+					</li>
+					<li>
+						<a href="<?php echo $linkk.'orders'; ?>"><?php _e('Historial de pedidos'); ?> <i></i></a>
+					</li>
+				</ul>
+			</nav>
+		
 <?php do_action( 'woocommerce_after_account_navigation' ); ?>

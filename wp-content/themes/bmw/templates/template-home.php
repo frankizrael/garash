@@ -21,7 +21,7 @@ get_template_part('partials/global/content', 'navbar');
                     <div class="x-caption">
                         <h1 class="title">BMW LIFESTYLE</h1>
                         <p class="info">
-                        La vida esta llena de aventuras, las posibilidades son infinitas, la libertad y el estilo no conoce límites.
+                            La vida esta llena de aventuras, las posibilidades son infinitas, la libertad y el estilo no conoce límites.
                         </p>
                         <a href="/" class="button button-primary">BMW Sale</a>
                     </div>
@@ -32,7 +32,7 @@ get_template_part('partials/global/content', 'navbar');
         ?>
 
     </ul>
-   
+
 </section>
 
 <section class="sectionCategories">
@@ -87,13 +87,10 @@ get_template_part('partials/global/content', 'navbar');
                                             </div>
                                             <div class="icon">
                                                 <i>
-                                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 492.004 492.004" style="enable-background:new 0 0 492.004 492.004;" xml:space="preserve">
-                                                        <g>
-
-                                                            <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12
-                                                        c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028
-                                                        c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265
-                                                        c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z" />
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="10.607" height="16.971" viewBox="0 0 10.607 16.971">
+                                                        <g transform="translate(-6.364 8.485) rotate(-45)">
+                                                            <rect width="12" height="3" transform="translate(12 12) rotate(180)" />
+                                                            <rect width="12" height="3" transform="translate(9 12) rotate(-90)" />
                                                         </g>
                                                     </svg>
                                                 </i>
@@ -120,9 +117,23 @@ get_template_part('partials/global/content', 'navbar');
 <section class="sectionProducts woocommerceProducts">
     <div class="sectionProducts__content x-container">
         <h3 class="title">Productos destacados</h1>
-            <p class="ifo">
-                Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in.
-            </p>
+            <div class="info-sp">
+                <p class="info">
+                    Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in.
+                </p>
+                <a href="">
+                    <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10.607" height="16.971" viewBox="0 0 10.607 16.971">
+                            <g transform="translate(-6.364 8.485) rotate(-45)">
+                                <rect width="12" height="3" transform="translate(12 12) rotate(180)"></rect>
+                                <rect width="12" height="3" transform="translate(9 12) rotate(-90)"></rect>
+                            </g>
+                        </svg>
+                    </i>
+                    Ver todas las ofertas
+                </a>
+            </div>
+
             <div class="slider">
                 <?php
                 echo do_shortcode('[products limit="6" columns="6" orderby="popularity" class="quick-sale" ]');
@@ -134,52 +145,49 @@ get_template_part('partials/global/content', 'navbar');
 
 <section class="SectionOffers">
     <div class="SectionOffers__content x-container">
-        <div class="left">
-            <div class="title">
-                BMW <br /> Christmas Sale
-            </div>
-            <a href="">
-                <i>
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 492.004 492.004" style="enable-background:new 0 0 492.004 492.004;" xml:space="preserve">
-                        <g>
-
-                            <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12
-                        c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028
-                        c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265
-                        c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path>
-                        </g>
-                    </svg>
-                </i>
-                Ver ofertas
-            </a>
-            <figure>
-                <img src="<?php echo get_template_directory_uri() ?>/assets/car.png" alt="">
-            </figure>
-            <div class="not">-15%</div>
-        </div>
-        <div class="right">
-            <div class="title">
-                BMW LIFESTYLE <br /> Accesorios
-            </div>
-            <a href="">
-                <i>
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 492.004 492.004" style="enable-background:new 0 0 492.004 492.004;" xml:space="preserve">
-                        <g>
-
-                            <path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12
-                        c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028
-                        c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265
-                        c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"></path>
-                        </g>
-                    </svg>
-                </i>
-                Ver ofertas
-            </a>
-            <figure>
-                <img src="<?php echo get_template_directory_uri() ?>/assets/reloj.png" alt="">
-            </figure>
-            <div class="not">-15%</div>
-        </div>
+        <ul class="list">
+            <li>
+                <div class="title">
+                    BMW <br /> Christmas Sale
+                </div>
+                <a href="">
+                    <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10.607" height="16.971" viewBox="0 0 10.607 16.971">
+                            <g transform="translate(-6.364 8.485) rotate(-45)">
+                                <rect width="12" height="3" transform="translate(12 12) rotate(180)" />
+                                <rect width="12" height="3" transform="translate(9 12) rotate(-90)" />
+                            </g>
+                        </svg>
+                    </i>
+                    Ver ofertas
+                </a>
+                <figure>
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/carro.png" alt="">
+                </figure>
+                <div class="not">-15%</div>
+            </li>
+            <li>
+                <div class="title">
+                    BMW LIFESTYLE <br /> Accesorios
+                </div>
+                <a href="">
+                    <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10.607" height="16.971" viewBox="0 0 10.607 16.971">
+                            <g transform="translate(-6.364 8.485) rotate(-45)">
+                                <rect width="12" height="3" transform="translate(12 12) rotate(180)" />
+                                <rect width="12" height="3" transform="translate(9 12) rotate(-90)" />
+                            </g>
+                        </svg>
+                    </i>
+                    Ver ofertas
+                </a>
+                <figure>
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/reloj.png" alt="">
+                </figure>
+                <div class="not">-15%</div>
+            </li>
+        </ul>
+        <div class="x-pagination"></div>
     </div>
 </section>
 
@@ -187,9 +195,22 @@ get_template_part('partials/global/content', 'navbar');
 <section class="sectionProducts woocommerceProducts">
     <div class="sectionProducts__content x-container">
         <h3 class="title">BMW Sale</h1>
-            <p class="ifo">
-                Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in.
-            </p>
+            <div class="info-sp">
+                <p class="info">
+                    Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in.
+                </p>
+                <a href="">
+                    <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10.607" height="16.971" viewBox="0 0 10.607 16.971">
+                            <g transform="translate(-6.364 8.485) rotate(-45)">
+                                <rect width="12" height="3" transform="translate(12 12) rotate(180)"></rect>
+                                <rect width="12" height="3" transform="translate(9 12) rotate(-90)"></rect>
+                            </g>
+                        </svg>
+                    </i>
+                    Ver todas las ofertas
+                </a>
+            </div>
             <div class="slider">
                 <?php
                 echo do_shortcode('[products limit="6" columns="6" orderby="popularity" class="quick-sale" ]');

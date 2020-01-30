@@ -155,8 +155,8 @@
                         width: 16px;
                         height: 16px;
                         margin-right: 13px;
-                        path {
-                          fill: white;
+                        rect {
+                          fill: $blue;
                         }
                       }
                     }
@@ -213,10 +213,40 @@
       font-weight: 400;
       color: $black;
       margin-bottom: 10px;
+      @include rsp(apn) {
+        font-size: 25px;
+        margin-bottom: 21px;
+      }
     }
     .info {
       font-size: 15px;
       color: #666666;
+      @include rsp(apn) {
+        display: none;
+      }
+    }
+    .info-sp {
+      display: flex;
+      justify-content: space-between;
+      @include rsp(apn) {
+        flex-direction: column;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 15px;
+        i {
+          margin-right: 13px;
+          svg {
+            width: 15px;
+            height: 15px;
+            rect {
+              fill: $blue;
+            }
+          }
+        }
+      }
     }
   }
   .woocommerce {

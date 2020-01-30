@@ -28,6 +28,25 @@ $(".sectionProducts .products").slick({
   ]
 });
 
+$(".SectionOffers .list").slick({
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  dots: true,
+  arrows: false,
+  appendDots: ".SectionOffers .x-pagination",
+  infinite: false,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+      }
+    }
+  ]
+});
+
 $(".tabs .tab-item").map((key, val) => {
   const list = $(val).find("li");
   let total = 0;

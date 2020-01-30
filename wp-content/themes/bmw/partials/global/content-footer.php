@@ -1,27 +1,30 @@
 <footer class="footer">
     <div class="footer__content x-container">
         <div class="list">
-            <div class="list__item">
-                <div class="title">Servicio al cliente</div>
-                <ul>
-                    <li><a href="">Terminos y condiciones</a></li>
-                    <li><a href="">Cambios y devoluciones</a></li>
-                    <li><a href="">Tiempos y costos de envío</a></li>
-                    <li><a href="">Política de privacidad</a></li>
-                    <li><a href="">Preguntas frecuentes</a></li>
-                </ul>
+            <div class="group">
+                <div class="item">
+                    <div class="title">Servicio al cliente</div>
+                    <ul>
+                        <li><a href="">Terminos y condiciones</a></li>
+                        <li><a href="">Cambios y devoluciones</a></li>
+                        <li><a href="">Tiempos y costos de envío</a></li>
+                        <li><a href="">Política de privacidad</a></li>
+                        <li><a href="">Preguntas frecuentes</a></li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="title">Categorías</div>
+                    <ul>
+                        <li><a href="">Hombre</a></li>
+                        <li><a href="">Mujer</a></li>
+                        <li><a href="">Mundo niños</a></li>
+                        <li><a href="">Miniaturas & juguetes</a></li>
+                        <li><a href="">BMW Sale</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="list__item">
-                <div class="title">Categorías</div>
-                <ul>
-                    <li><a href="">Hombre</a></li>
-                    <li><a href="">Mujer</a></li>
-                    <li><a href="">Mundo niños</a></li>
-                    <li><a href="">Miniaturas & juguetes</a></li>
-                    <li><a href="">BMW Sale</a></li>
-                </ul>
-            </div>
-            <div class="list__item">
+
+            <div class="item block-social">
                 <div class="title">Redes sociales</div>
                 <div class="social">
                     <div class="social__item">
@@ -47,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="list__item">
+            <div class="item block-contact">
                 <div class="title">Contáctanos</div>
                 <a href="" class="phone">
                     (+51) 01 512 1515

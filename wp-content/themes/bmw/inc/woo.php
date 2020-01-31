@@ -145,18 +145,19 @@ function add_local_data_field($address_fields)
 
 
 
-add_filter( 'woocommerce_sale_flash', 'add_percentage_to_sale_badge', 20, 3 );
-function add_percentage_to_sale_badge( $html, $post, $product ) {
-    if( $product->is_type('variable')){
+add_filter('woocommerce_sale_flash', 'add_percentage_to_sale_badge', 20, 3);
+function add_percentage_to_sale_badge($html, $post, $product)
+{
+    if ($product->is_type('variable')) {
         $percentages = array();
 
         // Get all variation prices
         $prices = $product->get_variation_prices();
 
         // Loop through variation prices
-        foreach( $prices['price'] as $key => $price ){
+        foreach ($prices['price'] as $key => $price) {
             // Only on sale variations
-            if( $prices['regular_price'][$key] !== $price ){
+            if ($prices['regular_price'][$key] !== $price) {
                 // Calculate and set in the array the percentage for each variation on sale
                 $percentages[] = round(100 - ($prices['sale_price'][$key] / $prices['regular_price'][$key] * 100));
             }
@@ -169,7 +170,7 @@ function add_percentage_to_sale_badge( $html, $post, $product ) {
 
         $percentage    = round(100 - ($sale_price / $regular_price * 100)) . '%';
     }
-    return '<span class="onsale">' . esc_html__( '', 'woocommerce' ) . ' ' . $percentage . '</span>';
+    return '<span class="onsale">' . esc_html__('', 'woocommerce') . ' ' . $percentage . '</span>';
 }
 
 
@@ -181,4 +182,3 @@ function woocommerce_button_proceed_to_checkout()
 <?php
 }
 ?>
-

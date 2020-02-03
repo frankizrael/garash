@@ -27,12 +27,20 @@ window.onload = function() {
   }
 };
 
-$(".tabs ul li a").click(function() {
-  var position = $(this)
-    .parent()
-    .position();
+$(".tabs ul li a").click(function(e) {
+  e.preventDefault();
+  const _this = $(this);
+  var position = _this.parent().position();
   var width = $(this)
     .parent()
     .width();
   $(".tabs .line").css({ left: +position.left, width: width });
+
+  const id = _this.attr("id");
+  console.log(id);
+  $(".tabs .tab-item").removeClass("active");
+  const _itemId = $(`.tabs .tab-item#${id}`);
+  if (_itemId) {
+    _itemId.addClass("active");
+  }
 });

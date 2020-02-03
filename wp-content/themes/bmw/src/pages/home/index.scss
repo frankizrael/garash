@@ -117,6 +117,7 @@
               position: relative;
               transition: 1s all ease;
               cursor: pointer;
+              min-width: 280px;
               .overlay {
                 background: transparent linear-gradient(0deg, #000000 0%, #6e6e6e 100%) 0% 0% no-repeat padding-box;
                 opacity: 0.05;

@@ -6,6 +6,7 @@ $(".navbar .search, .menuMobile .search").on("click", function(e) {
   if (window.matchMedia("(max-width: 768px)").matches) {
     $(".navbar").addClass("is-active is-search");
     $(".bg").toggle();
+    $(".menuMobile").toggleClass("index");
   }
 });
 

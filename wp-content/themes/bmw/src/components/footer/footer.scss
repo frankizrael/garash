@@ -61,7 +61,7 @@
             svg {
               width: 20px;
               height: 20px;
-              path  {
+              path {
                 fill: $black;
               }
             }
@@ -199,6 +199,9 @@
   z-index: 3;
   padding: 30px;
   display: none;
+  &.index {
+    z-index: 1;
+  }
   .main {
     display: flex;
     flex-direction: column;

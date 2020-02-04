@@ -1,4 +1,3 @@
-
 .slick-dots {
   position: absolute;
   bottom: -25px;
@@ -46,16 +45,15 @@
     &.slick-active button:before {
       opacity: 1;
       color: black;
-      background: #1c69d4;
+      background: $blue;
     }
   }
 }
 
-
 .tabs {
   &__links {
     position: relative;
-    border-bottom: 1px solid #e6e6e6;
+    border-bottom: 1px solid $gray-5;
     @include rsp(apn) {
       display: flex;
       overflow: auto;
@@ -76,7 +74,7 @@
         margin-right: 40px;
       }
       a {
-        color: #8e8e8e;
+        color: $gray-7;
         font-size: 14px;
         font-weight: 600;
         white-space: nowrap;
@@ -110,7 +108,6 @@
 .SectionOffers {
   &__content {
     .list {
-      
       li {
         background-color: #f2f2f2;
 
@@ -214,7 +211,7 @@
       content: "";
       -webkit-appearance: none;
       background-color: transparent;
-      border: 2px solid #bbbbbb;
+      border: 2px solid $gray-4;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
       padding: 10px;
       display: inline-block;
@@ -284,7 +281,7 @@ form {
       display: block;
     }
     input {
-      border: solid 1px #bbbbbb;
+      border: solid 1px $gray-4;
       font-size: 14px;
       line-height: 18px;
       width: 100%;
@@ -297,7 +294,7 @@ form {
     }
 
     textarea {
-      border: solid 1px #bbbbbb;
+      border: solid 1px $gray-4;
       font-size: 14px;
       line-height: 18px;
       width: 100%;
@@ -339,7 +336,7 @@ form {
       background: url(/wp-content/themes/bmw/assets/down-arrow.svg) no-repeat;
     }
     select {
-      border: solid 1px #e6e6e6;
+      border: solid 1px $gray-5;
       font-size: 12px;
       line-height: 18px;
       width: 100%;
@@ -347,14 +344,14 @@ form {
       padding: 18px 30px 12px 11px;
       -webkit-appearance: none;
       transition: 0.3s;
-      color: #665c57;
+      color: $gray-8;
     }
   }
 }
 
 .bar {
   padding: 14.5px 0;
-  background-color: #f8f8f8;
+  background-color: $gray-6;
   .woocommerce-breadcrumb {
     margin: 0;
     color: $blue;
@@ -470,7 +467,7 @@ form {
   .product {
     height: 290px;
     background: #ffffff 0% 0% no-repeat padding-box;
-    border: 1px solid #e6e6e6;
+    border: 1px solid $gray-5;
     padding: 20px !important;
 
     a {
@@ -509,7 +506,7 @@ form {
         left: 0;
         right: 0;
         top: -8px;
-        background: #e6e6e6;
+        background: $gray-5;
         z-index: 1;
       }
     }
@@ -518,7 +515,7 @@ form {
     }
     del {
       .woocommerce-Price-amount {
-        color: #bbbbbb;
+        color: $gray-4;
         margin-right: 10px;
       }
     }
@@ -548,6 +545,9 @@ form {
 }
 .woocommerce-error {
   border-top-color: $red;
+  li {
+    color: $red;
+  }
 }
 .woocommerce button.button,
 .woocommerce button.button.alt {
@@ -599,7 +599,7 @@ form {
   }
   input {
     font-size: 20px;
-    border-bottom: 1px solid #8e8e8e;
+    border-bottom: 1px solid $gray-7;
     width: 50px;
   }
   .x-left,
@@ -608,7 +608,7 @@ form {
       width: 15px;
       height: 15px;
       path {
-        fill: #8e8e8e;
+        fill: $gray-7;
       }
     }
   }
@@ -669,17 +669,23 @@ form {
 .woocommerce form .form-row.woocommerce-validated .select2-container,
 .woocommerce form .form-row.woocommerce-validated input.input-text,
 .woocommerce form .form-row.woocommerce-validated select {
-  border-color: #bbbbbb !important;
+  border-color: $gray-4 !important;
 }
 
 .checkout.woocommerce-checkout {
   #customer_details {
     max-width: 70%;
     flex: 1 1 100%;
+    @include rsp(apn) {
+      max-width: 100%;
+    }
   }
   .woocommerce-checkout-review-order {
     max-width: 30%;
     flex: 1 1 100%;
+    @include rsp(apn) {
+      max-width: 100%;
+    }
   }
 
   .form-row.woocommerce-validated {
@@ -715,7 +721,7 @@ form {
     span {
       margin-left: 15px;
       font-size: 14px;
-      color: #bbbbbb;
+      color: $gray-4;
     }
   }
   label {
@@ -738,7 +744,7 @@ form {
       .right {
         width: 34px;
         height: 40px;
-        background-color: #8e8e8e;
+        background-color: $gray-7;
       }
     }
   }
@@ -848,4 +854,12 @@ form {
 .woocommerce ul.products li.product .onsale {
   top: 15px;
   right: 15px;
+}
+
+.woocommerce-message {
+  border-top-color: $blue !important;
+  color: $blue !important;
+  &:before {
+    color: $blue !important;
+  }
 }

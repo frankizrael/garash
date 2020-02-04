@@ -108,6 +108,7 @@
 }
 
 //pa mobile
+
 @include rsp(apn) {
   .woocommerce-page table.cart .product-thumbnail {
     display: block !important;

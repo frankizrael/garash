@@ -68,6 +68,15 @@ $(function() {
     }
   );
 
-
-  
+  $(".resumen-order__header .title").on("click", function(e) {
+    e.preventDefault();
+    $(".bg-resumen").toggleClass("opened");
+    $(".resumen-order").toggleClass("opened");
+    
+  });
+  $(".bg-resumen").on("click", function(e) {
+    e.preventDefault();
+    $(".bg-resumen").toggleClass("opened");
+    $(".resumen-order").toggleClass("opened");
+  });
 });

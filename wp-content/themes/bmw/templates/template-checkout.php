@@ -39,6 +39,9 @@ get_template_part('partials/global/content', 'navbar');
     </div>
 </section>
 
+
+
+
 <?php
 get_template_part('partials/global/content', 'footer');
 ?>

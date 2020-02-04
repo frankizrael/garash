@@ -1,3 +1,57 @@
+
+.slick-dots {
+  position: absolute;
+  bottom: -25px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  li {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0;
+    button {
+      font-size: 0;
+      line-height: 0;
+      display: block;
+      width: 10px;
+      height: 10px;
+      padding: 5px;
+      cursor: pointer;
+      color: transparent;
+      border: 0;
+      outline: none;
+      background: transparent;
+      &:before {
+        font-size: 6px;
+        line-height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        content: "•";
+        text-align: center;
+        opacity: 0.25;
+        color: black;
+        border-radius: 50%;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: #707070;
+      }
+    }
+    &.slick-active button:before {
+      opacity: 1;
+      color: black;
+      background: #1c69d4;
+    }
+  }
+}
+
+
 .tabs {
   &__links {
     position: relative;
@@ -56,9 +110,7 @@
 .SectionOffers {
   &__content {
     .list {
-      .slick-slide:not(:last-child) {
-        margin-right: 10px;
-      }
+      
       li {
         background-color: #f2f2f2;
 
@@ -287,7 +339,7 @@ form {
       background: url(/wp-content/themes/bmw/assets/down-arrow.svg) no-repeat;
     }
     select {
-      border: solid 1px #bbbbbb;
+      border: solid 1px #e6e6e6;
       font-size: 12px;
       line-height: 18px;
       width: 100%;
@@ -730,13 +782,25 @@ form {
   .woocommerce-product-gallery {
     display: flex;
     flex-direction: row-reverse;
+    @include rsp(apn) {
+      flex-direction: column;
+    }
     .flex-viewport {
       max-width: 85%;
       flex: 1 1 100%;
+      @include rsp(apn) {
+        max-width: 100%;
+        flex: none;
+      }
     }
     .flex-control-nav {
       max-width: 15%;
       flex: 1 1 100%;
+      @include rsp(apn) {
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+      }
       .slick-prev,
       .slick-next {
         cursor: pointer;
@@ -750,10 +814,18 @@ form {
       .slick-prev {
         background: url(/wp-content/themes/bmw/assets/up.svg) no-repeat;
         margin-bottom: 32px;
+        @include rsp(apn) {
+          margin-bottom: 0;
+          transform: rotate(-90deg);
+        }
       }
       .slick-next {
         background: url(/wp-content/themes/bmw/assets/down.svg) no-repeat;
         margin-top: 32px;
+        @include rsp(apn) {
+          margin-top: 0;
+          transform: rotate(-90deg);
+        }
       }
 
       .slick-list {

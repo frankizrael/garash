@@ -4,6 +4,9 @@
   right: 0;
   top: 0;
   z-index: 3;
+  &.index {
+    z-index: 1;;
+  }
   .button-menu {
     border: none;
     background-color: transparent;

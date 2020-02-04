@@ -1,6 +1,24 @@
 import "./index.scss";
 import "slick-carousel";
 
+$(".related.products ul.products").slick({
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  dots: true,
+  arrows: false,
+  infinite: false,
+  appendDots: ".related.products .x-dots",
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1.3,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+
 $(function($) {
   $(".sidebar .widget").on("click", ".widget-title", function(e) {
     e.preventDefault();
@@ -29,29 +47,6 @@ $(function($) {
       .slideToggle();
   });
 
-  $(
-    ".singleProduct .quantity"
-  ).append(`<a class="btnQuantity x-right" href='javascript:void(0)' data-symbol="+">
-  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
- 		<path d="M492,236H276V20c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20v216H20c-11.046,0-20,8.954-20,20s8.954,20,20,20h216
-			v216c0,11.046,8.954,20,20,20s20-8.954,20-20V276h216c11.046,0,20-8.954,20-20C512,244.954,503.046,236,492,236z"/>
- 
-</svg>
-  </a>`);
-
-  $(
-    ".singleProduct .quantity"
-  ).prepend(`<a class="btnQuantity x-left" href='javascript:void(0)' data-symbol="-">
-   
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
- 		<path d="M492,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h472c11.046,0,20-8.954,20-20S503.046,236,492,236z"/>
-
-</svg>
-
-  </a>`);
-
   $(".singleProduct").on("click", ".btnQuantity", function(e) {
     e.preventDefault();
     const _this = $(this);
@@ -75,6 +70,37 @@ $(function($) {
   });
 });
 
+$(".button-filter").on("click", function(e) {
+  e.preventDefault();
+  $(".sidebar").toggleClass("opened");
+  $(".navbar").toggleClass("index");
+});
+
+$(".button-close").on("click", function(e) {
+  e.preventDefault();
+  $(".sidebar").toggleClass("opened");
+  $(".navbar").toggleClass("index");
+});
+
+$(".SectionOffers .list").slick({
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  dots: true,
+  arrows: false,
+  appendDots: ".SectionOffers .x-pagination",
+  infinite: false,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true
+      }
+    }
+  ]
+});
+
 document.addEventListener(
   "DOMContentLoaded",
   () => {
@@ -83,7 +109,17 @@ document.addEventListener(
       slidesToScroll: 4,
       dots: false,
       arrows: true,
-      vertical: true
+      vertical: true,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            vertical: false,
+            slidesToShow: 3,
+            slidesToScroll: 3
+          }
+        }
+      ]
     });
   },
   false

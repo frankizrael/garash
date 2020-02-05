@@ -78,11 +78,12 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 										$actions = wc_get_account_orders_actions( $order );
 
 										if ( ! empty( $actions ) ) {
-											foreach ( $actions as $key => $action ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
-												echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button button ' . sanitize_html_class( $key ) . '">' . esc_html( 'Ver pedido') . '</a>';
+											foreach ( $actions as $key => $action ) { 
+												$urlButton = esc_url( $action['url'] );
 											}
 										}
 										?>
+										<a href="<?php echo $urlButton; ?>" class="woocommerce-button button "><?php echo esc_html( 'Ver pedido'); ?></a>
 									<?php endif; ?>
 								</div>
 							<?php endforeach; ?>

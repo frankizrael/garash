@@ -85,32 +85,32 @@
         &.active {
           border: 1px solid $blue;
         }
-        .logo {
-          img {
-            width: 102px;
-            height: 100px;
-            border: none !important;
-            object-fit: contain;
-          }
-          max-width: 20%;
+        .left {
+          display: flex;
+          max-width: 60%;
           flex: 1 1 100%;
+          .logo {
+            img {
+              width: 102px;
+              height: 100px;
+              border: none !important;
+              object-fit: contain;
+            }
+          }
+          .address {
+            margin-left: 30px;
+            .title {
+              font-size: 14px;
+              color: $black;
+              font-weight: $bold;
+              margin-bottom: 10px;
+            }
+            .name {
+              margin-bottom: 10px;
+            }
+          }
         }
-        .address {
-          margin: 0 10px;
-          .title {
-            font-size: 14px;
-            color: $black;
-            font-weight: $bold;
-            margin-bottom: 10px;
-          }
-          max-width: 40%;
-          flex: 1 1 100%;
-          .name {
-            margin-bottom: 10px;
-          }
-          .schedule {
-          }
-        }
+
         .control {
           max-width: 40%;
           flex: 1 1 100%;
@@ -223,6 +223,7 @@
         .shop_table.woocommerce-checkout-review-order-table {
           border: none !important;
           margin: 0 !important;
+          color: red;
         }
         table.shop_table td {
           margin: 0 !important;
@@ -296,6 +297,24 @@
   .button {
     &:hover {
       color: white !important;
+    }
+  }
+}
+#custom_checkout_field {
+  display: none;
+}
+.woocommerce-shipping-totals.shipping {
+  display: none;
+}
+
+.shop_table.woocommerce-checkout-review-order-table {
+  tfoot {
+    .cart-subtotal {
+      display: none;
+    }
+    th,
+    td {
+      border: none !important;
     }
   }
 }

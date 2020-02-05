@@ -20,6 +20,29 @@
 defined('ABSPATH') || exit;
 ?>
 
+
+<div class="woocommerce-additional-fields">
+	<?php do_action('woocommerce_before_order_notes', $checkout); ?>
+
+	<?php if (apply_filters('woocommerce_enable_order_notes_field', 'yes' === get_option('woocommerce_enable_order_comments', 'yes'))) : ?>
+
+		<?php if (!WC()->cart->needs_shipping() || wc_ship_to_billing_address_only()) : ?>
+
+			<h3><?php esc_html_e('Additional information', 'woocommerce'); ?></h3>
+
+		<?php endif; ?>
+
+		<div class="woocommerce-additional-fields__field-wrapper">
+			<?php foreach ($checkout->get_checkout_fields('order') as $key => $field) : ?>
+				<?php woocommerce_form_field($key, $field, $checkout->get_value($key)); ?>
+			<?php endforeach; ?>
+		</div>
+
+	<?php endif; ?>
+
+	<?php do_action('woocommerce_after_order_notes', $checkout); ?>
+</div>
+
 <div class="sectionOffice">
 	<div class="sectionOffice__header">
 		<div class="title-fact">Elige tus opciones de despacho</div>
@@ -29,38 +52,46 @@ defined('ABSPATH') || exit;
 			<ul class="tabs__links">
 				<div class="line"></div>
 				<li class="active">
-					<a href="javascript:void(0)">Retira tu compra</a>
+					<a href="javascript:void(0)" data-index="one" id="shipping_method_0_local_pickup6">Retira tu compra</a>
 				</li>
 				<li>
-					<a href="javascript:void(0)">Despacho a domicilio</a>
+					<a href="javascript:void(0)" data-index="two" id="shipping_method_0_flat_rate7">Despacho a domicilio</a>
 				</li>
 			</ul>
 			<div class="tabs__content">
 				<?php
-				for ($i = 0; $i < 5; $i++) {
+				if (have_rows('store_list_option', 'option')) :
+					while (have_rows('store_list_option', 'option')) : the_row();
+						$name = get_sub_field('store_list_option_name');
+						$address = get_sub_field('store_list_option_address');
+						$schedule = get_sub_field('store_list_option_schedule');
 				?>
-					<!-- Item 1 -->
-					<div class="tab-item <?php echo $i === 0 ? 'active' : '' ?>">
-						<div class="logo">
-							<img src="<?php echo get_template_directory_uri() . '/assets/logo-bww.png' ?>" alt="">
-						</div>
-						<div class="address">
-							<div class="title">BMW LifeStyle Surco</div>
-							<div class="name">
-								<p>Av. EL polo 1117</p>
-								<p>Surco LIMA, 33</p>
+						<!-- Item 1 -->
+						<div class="tab-item">
+							<div class="left">
+								<div class="logo">
+									<img src="<?php echo get_template_directory_uri() . '/assets/logo-bww.png' ?>" alt="">
+								</div>
+								<div class="address">
+									<div class="title"><?php echo $name; ?></div>
+									<div class="name">
+										<p><?php echo $address; ?> </p>
+
+									</div>
+									<div class="schedule">
+										<p>Horario de atención:</p>
+										<p><?php echo $schedule; ?></p>
+									</div>
+								</div>
 							</div>
-							<div class="schedule">
-								<p>Horario de atención:</p>
-								<p>9:00 am - 1:00 pm</p>
+							<div class="control">
+								<a href="javascript:void(0)" data-name="<?php echo $name; ?>">Seleccionar</a>
 							</div>
 						</div>
-						<div class="control">
-							<a href="javascript:void(0)">Seleccionar</a>
-						</div>
-					</div>
-					<!-- /Item 1 -->
-				<?php } ?>
+						<!-- /Item 1 -->
+				<?php endwhile;
+				endif;
+				?>
 			</div>
 		</div>
 	</div>
@@ -102,27 +133,4 @@ defined('ABSPATH') || exit;
 		</div>
 
 	<?php endif; ?>
-</div>
-
-
-<div class="woocommerce-additional-fields">
-	<?php do_action('woocommerce_before_order_notes', $checkout); ?>
-
-	<?php if (apply_filters('woocommerce_enable_order_notes_field', 'yes' === get_option('woocommerce_enable_order_comments', 'yes'))) : ?>
-
-		<?php if (!WC()->cart->needs_shipping() || wc_ship_to_billing_address_only()) : ?>
-
-			<h3><?php esc_html_e('Additional information', 'woocommerce'); ?></h3>
-
-		<?php endif; ?>
-
-		<div class="woocommerce-additional-fields__field-wrapper">
-			<?php foreach ($checkout->get_checkout_fields('order') as $key => $field) : ?>
-				<?php woocommerce_form_field($key, $field, $checkout->get_value($key)); ?>
-			<?php endforeach; ?>
-		</div>
-
-	<?php endif; ?>
-
-	<?php do_action('woocommerce_after_order_notes', $checkout); ?>
 </div>

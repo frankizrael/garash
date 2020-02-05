@@ -115,3 +115,4 @@ add_action('init', 'custom_menus');
 
 
 
+add_filter('acf/settings/remove_wp_meta_box', '__return_false');

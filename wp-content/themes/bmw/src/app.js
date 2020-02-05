@@ -37,10 +37,21 @@ $(".tabs ul li a").click(function(e) {
   $(".tabs .line").css({ left: +position.left, width: width });
 
   const id = _this.attr("id");
-  console.log(id);
   $(".tabs .tab-item").removeClass("active");
   const _itemId = $(`.tabs .tab-item#${id}`);
   if (_itemId) {
     _itemId.addClass("active");
+  }
+  if (id) {
+    $("input#" + id).click();
+  }
+  const index = _this.data("index");
+  if (index) {
+    if (index === "one") {
+      $("#custom_field_name").val("");
+    }
+    if (index === "two") {
+      $("#custom_field_name").val("-");
+    }
   }
 });

@@ -58,3 +58,6 @@ $(".tabs .tab-item").map((key, val) => {
     .find(".lists")
     .css("width", total + "px");
 });
+
+
+ 

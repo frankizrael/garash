@@ -1,5 +1,4 @@
 .sectionStore {
-  position: relative;
   margin-top: 100px;
   @include rsp(apn) {
     margin-top: 60px;
@@ -11,6 +10,7 @@
     padding: 30px 0;
     @include rsp(apn) {
       padding: 40px 15px;
+      position: static;
     }
     .button-filter {
       border: 1px solid $gray-5;
@@ -189,12 +189,26 @@
         flex-direction: column;
         .woocommerce-variation-add-to-cart {
           display: flex;
+          @include rsp(apn) {
+            position: fixed;
+            background-color: white;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 3;
+          }
         }
         .woocommerce-variation {
           margin-bottom: 30px;
         }
         .woocommerce-variation-price {
           margin-bottom: 10px;
+        }
+      }
+      div.product form.cart .button {
+        @include rsp(apn) {
+          background-image: none !important;
+          border-radius: 0;
         }
       }
     }
@@ -398,5 +412,14 @@
     @include rsp(apn) {
       padding: 0;
     }
+  }
+}
+
+div.quantity {
+  @include rsp(apn) {
+    border-top: 1px solid $gray-5;
+    margin: 0 !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 }

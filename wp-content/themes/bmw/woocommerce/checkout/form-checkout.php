@@ -57,9 +57,11 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 		</div>
 
 		<?php do_action('woocommerce_checkout_after_order_review'); ?>
-
-
 	</div>
+	<div class="MyButton">
+		<button type="submit" class="button">Proceder con el pago</button>
+	</div>
+
 
 </form>
 

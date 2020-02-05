@@ -130,6 +130,11 @@ function add_local_data_field($address_fields)
 }
 
 
+add_filter( 'woocommerce_order_button_text', 'bbloomer_rename_place_order_button', 9999 );
+  
+function bbloomer_rename_place_order_button() {
+   return 'Proceder con el pago'; 
+}
 
 
 add_filter('woocommerce_sale_flash', 'add_percentage_to_sale_badge', 20, 3);

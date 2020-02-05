@@ -112,61 +112,64 @@ defined('ABSPATH') || exit;
 		</tfoot>
 	</table>
 </div>
-<div class="bg-resumen"></div>
-<div class="resumen-order">
-	<div class="main">
-		<div class="resumen-order__header">
-			<h4 class="title">Resumen de tu orden</h4>
-			<p class="subtitle">Detalle de tu compra</p>
-		</div>
-		<div class="resumen-order__content">
-			<main>
-				<div class="content">
-					<table class="shop_table woocommerce-checkout-review-order-table">
-						<tbody>
-							<?php
-							do_action('woocommerce_review_order_before_cart_contents');
+<?php if (wp_is_mobile()) : ?>
+	<div class="bg-resumen"></div>
+	<div class="resumen-order">
+		<div class="main">
+			<div class="resumen-order__header">
+				<h4 class="title">Resumen de tu orden</h4>
+				<p class="subtitle">Detalle de tu compra</p>
+			</div>
+			<div class="resumen-order__content">
+				<main>
+					<div class="content">
+						<table class="shop_table woocommerce-checkout-review-order-table">
+							<tbody>
+								<?php
+								do_action('woocommerce_review_order_before_cart_contents');
 
-							foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-								$_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
-								$thumb = get_the_post_thumbnail($cart_item['data']->id, array(32, 50));
-								if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key)) {
-							?>
-									<tr class="<?php echo esc_attr(apply_filters('woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key)); ?>">
-										<td class="product-image">
-											<?php echo $thumb; ?>
-										</td>
-										<td class="product-name">
-											<?php echo apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key) . '&nbsp;'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-											?>
-											<?php echo apply_filters('woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . '</strong>', $cart_item, $cart_item_key); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-											?>
-											<?php echo wc_get_formatted_cart_item_data($cart_item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-											?>
-											<?php echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-											?>
-										</td>
-									</tr>
-										
+								foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+									$_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+									$thumb = get_the_post_thumbnail($cart_item['data']->id, array(32, 50));
+									if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key)) {
+								?>
+										<tr class="<?php echo esc_attr(apply_filters('woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key)); ?>">
+											<td class="product-image">
+												<?php echo $thumb; ?>
+											</td>
+											<td class="product-name">
+												<?php echo apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key) . '&nbsp;'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+												?>
+												<?php echo apply_filters('woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . '</strong>', $cart_item, $cart_item_key); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+												?>
+												<?php echo wc_get_formatted_cart_item_data($cart_item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+												?>
+												<?php echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+												?>
+											</td>
+										</tr>
 
-							<?php
+
+								<?php
+									}
 								}
-							}
 
-							do_action('woocommerce_review_order_after_cart_contents');
-							?>
-						</tbody>
-					</table>
-				</div>
-				<div class="info">
-					<div class="amount">
-						<?php esc_html_e('Monto final a pagar', 'woocommerce'); ?>
+								do_action('woocommerce_review_order_after_cart_contents');
+								?>
+							</tbody>
+						</table>
 					</div>
-					<div class="total">
-						<?php wc_cart_totals_order_total_html(); ?>
+					<div class="info">
+						<div class="amount">
+							<?php esc_html_e('Monto final a pagar', 'woocommerce'); ?>
+						</div>
+						<div class="total">
+							<?php wc_cart_totals_order_total_html(); ?>
+						</div>
 					</div>
-				</div>
+			</div>
 		</div>
 	</div>
-</div>
-</div>
+	</div>
+
+<?php endif ?>

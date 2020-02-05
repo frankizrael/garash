@@ -60,6 +60,7 @@ do_action( 'woocommerce_before_account_navigation' );
 						<a href="<?php echo $linkk.'orders'; ?>"><?php _e('Historial de pedidos'); ?> <i></i></a>
 					</li>
 				</ul>
+				<div class="woocommerceCloseMenu"></div>
 			</nav>
 		
 <?php do_action( 'woocommerce_after_account_navigation' ); ?>

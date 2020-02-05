@@ -42,65 +42,89 @@ if ( $show_downloads ) {
 <section class="woocommerce-order-details">
 	<?php do_action( 'woocommerce_order_details_before_order_table', $order ); ?>
 
-	<h2 class="woocommerce-order-details__title"><?php esc_html_e( 'Order details', 'woocommerce' ); ?></h2>
-
-	<table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
-
-		<thead>
-			<tr>
-				<th class="woocommerce-table__product-name product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="woocommerce-table__product-table product-total"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<?php
-			do_action( 'woocommerce_order_details_before_order_table_items', $order );
-
-			foreach ( $order_items as $item_id => $item ) {
-				$product = $item->get_product();
-
-				wc_get_template(
-					'order/order-details-item.php',
-					array(
-						'order'              => $order,
-						'item_id'            => $item_id,
-						'item'               => $item,
-						'show_purchase_note' => $show_purchase_note,
-						'purchase_note'      => $product ? $product->get_purchase_note() : '',
-						'product'            => $product,
-					)
+	<div class="formAccount">
+		<div class="formAccount__title">
+			<h1><?php esc_html_e( 'Resumen de tu pedido', 'woocommerce' ); ?></h1>
+			<p>
+				<?php
+				printf(
+					/* translators: 1: order number 2: order date 3: order status */
+					esc_html__( 'Orden #%1$s realizada el %2$s en estado de %3$s.', 'woocommerce' ),
+					'<mark class="order-number">' . $order->get_order_number() . '</mark>', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					'<mark class="order-date">' . wc_format_datetime( $order->get_date_created() ) . '</mark>', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					'<mark class="order-status">' . wc_get_order_status_name( $order->get_status() ) . '</mark>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
-			}
-
-			do_action( 'woocommerce_order_details_after_order_table_items', $order );
-			?>
-		</tbody>
-
-		<tfoot>
-			<?php
-			foreach ( $order->get_order_item_totals() as $key => $total ) {
 				?>
-					<tr>
-						<th scope="row"><?php echo esc_html( $total['label'] ); ?></th>
-						<td><?php echo ( 'payment_method' === $key ) ? esc_html( $total['value'] ) : wp_kses_post( $total['value'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></td>
-					</tr>
+			</p>
+		</div>
+		<div class="formAccount__form contractFieldContent">
+			<div class="flexAccount">
+				<div class="flexAccount__left">		
 					<?php
-			}
-			?>
-			<?php if ( $order->get_customer_note() ) : ?>
-				<tr>
-					<th><?php esc_html_e( 'Note:', 'woocommerce' ); ?></th>
-					<td><?php echo wp_kses_post( nl2br( wptexturize( $order->get_customer_note() ) ) ); ?></td>
-				</tr>
-			<?php endif; ?>
-		</tfoot>
-	</table>
+						if ( $show_customer_details ) {
+							wc_get_template( 'order/order-details-customer.php', array( 'order' => $order ) );
+						}
+					?>		
+				</div>
+				<div class="flexAccount__left">			
+					<table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
 
-	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
+						<thead>
+							<tr>
+								<th class="woocommerce-table__product-name product-name"><?php esc_html_e( 'Producto', 'woocommerce' ); ?></th>
+								<th class="woocommerce-table__product-table product-total"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<?php
+							do_action( 'woocommerce_order_details_before_order_table_items', $order );
+
+							foreach ( $order_items as $item_id => $item ) {
+								$product = $item->get_product();
+
+								wc_get_template(
+									'order/order-details-item.php',
+									array(
+										'order'              => $order,
+										'item_id'            => $item_id,
+										'item'               => $item,
+										'show_purchase_note' => $show_purchase_note,
+										'purchase_note'      => $product ? $product->get_purchase_note() : '',
+										'product'            => $product,
+									)
+								);
+							}
+
+							do_action( 'woocommerce_order_details_after_order_table_items', $order );
+							?>
+						</tbody>
+
+						<tfoot>
+							<?php
+							foreach ( $order->get_order_item_totals() as $key => $total ) {
+								?>
+									<tr>
+										<th scope="row"><?php echo esc_html( $total['label'] ); ?></th>
+										<td><?php echo ( 'payment_method' === $key ) ? esc_html( $total['value'] ) : wp_kses_post( $total['value'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></td>
+									</tr>
+									<?php
+							}
+							?>
+							<?php if ( $order->get_customer_note() ) : ?>
+								<tr>
+									<th><?php esc_html_e( 'Note:', 'woocommerce' ); ?></th>
+									<td><?php echo wp_kses_post( nl2br( wptexturize( $order->get_customer_note() ) ) ); ?></td>
+								</tr>
+							<?php endif; ?>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+		<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>	
+	</div>	
 </section>
 
 <?php
-if ( $show_customer_details ) {
-	wc_get_template( 'order/order-details-customer.php', array( 'order' => $order ) );
-}
+

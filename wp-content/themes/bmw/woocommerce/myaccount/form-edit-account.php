@@ -76,6 +76,9 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 					<a href="javascript:void(0)" class="btnChangeInput btn btnWhite" data="#names">
 						<?php esc_html_e( 'Cambiar', 'woocommerce' ); ?>
 					</a>
+					<a href="javascript:void(0)" class="btnSubmit btn btnWhite btnSave" style="display: none;">
+						<?php esc_html_e( 'Guardar', 'woocommerce' ); ?>
+					</a>
 				</div>
 			</div>
 			<div class="formAccount__form__input">

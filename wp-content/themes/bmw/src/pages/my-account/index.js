@@ -43,7 +43,38 @@ $('.btnWhite').on('click',function(){
 $('.myModal__content__close').on('click',function(){
   $('.myModal').removeClass('active');
 });
+//changeInput
+$('.btnChangeInput').on('click',function(){
+  $('.editInput__emisor').toggle();
+  $('.editInput__recept').toggle();
+  $('.btnChangeInput').toggle();
+  $('.btnSave').toggle();
+});
+$('.formAccount__title .btnWhite').on('click',function(){
+  $('.editInput__emisor').toggle();
+  $('.editInput__recept').toggle();
+  $('.btnChangeInput').toggle();
+  $('.btnSave').toggle();
+});
 //submit
 $('.btnSubmit').on('click',function(){
   $('#buttonForm').trigger('click');
 });
+//validationcheckout billing
+
+//
+$('#contractField').on('click',function(){
+  $('.contractFieldContent').toggleClass('active');
+});
+
+var wid = $(window).width();
+if (wid < 1200) {
+  $('.woocommerce-MyAccount-flex .x-container .woocommerce-MyAccount-navigation li.active').on('click',function(e){
+    e.preventDefault();
+    $('.woocommerce-MyAccount-flex').addClass('menuActive');    
+  });
+  $('.woocommerceCloseMenu').on('click',function(){
+    $('.woocommerce-MyAccount-flex').removeClass('menuActive');
+  });
+  $('.contractFieldContent').addClass('active');
+}

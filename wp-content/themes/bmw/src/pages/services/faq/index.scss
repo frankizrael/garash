@@ -2,7 +2,7 @@
   &__header {
     .title {
       font-size: 35px;
-      color: #bbbbbb;
+      color: $gray-4;
       text-transform: uppercase;
       margin-bottom: 30px;
     }
@@ -10,9 +10,9 @@
   &__content {
     .list {
       &__item {
-        border-top: 1px solid #e6e6e6;
+        border-top: 1px solid $gray-5;
         &:not(:first-child) {
-          border-bottom: 1px solid #e6e6e6;
+          border-bottom: 1px solid $gray-5;
         }
         display: block;
         .title {

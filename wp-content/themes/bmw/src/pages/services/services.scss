@@ -12,12 +12,12 @@
           &__item {
             width: 100%;
             &:not(:last-child) {
-              border-bottom: 1px solid #e6e6e6;
+              border-bottom: 1px solid $gray-5;
             }
             a {
               padding: 20px 0;
               display: block;
-              color: #8e8e8e;
+              color: $gray-7;
               position: relative;
               font-weight: $medium;
               &.active {

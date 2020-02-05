@@ -68,6 +68,35 @@ $(function() {
     }
   );
 
+  $(".resumen-order__header .title").on("click", function(e) {
+    e.preventDefault();
+    $(".bg-resumen").toggleClass("opened");
+    $(".resumen-order").toggleClass("opened");
+  });
+  $(".bg-resumen").on("click", function(e) {
+    e.preventDefault();
+    $(".bg-resumen").toggleClass("opened");
+    $(".resumen-order").toggleClass("opened");
+  });
+});
 
-  
+window.onload = () => {
+  setTimeout(() => {
+    const link = $(".tabs ul li a").get(0);
+    if (link) {
+      link.click();
+    }
+  }, 1000);
+};
+
+$(".tabs").on("click", ".control a", function(e) {
+  e.preventDefault();
+  const _this = $(this);
+  const name = _this.data("name");
+  $("#custom_field_name").val(name);
+  $(".tabs .tab-item").removeClass("active");
+  _this
+    .parent()
+    .parent()
+    .addClass("active");
 });

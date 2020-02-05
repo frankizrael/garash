@@ -1,5 +1,8 @@
 import "./index.scss";
 import "slick-carousel";
+import utils from "../../helpers/utils";
+
+utils.initHeight();
 
 $(".sliderHome .slider").slick({
   slidesToShow: 1,
@@ -12,6 +15,49 @@ $(".sectionProducts .products").slick({
   slidesToShow: 4,
   slidesToScroll: 4,
   dots: true,
-  arrows: false
+  arrows: false,
+  infinite: false,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1.3,
+        slidesToScroll: 1
+      }
+    }
+  ]
 });
 
+$(".SectionOffers .list").slick({
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  dots: true,
+  arrows: false,
+  appendDots: ".SectionOffers .x-pagination",
+  infinite: false,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+      }
+    }
+  ]
+});
+
+$(".tabs .tab-item").map((key, val) => {
+  const list = $(val).find("li");
+  let total = 0;
+  list.map((k, v) => {
+    total += 280.25;
+  });
+  total += 10 * list.length;
+  $(val)
+    .find(".lists")
+    .css("width", total + "px");
+});
+
+
+ 

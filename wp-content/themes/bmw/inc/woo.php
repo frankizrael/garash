@@ -51,19 +51,6 @@ function custom_override_checkout_fields($fields)
     return $fields;
 }
 
-function isa_woo_cart_attributes($cart_item, $cart_item_key)
-{
-    global $product;
-    if (is_cart()) {
-        echo "<style>#checkout_thumbnail{display:none;}</style>";
-    }
-    $item_data = $cart_item_key['data'];
-    $post = get_post($item_data->id);
-    $thumb = get_the_post_thumbnail($item_data->id, array(32, 50));
-    echo '<div id="checkout_thumbnail" style="float: left; padding-right: 8px">' . $thumb . '</div> ' . $post->post_title;
-}
-add_filter('woocommerce_cart_item_name', 'isa_woo_cart_attributes', 10, 2);
-
 
 add_filter('wc_add_to_cart_message', 'remove_add_to_cart_message');
 
@@ -125,22 +112,99 @@ function add_company_data_field($address_fields)
 
 
 
-add_filter('woocommerce_shipping_fields', 'add_local_data_field', 10, 1);
+add_filter('woocommerce_order_button_text', 'bbloomer_rename_place_order_button', 9999);
 
-function add_local_data_field($address_fields)
+function bbloomer_rename_place_order_button()
 {
-    if (!isset($address_fields['shipping_local'])) {
-        $address_fields['shipping_local'] = array(
-            'label'        => __('Local de envio', 'bmw'),
-            'required'     => true,
-            'class'        => array('form-row-wide'),
-            'autocomplete' => 'given-name',
-            'priority'     => 220,
-            'value'        => '',
-        );
-    }
-    return $address_fields;
+    return 'Proceder con el pago';
 }
+
+
+
+
+
+add_action('woocommerce_after_order_notes', 'custom_checkout_field');
+
+function custom_checkout_field($checkout)
+{
+    echo '<div id="custom_checkout_field">';
+    woocommerce_form_field(
+        'custom_field_name',
+        array(
+            'type' => 'text',
+            'required'     => true,
+            'class' => array(
+                'my-field-class form-row-wide'
+            ),
+            'label' => __('Local'),
+
+        ),
+        $checkout->get_value('custom_field_name')
+    );
+    echo '</div>';
+}
+
+
+add_action('woocommerce_checkout_process', 'customised_checkout_field_process');
+
+function customised_checkout_field_process()
+
+{
+
+    // Show an error message if the field is not set.
+
+    if (!$_POST['custom_field_name']) wc_add_notice(__('Please enter value!'), 'error');
+}
+
+
+/**
+
+ * Update the value given in custom field
+
+ */
+
+add_action('woocommerce_checkout_update_order_meta', 'custom_checkout_field_update_order_meta');
+
+function custom_checkout_field_update_order_meta($order_id)
+
+{
+
+    if (!empty($_POST['custom_field_name'])) {
+
+        update_post_meta($order_id, 'Local', sanitize_text_field($_POST['custom_field_name']));
+    }
+}
+
+
+
+add_filter('woocommerce_sale_flash', 'add_percentage_to_sale_badge', 20, 3);
+function add_percentage_to_sale_badge($html, $post, $product)
+{
+    if ($product->is_type('variable')) {
+        $percentages = array();
+
+        // Get all variation prices
+        $prices = $product->get_variation_prices();
+
+        // Loop through variation prices
+        foreach ($prices['price'] as $key => $price) {
+            // Only on sale variations
+            if ($prices['regular_price'][$key] !== $price) {
+                // Calculate and set in the array the percentage for each variation on sale
+                $percentages[] = round(100 - ($prices['sale_price'][$key] / $prices['regular_price'][$key] * 100));
+            }
+        }
+        // We keep the highest value
+        $percentage = max($percentages) . '%';
+    } else {
+        $regular_price = (float) $product->get_regular_price();
+        $sale_price    = (float) $product->get_sale_price();
+
+        $percentage    = round(100 - ($sale_price / $regular_price * 100)) . '%';
+    }
+    return '<span class="onsale">' . esc_html__('', 'woocommerce') . ' ' . $percentage . '</span>';
+}
+
 
 function woocommerce_button_proceed_to_checkout()
 {

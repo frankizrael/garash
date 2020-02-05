@@ -1,7 +1,63 @@
+.slick-dots {
+  position: absolute;
+  bottom: -25px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  li {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0;
+    button {
+      font-size: 0;
+      line-height: 0;
+      display: block;
+      width: 10px;
+      height: 10px;
+      padding: 5px;
+      cursor: pointer;
+      color: transparent;
+      border: 0;
+      outline: none;
+      background: transparent;
+      &:before {
+        font-size: 6px;
+        line-height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        content: "•";
+        text-align: center;
+        opacity: 0.25;
+        color: black;
+        border-radius: 50%;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: #707070;
+      }
+    }
+    &.slick-active button:before {
+      opacity: 1;
+      color: black;
+      background: $blue;
+    }
+  }
+}
+
 .tabs {
   &__links {
     position: relative;
-    border-bottom: 1px solid #e6e6e6;
+    border-bottom: 1px solid $gray-5;
+    @include rsp(apn) {
+      display: flex;
+      overflow: auto;
+    }
     .line {
       display: inline-block;
       width: 30px;
@@ -18,9 +74,10 @@
         margin-right: 40px;
       }
       a {
-        color: #8e8e8e;
+        color: $gray-7;
         font-size: 14px;
         font-weight: 600;
+        white-space: nowrap;
         position: relative;
         cursor: pointer;
         padding: 27px 0;
@@ -50,53 +107,83 @@
 }
 .SectionOffers {
   &__content {
-    display: flex;
-    justify-content: space-between;
-    padding: 30px 0;
-    > div {
-      background: #f2f2f2;
-      padding: 30px;
-      .title {
-        font-size: 25px;
-        color: $black;
-      }
-      figure {
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 1;
-      }
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      flex: 1 1 100%;
-      max-width: calc(50% - 5px);
-      height: 265px;
-      .not {
-        background: $red;
-        color: white;
-        position: absolute;
-        right: 0;
-        top: 30px;
-        z-index: 20;
-        font-size: 15px;
-        font-weight: bold;
-        padding: 4px 15px;
-      }
-      a {
+    .list {
+      li {
+        background-color: #f2f2f2;
+
+        .title {
+          font-size: 25px;
+          color: $black;
+          position: absolute;
+          top: 30px;
+          left: 30px;
+          z-index: 1;
+          @include rsp(apn) {
+            font-size: 18px;
+            top: 26px;
+            left: 26px;
+          }
+        }
+        figure {
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: 1;
+          @include rsp(apn) {
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80%;
+          }
+        }
+
         display: flex;
-        align-items: center;
-        font-weight: bold;
-        font-size: 15px;
-        i {
-          margin-right: 13px;
-          svg {
-            width: 15px;
-            height: 15px;
-            path {
-              fill: $blue;
+        position: relative;
+        flex: 1 1 100%;
+        width: 100%;
+        height: 265px;
+
+        .not {
+          background: $red;
+          color: white;
+          position: absolute;
+          right: 0;
+          top: 30px;
+          z-index: 20;
+          font-size: 15px;
+          font-weight: bold;
+          padding: 4px 15px;
+        }
+        a {
+          display: flex;
+          align-items: center;
+          font-weight: bold;
+          font-size: 15px;
+          position: absolute;
+          bottom: 30px;
+          left: 30px;
+          @include rsp(apn) {
+            bottom: 26px;
+            left: 26px;
+          }
+          i {
+            margin-right: 13px;
+
+            svg {
+              width: 15px;
+              height: 15px;
+              rect {
+                fill: $blue;
+              }
             }
+          }
+        }
+      }
+
+      .slick-list .slick-slide:last-child {
+        figure {
+          right: 70px;
+          @include rsp(apn) {
+            right: -150px;
           }
         }
       }
@@ -124,7 +211,7 @@
       content: "";
       -webkit-appearance: none;
       background-color: transparent;
-      border: 2px solid #bbbbbb;
+      border: 2px solid $gray-4;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
       padding: 10px;
       display: inline-block;
@@ -194,7 +281,7 @@ form {
       display: block;
     }
     input {
-      border: solid 1px #bbbbbb;
+      border: solid 1px $gray-4;
       font-size: 14px;
       line-height: 18px;
       width: 100%;
@@ -207,7 +294,7 @@ form {
     }
 
     textarea {
-      border: solid 1px #bbbbbb;
+      border: solid 1px $gray-4;
       font-size: 14px;
       line-height: 18px;
       width: 100%;
@@ -249,7 +336,7 @@ form {
       background: url(/wp-content/themes/bmw/assets/down-arrow.svg) no-repeat;
     }
     select {
-      border: solid 1px #bbbbbb;
+      border: solid 1px $gray-5;
       font-size: 12px;
       line-height: 18px;
       width: 100%;
@@ -257,14 +344,14 @@ form {
       padding: 18px 30px 12px 11px;
       -webkit-appearance: none;
       transition: 0.3s;
-      color: #665c57;
+      color: $gray-8;
     }
   }
 }
 
 .bar {
   padding: 14.5px 0;
-  background-color: #f8f8f8;
+  background-color: $gray-6;
   .woocommerce-breadcrumb {
     margin: 0;
     color: $blue;
@@ -380,7 +467,7 @@ form {
   .product {
     height: 290px;
     background: #ffffff 0% 0% no-repeat padding-box;
-    border: 1px solid #e6e6e6;
+    border: 1px solid $gray-5;
     padding: 20px !important;
 
     a {
@@ -419,7 +506,7 @@ form {
         left: 0;
         right: 0;
         top: -8px;
-        background: #e6e6e6;
+        background: $gray-5;
         z-index: 1;
       }
     }
@@ -428,7 +515,7 @@ form {
     }
     del {
       .woocommerce-Price-amount {
-        color: #bbbbbb;
+        color: $gray-4;
         margin-right: 10px;
       }
     }
@@ -458,6 +545,9 @@ form {
 }
 .woocommerce-error {
   border-top-color: $red;
+  li {
+    color: $red;
+  }
 }
 .woocommerce button.button,
 .woocommerce button.button.alt {
@@ -509,7 +599,7 @@ form {
   }
   input {
     font-size: 20px;
-    border-bottom: 1px solid #8e8e8e;
+    border-bottom: 1px solid $gray-7;
     width: 50px;
   }
   .x-left,
@@ -518,7 +608,7 @@ form {
       width: 15px;
       height: 15px;
       path {
-        fill: #8e8e8e;
+        fill: $gray-7;
       }
     }
   }
@@ -579,17 +669,23 @@ form {
 .woocommerce form .form-row.woocommerce-validated .select2-container,
 .woocommerce form .form-row.woocommerce-validated input.input-text,
 .woocommerce form .form-row.woocommerce-validated select {
-  border-color: #bbbbbb !important;
+  border-color: $gray-4 !important;
 }
 
 .checkout.woocommerce-checkout {
   #customer_details {
     max-width: 70%;
     flex: 1 1 100%;
+    @include rsp(apn) {
+      max-width: 100%;
+    }
   }
   .woocommerce-checkout-review-order {
     max-width: 30%;
     flex: 1 1 100%;
+    @include rsp(apn) {
+      max-width: 100%;
+    }
   }
 
   .form-row.woocommerce-validated {
@@ -625,7 +721,7 @@ form {
     span {
       margin-left: 15px;
       font-size: 14px;
-      color: #bbbbbb;
+      color: $gray-4;
     }
   }
   label {
@@ -648,7 +744,7 @@ form {
       .right {
         width: 34px;
         height: 40px;
-        background-color: #8e8e8e;
+        background-color: $gray-7;
       }
     }
   }
@@ -692,13 +788,25 @@ form {
   .woocommerce-product-gallery {
     display: flex;
     flex-direction: row-reverse;
+    @include rsp(apn) {
+      flex-direction: column;
+    }
     .flex-viewport {
       max-width: 85%;
       flex: 1 1 100%;
+      @include rsp(apn) {
+        max-width: 100%;
+        flex: none;
+      }
     }
     .flex-control-nav {
       max-width: 15%;
       flex: 1 1 100%;
+      @include rsp(apn) {
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+      }
       .slick-prev,
       .slick-next {
         cursor: pointer;
@@ -712,10 +820,18 @@ form {
       .slick-prev {
         background: url(/wp-content/themes/bmw/assets/up.svg) no-repeat;
         margin-bottom: 32px;
+        @include rsp(apn) {
+          margin-bottom: 0;
+          transform: rotate(-90deg);
+        }
       }
       .slick-next {
         background: url(/wp-content/themes/bmw/assets/down.svg) no-repeat;
         margin-top: 32px;
+        @include rsp(apn) {
+          margin-top: 0;
+          transform: rotate(-90deg);
+        }
       }
 
       .slick-list {
@@ -735,4 +851,15 @@ form {
     }
   }
 }
+.woocommerce ul.products li.product .onsale {
+  top: 15px;
+  right: 15px;
+}
 
+.woocommerce-message {
+  border-top-color: $blue !important;
+  color: $blue !important;
+  &:before {
+    color: $blue !important;
+  }
+}

@@ -18,6 +18,7 @@ function init_your_gateway_class() {
 			$this->id                 = 'woocommerce-seek';
 			$this->icon               = '';
 			$this->has_fields         = false;
+			$this->title       = __( 'VISANET', 'woocommerce-seek' );
 			$this->method_title       = __( 'VISANET', 'woocommerce-seek' );
 			$this->method_description = __( 'Acepta tarjetas de crédito y débito.', 'woo-seek-visanet' );
 			$this->init_form_fields();

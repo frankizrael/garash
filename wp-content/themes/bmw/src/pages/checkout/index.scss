@@ -318,3 +318,44 @@
     }
   }
 }
+
+.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
+  li {
+    padding: 20px 0;
+    strong {
+      margin-top: 10px;
+    }
+  }
+}
+.woocommerce-order-details {
+  h2 {
+    margin-bottom: 10px;
+  }
+}
+
+.woocommerce-customer-details {
+  h2 {
+    margin-bottom: 10px;
+    display: none;
+  }
+  address {
+    display: none;
+    line-height: 32px;
+    margin-bottom: 30px !important;
+  }
+}
+
+.start-js-btn.modal-opener.default {
+  background: $blue !important;
+  color: white;
+  position: relative;
+  width: 250px;
+  padding: 25px 10px;
+  &:before {
+    content: "REALIZAR PAGO";
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+  }
+}

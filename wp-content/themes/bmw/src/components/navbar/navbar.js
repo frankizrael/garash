@@ -34,3 +34,13 @@ $(".menuMobile__content ul li.menu-item:not(.page_item) a").on(
       .toggle();
   }
 );
+
+$(".navbar .account").on("click", function(e) {
+  const _this = $(this);
+  const status = _this.data("status");
+  if (status === 1) {
+    window.location.href = "/my-account/";
+  } else {
+    $(".modal-login ").toggleClass("opened");
+  }
+});

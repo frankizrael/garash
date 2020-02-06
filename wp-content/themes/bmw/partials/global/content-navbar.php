@@ -34,7 +34,7 @@
                         </svg>
                     </i>
                 </button>
-                <a href="/" class="account">
+                <button href="javascript:void(0)" class="account" data-status="<?php echo is_user_logged_in() ? 1 : 0; ?>">
                     <i>
                         <svg xmlns="http://www.w3.org/2000/svg" width="18.887" height="20" viewBox="0 0 18.887 20">
                             <g>
@@ -43,7 +43,17 @@
                             </g>
                         </svg>
                     </i>
-                </a>
+                    <?php if (!is_user_logged_in()) : ?>
+                        <div class="modal-login">
+                            <a href="/my-account/" class="link">Iniciar sesión</a>
+                            <div>
+                                <p>
+                                    ¿No tienes cuenta? <a href="">Registrate</a>
+                                </p>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </button>
                 <a href="/tienda/" class="cart">
                     <i>
                         <svg xmlns="http://www.w3.org/2000/svg" width="23.204" height="20" viewBox="0 0 23.204 20">

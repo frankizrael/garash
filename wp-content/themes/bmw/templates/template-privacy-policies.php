@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Template Name: Terms and condition
+ * Template Name: Privacy Policies
  */
 ?>
 <?php
-set_query_var('ASSETS_KEY_WORD', 'page_terms_conditions');
+set_query_var('ASSETS_KEY_WORD', 'page_returns_privacy_policies');
 set_query_var('class', 'is-active');
 get_header('header');
 get_template_part('partials/global/content', 'navbar');
@@ -36,8 +36,9 @@ get_template_part('partials/global/content', 'navbar');
             <div class="sectionInfo">
                 <div class="sectionInfo__header">
                     <h2 class="x-title">
-                        Términos y condiciones
+                        Privacidad y protección de datos personales
                     </h2>
+
                 </div>
                 <div class="sectionInfo__content">
                     <? if (have_posts()) : while (have_posts()) : the_post();

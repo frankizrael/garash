@@ -11,7 +11,7 @@ get_template_part('partials/global/content', 'navbar');
     <div class="sectionStore__header">
         <div class="bar">
             <div class="x-container">
-                <div class="bg">
+                <div class="x-bg">
                     <?php
                     $args = array(
                         'delimiter' => ' / ',

@@ -102,8 +102,9 @@ const config = {
     page_checkout: "./src/pages/checkout/index.js",
     page_complaints_book: "./src/pages/services/complaints-book/index.js",
     page_faq: "./src/pages/services/faq/index.js",
-    page_returns_exchanges: "./src/pages/services/returns-exchanges/index.js",
+    page_returns_privacy_policies: "./src/pages/services/privacy-policies/index.js",
     page_terms_conditions: "./src/pages/services/terms-conditions/index.js",
+    page_returns_customer_support: "./src/pages/services/customer-support/index.js",
     page_thank_checkout: "./src/pages/thank-checkout/index.js",
     page_search: "./src/pages/search/index.js"
   },

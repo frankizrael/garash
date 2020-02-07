@@ -19,7 +19,7 @@ $items = $order->get_items();
 	<div class="thankCheckout__header">
 		<div class="bar">
 			<div class="x-container">
-				<div class="bg">
+				<div class="x-bg">
 					<?php
 					$args = array(
 						'delimiter' => ' / ',

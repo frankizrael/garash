@@ -26,7 +26,7 @@
             top: 50%;
             right: 0;
             transform: translateY(-50%);
-            background-image: url(/wp-content/themes/bmw/assets/down-2.svg);
+            background-image: url(/wp-content/themes/bmw/assets/down.svg);
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
@@ -44,6 +44,9 @@
         div {
           display: none;
           padding: 0 0 30px 30px;
+          @include rsp(apn) {
+            padding: 0;
+          }
         }
       }
     }

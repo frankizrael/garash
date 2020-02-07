@@ -5,11 +5,11 @@
                 <div class="item">
                     <div class="title">Servicio al cliente</div>
                     <ul>
-                        <li><a href="">Terminos y condiciones</a></li>
-                        <li><a href="">Cambios y devoluciones</a></li>
-                        <li><a href="">Tiempos y costos de envío</a></li>
-                        <li><a href="">Política de privacidad</a></li>
-                        <li><a href="">Preguntas frecuentes</a></li>
+                        <li><a href="/servicio-al-cliente/terminos-y-condiciones/">Terminos y condiciones</a></li>
+                        <li><a href="/servicio-al-cliente/privacidad-y-proteccion-de-datos-personales/">Política de privacidad</a></li>
+                        <li><a href="/servicio-al-cliente/libro-de-reclamaciones/">Libro de reclamaciones</a></li>
+                        <li><a href="/servicio-al-cliente/atencion-al-cliente/">Atención al cliente</a></li>
+                        <li><a href="/servicio-al-cliente/preguntas-frecuentes/">Preguntas frecuentes</a></li>
                     </ul>
                 </div>
                 <div class="item">

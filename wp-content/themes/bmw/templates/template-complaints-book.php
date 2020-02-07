@@ -15,7 +15,7 @@ get_template_part('partials/global/content', 'navbar');
     <div class="services__header">
         <div class="bar">
             <div class="x-container">
-                <div class="bg">
+                <div class="x-bg">
                     <?php
                     $args = array(
                         'delimiter' => ' / ',
@@ -35,7 +35,7 @@ get_template_part('partials/global/content', 'navbar');
         <div class="content">
             <div class="sectionInfo">
                 <div class="sectionInfo__header">
-                    <h2 class="title">
+                    <h2 class="x-title">
                         Cambios y devoluciones
                     </h2>
 

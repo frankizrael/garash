@@ -138,7 +138,6 @@ $items = $order->get_items();
 	</div>
 </section>
 
-<div class="bg"></div>
 <?php
 
 get_template_part('partials/global/content', 'footer');

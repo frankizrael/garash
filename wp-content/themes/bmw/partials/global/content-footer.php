@@ -1,3 +1,4 @@
+<div class="bg"></div>
 <footer class="footer">
     <div class="footer__content x-container">
         <div class="list">

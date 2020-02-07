@@ -257,7 +257,9 @@ form {
   .row {
     display: flex;
     justify-content: space-between;
-
+    @include rsp(apn) {
+      flex-direction: column;
+    }
     &:not(:last-child) {
       margin-bottom: 20px;
     }
@@ -265,6 +267,7 @@ form {
   .control {
     position: relative;
     width: calc(50% - 10px);
+   
     &.full {
       width: 100%;
     }

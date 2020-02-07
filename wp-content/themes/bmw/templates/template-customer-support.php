@@ -41,11 +41,10 @@ get_template_part('partials/global/content', 'navbar');
 
                 </div>
                 <div class="sectionInfo__content">
-                    <form id="form-contact-us">
+                    <form  id="form-customer-support">
                         <div class="subtitle">
                             INFORMACIÓN DEL CONTACTO:
                         </div>
- 
 
                         <div class="row">
                             <div class="control">
@@ -57,18 +56,15 @@ get_template_part('partials/global/content', 'navbar');
                                 <input type="text" id="lastname" name="lastname" autocomplete="off">
                             </div>
                         </div>
- 
-                   
-
 
                         <div class="row">
                             <div class="control">
                                 <label class="label">Teléfono</label>
-                                <input type="text" id="name" name="name" autocomplete="off">
+                                <input type="text" id="phone" name="phone" autocomplete="off">
                             </div>
                             <div class="control">
                                 <label class="label">Email</label>
-                                <input type="text" id="lastname" name="lastname" autocomplete="off">
+                                <input type="text" id="email" name="email" autocomplete="off">
                             </div>
                         </div>
                          
@@ -81,7 +77,7 @@ get_template_part('partials/global/content', 'navbar');
 
                         <div class="row call-action">
 
-                            <button class="button button-primary">
+                            <button type="submit" class="button button-primary">
                                 <span>ENVIAR</span>
                             </button>
                         </div>

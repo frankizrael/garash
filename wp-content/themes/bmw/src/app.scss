@@ -270,6 +270,7 @@ form {
     }
     .error {
       font-size: 10px;
+      color: $red;
     }
     @include rsp(apn) {
       width: 100%;

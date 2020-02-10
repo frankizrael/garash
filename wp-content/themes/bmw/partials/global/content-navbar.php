@@ -90,7 +90,7 @@
                 <div class="row">
                     <div class="control full">
                         <label>Buscar</label>
-                        <input type="text" name="search" id="search">
+                        <input type="text" name="query" id="query">
                     </div>
                 </div>
                 <div class="action">

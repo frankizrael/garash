@@ -1,4 +1,4 @@
-<li class="<?php echo $c <= 3 ? 'show': '' ; ?>">
+<li class="<?php echo $c <= 3 ? 'show' : ''; ?>">
     <a href="<?php the_permalink() ?>">
         <div class="left">
             <figure>
@@ -8,9 +8,7 @@
         <div class="right">
             <div class="title"><?php echo the_title(); ?></div>
             <div class="info">
-                <?php
-                the_excerpt();
-                ?>
+                <?php the_permalink() ?>
             </div>
         </div>
     </a>

@@ -17,15 +17,54 @@ get_template_part('partials/global/content', 'navbar');
     <div class="sectionCart__header">
         <div class="bar">
             <div class="x-container">
-                <div class="x-bg">
-                    <?php
-                    $args = array(
-                        'delimiter' => ' / ',
-                        'before' => ''
-                    );
-                    ?>
-                    <?php woocommerce_breadcrumb($args); ?>
-                </div>
+                <?php if (is_cart()) : ?>
+                    <ul class="steps">
+                        <li class="active">
+                            <div class="left">
+                                <div class="number">1</div>
+                                <div class="text">Bolsa de compras</div>
+                            </div>
+                        </li>
+                        <li class="center">
+                            <div class="arrow">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10.607" height="16.971" viewBox="0 0 10.607 16.971">
+                                    <g transform="translate(-6.364 8.485) rotate(-45)">
+                                        <rect width="12" height="3" fill="#D9D9D9" transform="translate(12 12) rotate(180)"></rect>
+                                        <rect width="12" height="3" fill="#D9D9D9" transform="translate(9 12) rotate(-90)"></rect>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="left">
+                                <div class="number">2</div>
+                                <div class="text">Despacho</div>
+                            </div>
+                            <div class="right">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10.607" height="16.971" viewBox="0 0 10.607 16.971">
+                                    <g transform="translate(-6.364 8.485) rotate(-45)">
+                                        <rect width="12" height="3" fill="#D9D9D9" transform="translate(12 12) rotate(180)"></rect>
+                                        <rect width="12" height="3" fill="#D9D9D9" transform="translate(9 12) rotate(-90)"></rect>
+                                    </g>
+                                </svg>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left">
+                                <div class="number">3</div>
+                                <div class="text">Confirmación</div>
+                            </div>
+                        </li>
+                    </ul>
+                <?php else : ?>
+                    <div class="x-bg">
+                        <?php
+                        $args = array(
+                            'delimiter' => ' / ',
+                            'before' => ''
+                        );
+                        ?>
+                        <?php woocommerce_breadcrumb($args); ?>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>

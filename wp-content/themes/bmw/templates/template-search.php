@@ -9,6 +9,7 @@ set_query_var('ASSETS_KEY_WORD', 'page_search');
 set_query_var('class', 'is-active');
 get_header('header');
 get_template_part('partials/global/content', 'navbar');
+$query = filter_input(INPUT_GET, 'search');
 $count = 0;
 ?>
 
@@ -16,12 +17,11 @@ $count = 0;
 
     <div class="sectionSearch__header x-container">
         <div class="search">
-            <form action="/" method="GET">
-                <input type="hidden" name="post_type" value="product">
+            <form action="/buscar/" method="GET">
                 <div class="row">
                     <div class="control full">
                         <label>Buscar</label>
-                        <input type="text" name="s" id="s">
+                        <input type="text" name="query" id="query" value="<?php echo $query; ?>">
                     </div>
                 </div>
                 <div class="action">
@@ -40,7 +40,7 @@ $count = 0;
 
         <ul class="list">
             <?php
-            $query = filter_input(INPUT_GET, 'search');
+
             $args = array(
                 'post_type' => 'product',
                 'posts_per_page' => -1,

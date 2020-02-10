@@ -146,6 +146,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 
 <?php do_action( 'woocommerce_after_customer_login_form' ); ?>
+<div class="bg"></div>
 <script type="text/javascript">
 	jQuery('.myLogin__control li').on('click',function(){
 		let jQueryThis = jQuery(this);

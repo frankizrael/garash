@@ -16,11 +16,10 @@ get_template_part('partials/global/content', 'navbar');
     <div class="sectionSearch__header x-container">
         <div class="search">
             <form action="/" method="GET">
-                <input type="hidden" name="post_type" value="product">
                 <div class="row">
                     <div class="control full">
                         <label>Buscar</label>
-                        <input type="text" name="s" id="s">
+                        <input type="text" name="query" id="query">
                     </div>
                 </div>
                 <div class="action">

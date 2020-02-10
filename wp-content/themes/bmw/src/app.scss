@@ -1,3 +1,8 @@
+.show-password-input {
+  &:after {
+    content: none !important;
+  }
+}
 .slick-dots {
   position: absolute;
   bottom: -25px;
@@ -364,6 +369,76 @@ form {
       color: $black;
     }
   }
+  .steps {
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+    li {
+      display: flex;
+      align-items: center;
+      flex: 1 1 100%;
+      max-width: 33%;
+      margin-right: 40px;
+      .left {
+        display: flex;
+        align-items: center;
+        .number {
+          font-weight: $bold;
+          color: $gray-9;
+        }
+        .text {
+          font-weight: $bold;
+          margin-left: 10px;
+          color: $gray-9;
+        }
+      }
+
+      .right,
+      .arrow {
+        svg {
+          width: 9.81px;
+          height: 15.69px;
+        }
+      }
+      &.active {
+        .left {
+          .number {
+            color: $blue;
+          }
+          .text {
+            color: $blue;
+          }
+        }
+        .right {
+          svg {
+            rect {
+              fill: $blue;
+            }
+          }
+        }
+      }
+    }
+    .center {
+      justify-content: space-between;
+      .arrow {
+        svg {
+          rect {
+            fill: rgba($blue, 0.5);
+          }
+        }
+      }
+    }
+    .last {
+      .right {
+        svg {
+          rect {
+            fill: rgba($blue, 0.5) !important;
+          }
+        }
+      }
+    }
+  }
 }
 .slick-slider {
   position: relative;
@@ -559,6 +634,7 @@ form {
   color: white;
   &:hover {
     background-color: $blue !important;
+    color: white !important;
   }
 }
 
@@ -587,6 +663,7 @@ form {
   line-height: 24px;
   &:hover {
     background-color: $blue !important;
+    color: white !important;
   }
 }
 

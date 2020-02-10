@@ -211,6 +211,7 @@
         }
       }
       .cart {
+        position: relative;
         @include rsp(apn) {
           margin-right: 7px;
         }

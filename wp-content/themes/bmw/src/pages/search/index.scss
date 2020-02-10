@@ -41,6 +41,10 @@
       margin: 30px 0 20px;
       li {
         border-bottom: 1px solid $gray-5;
+        display: none;
+        &.show {
+          display: block;
+        }
         a {
           display: flex;
           padding: 15px 0;

@@ -48,6 +48,11 @@
                 </li>
                 <li>
                     <a href="" class="cart">
+                        <?php if(WC()->cart->get_cart_contents_count() > 0): ?>
+                        <mark class="not">
+                        <?php echo WC()->cart->get_cart_contents_count(); ?>
+                        </mark>
+                        <?php  endif;?>
                         <i>
                             <svg xmlns="http://www.w3.org/2000/svg" width="23.204" height="20" viewBox="0 0 23.204 20">
                                 <g transform="translate(-7287.909 58.004)">

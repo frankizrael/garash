@@ -55,6 +55,11 @@
                     <?php endif; ?>
                 </button>
                 <a href="/tienda/" class="cart">
+                    <?php if(WC()->cart->get_cart_contents_count() > 0): ?>
+                      <mark class="not">
+                      <?php echo WC()->cart->get_cart_contents_count(); ?>
+                      </mark>
+                    <?php  endif;?>
                     <i>
                         <svg xmlns="http://www.w3.org/2000/svg" width="23.204" height="20" viewBox="0 0 23.204 20">
                             <g transform="translate(-7287.909 58.004)">
@@ -81,12 +86,11 @@
     <div class="box">
         <div class="box__search x-container">
             <div class="title">Ingrese el nombre de un producto</div>
-            <form action="/" method="GET">
-                <input type="hidden" name="post_type" value="product">
+            <form action="/buscar/" method="GET">
                 <div class="row">
                     <div class="control full">
                         <label>Buscar</label>
-                        <input type="text" name="s" id="s">
+                        <input type="text" name="search" id="search">
                     </div>
                 </div>
                 <div class="action">

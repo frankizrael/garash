@@ -5,7 +5,7 @@ if (!is_admin()) {
     function wpb_search_filter($query)
     {
         if ($query->is_search) {
-            $query->set('post_type', 'post');
+            $query->set('post_type', 'product');
         }
         return $query;
     }
@@ -116,3 +116,4 @@ add_action('init', 'custom_menus');
 
 
 add_filter('acf/settings/remove_wp_meta_box', '__return_false');
+

@@ -9,6 +9,7 @@ set_query_var('ASSETS_KEY_WORD', 'page_search');
 set_query_var('class', 'is-active');
 get_header('header');
 get_template_part('partials/global/content', 'navbar');
+$count = 0;
 ?>
 
 <section class="sectionSearch">
@@ -39,16 +40,20 @@ get_template_part('partials/global/content', 'navbar');
 
         <ul class="list">
             <?php
+            $query = filter_input(INPUT_GET, 'search');
             $args = array(
                 'post_type' => 'product',
-                'posts_per_page' => 12
+                'posts_per_page' => -1,
+                's' => $query
             );
             $loop = new WP_Query($args);
             if ($loop->have_posts()) {
+                $count = $loop->post_count;
+                $c = 0;
                 while ($loop->have_posts()) : $loop->the_post();
-
+                    $c++;
+                    set_query_var('c', $c);
                     get_template_part('partials/global/content', 'search');
-
                 endwhile;
             } else {
                 echo __('No products found');
@@ -56,9 +61,11 @@ get_template_part('partials/global/content', 'navbar');
             wp_reset_postdata();
             ?>
         </ul>
-        <div class="more">
-            <a href="javascript:void(0)" class="button button-primary">Más resultados</a>
-        </div>
+        <?php if ($count > 3) : ?>
+            <div class="more">
+                <a href="javascript:void(0)" class="button button-primary" id="btn-more">Más resultados</a>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
 

@@ -72,7 +72,6 @@ error_reporting(E_ALL);
     var ajaxUrl = '<?php echo admin_url("admin-ajax.php"); ?>';
     var siteUrl = '<?php echo get_site_url(); ?>';
   </script>
-  
+
 </head>
 <body <?php body_class(); ?>>
- 

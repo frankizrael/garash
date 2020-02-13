@@ -18,13 +18,13 @@ function init_your_gateway_class() {
 			$this->id                 = 'woocommerce-seek';
 			$this->icon               = '';
 			$this->has_fields         = false;
-			$this->title       = __( 'VISANET', 'woocommerce-seek' );
+			$this->title              = __( 'VISANET', 'woocommerce-seek' );
 			$this->method_title       = __( 'VISANET', 'woocommerce-seek' );
 			$this->method_description = __( 'Acepta tarjetas de crédito y débito.', 'woo-seek-visanet' );
 			$this->init_form_fields();
 			$this->init_settings();
 			$this->actions_and_filters();
-			require_once plugin_dir_path(__FILE__) . '/vendor/autoload.php';
+			require_once plugin_dir_path( __FILE__ ) . '/vendor/autoload.php';
 		}
 
 		public function actions_and_filters() {
@@ -33,7 +33,9 @@ function init_your_gateway_class() {
 				'process_admin_options'
 			) );
 			add_action( 'woocommerce_order_details_after_customer_details', array( $this, 'receipt_page' ) );
-			add_filter( 'woocommerce_thankyou_order_received_text', '__return_false' );
+			if ( empty( $_POST ) ) {
+				add_filter( 'woocommerce_thankyou_order_received_text', '__return_false' );
+			}
 		}
 
 		public function init_form_fields() {
@@ -111,7 +113,8 @@ function init_your_gateway_class() {
 			return $request->body;
 		}
 
-		public function get_session( $amount, $ip ) {
+		private function get_session( $order_id, $ip ) {
+			$order       = new WC_Order( $order_id );
 			$merchant_id = $this->get_option( 'merchant_id' );
 			$endpoint    = $this->get_visanet_endpoint() . '/api.ecommerce/v2/ecommerce/token/session/' . $merchant_id;
 			$token       = $this->get_authorization();
@@ -120,16 +123,46 @@ function init_your_gateway_class() {
 				'Content-Type'  => 'application/json'
 			);
 			$data        = array(
-				'amount'              => $amount,
+				'amount'              => $order->get_total(),
 				'antifraud'           => array(
 					'clientIp' => $ip,
 				),
 				'channel'             => 'web',
-				'recurrenceMaxAmount' => $amount
+				'recurrenceMaxAmount' => $order->get_total()
 			);
 			$request     = Requests::post( $endpoint, $headers, json_encode( $data ) );
-			$response = json_decode( $request->body, true );
+			$response    = json_decode( $request->body, true );
+			$order->update_meta_data( '_token', $response['sessionKey'], true );
+			$order->save_meta_data();
+
 			return $response['sessionKey'];
+		}
+
+		private function create_charge( $order_id, $transaction ) {
+			$order       = new WC_Order( $order_id );
+			$merchant_id = $this->get_option( 'merchant_id' );
+			$endpoint    = $this->get_visanet_endpoint() . '/api.authorization/v3/authorization/ecommerce/' . $merchant_id;
+			$headers     = array(
+				'Authorization' => $order->get_meta( '_token', true ),
+				'Content-Type'  => 'application/json'
+			);
+			$data        = array(
+				'antifraud'   => null,
+				'captureType' => 'manual',
+				'channel'     => 'web',
+				'countable'   => true,
+				'order'       => array(
+					'amount'         => $order->get_total(),
+					'currency'       => 'USD',
+					'productId'      => 1,
+					'purchaseNumber' => $order->get_order_number(),
+					'tokenId'        => $transaction
+				),
+				'sponsored'   => null
+			);
+			$request     = Requests::post( $endpoint, $headers, json_encode( $data ) );
+
+			return json_decode( $request->body );
 		}
 
 		private function get_the_user_ip() {
@@ -146,22 +179,37 @@ function init_your_gateway_class() {
 
 		function receipt_page( $order_id ) {
 			$order = new WC_Order( $order_id );
-			if ( $order->has_status( 'pending' ) ): ?>
-                <section class="woocommerce woocommerce-seek-visanet">
-                    <form id="formScript" action="<?php echo $this->get_return_url( $order ) ?>" method="post">
-                        <script
-                                src="<?php echo $this->get_script_src() ?>"
-                                data-merchantlogo=""
-                                data-sessiontoken="<?php echo $this->get_session( $order->get_total(), $this->get_the_user_ip() ) ?>"
-                                data-channel="web"
-                                data-merchantid="<?php echo $this->get_option( 'merchant_id' ) ?>"
-                                data-purchasenumber="<?php echo $order->get_order_number() ?>"
-                                data-amount="<?php echo $order->get_total() ?>"
-                                data-timeouturl="<?php bloginfo( 'url' ); ?>"
-                        ></script>
-                    </form>
-                </section>
-			<?php endif;
+			if ( empty( $_POST ) ) {
+				if ( $order->has_status( 'pending' ) ): ?>
+                    <section class="woocommerce woocommerce-seek-visanet">
+                        <form id="formScript" action="<?php echo $this->get_return_url( $order ) ?>" method="post">
+                            <script
+                                    src="<?php echo $this->get_script_src() ?>"
+                                    data-merchantlogo=""
+                                    data-sessiontoken="<?php echo $this->get_session( $order_id, $this->get_the_user_ip() ) ?>"
+                                    data-channel="web"
+                                    data-merchantid="<?php echo $this->get_option( 'merchant_id' ) ?>"
+                                    data-purchasenumber="<?php echo $order->get_order_number() ?>"
+                                    data-amount="<?php echo $order->get_total() ?>"
+                                    data-timeouturl="<?php bloginfo( 'url' ); ?>"
+                            ></script>
+                        </form>
+                    </section>
+				<?php endif;
+			} else {
+				$transaction = filter_input( INPUT_POST, 'transactionToken' );
+				$charge      = $this->create_charge( $order_id, $transaction );
+				if ( isset( $charge->errorMessage ) ) {
+					$order->update_status( 'failed' ); ?>
+                    <h1>Error</h1>
+					<?php
+				} else {
+					$order->update_status( 'processing' );
+					if ( wp_redirect( '/gracias-checkout/?key=' . $order->get_order_key() ) ) {
+						exit;
+					}
+				}
+			}
 		}
 
 	}

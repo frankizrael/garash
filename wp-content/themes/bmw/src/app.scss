@@ -157,6 +157,8 @@
           font-size: 15px;
           font-weight: bold;
           padding: 4px 15px;
+          width: auto;
+          height: auto;
         }
         a {
           display: flex;
@@ -373,16 +375,26 @@ form {
     display: flex;
     align-items: center;
     width: 50%;
-
+    @include rsp(apn) {
+      width: 100%;
+    }
     li {
       display: flex;
       align-items: center;
       flex: 1 1 100%;
       max-width: 33%;
       margin-right: 40px;
+      @include rsp(apn) {
+        margin-right: 0px;
+      }
       .left {
         display: flex;
         align-items: center;
+        @include rsp(apn) {
+          display: block;
+          width: 100%;
+          text-align: center;
+        }
         .number {
           font-weight: $bold;
           color: $gray-9;
@@ -391,6 +403,10 @@ form {
           font-weight: $bold;
           margin-left: 10px;
           color: $gray-9;
+          @include rsp(apn) {
+            font-size: 10px;
+            margin-left: 0px;
+          }
         }
       }
 
@@ -424,7 +440,7 @@ form {
       .arrow {
         svg {
           rect {
-            fill: rgba($blue, 0.5);
+            fill: rgba($blue, 1);
           }
         }
       }
@@ -752,7 +768,16 @@ form {
 .woocommerce form .form-row.woocommerce-validated select {
   border-color: $gray-4 !important;
 }
-
+.woocommerce-order {
+  @include rsp(apn) {
+    padding: 0px 20px;
+  }
+}
+.start-js-btn.modal-opener.default {
+  @include rsp(apn) {
+    width: 100% !important;
+  }
+}
 .checkout.woocommerce-checkout {
   #customer_details {
     max-width: 70%;
@@ -766,6 +791,8 @@ form {
     flex: 1 1 100%;
     @include rsp(apn) {
       max-width: 100%;
+      padding: 20px;
+      padding-bottom: 0px;
     }
   }
 
@@ -817,7 +844,7 @@ form {
         height: 40px;
         background-color: #4d4d4d;
         position: relative;
-        background-image: url(http://bmw-ecommerce.loc/wp-content/themes/bmw/assets/close.svg);
+        background-image: url(/wp-content/themes/bmw/assets/close.svg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: 11px 11px;
@@ -843,7 +870,7 @@ form {
       width: 46px !important;
       height: 40px !important;
       background-color: white !important;
-      background-image: url(http://bmw-ecommerce.loc/wp-content/themes/bmw/assets/check-form.svg);
+      background-image: url(/wp-content/themes/bmw/assets/check-form.svg);
       background-repeat: no-repeat;
       background-position: center;
       background-size: 15px 11px;
@@ -935,6 +962,9 @@ form {
 .woocommerce ul.products li.product .onsale {
   top: 15px;
   right: 15px;
+  width: 42px;
+  height: 42px;
+  z-index: 2;
 }
 
 .woocommerce-message {

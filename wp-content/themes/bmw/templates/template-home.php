@@ -79,7 +79,7 @@ get_template_part('partials/global/content', 'navbar');
                         <ul class="lists">
                             <?php
                             foreach ($child_product_cats as $child_product_cat) :
-                                $thumbnail_id = get_woocommerce_term_meta($child_product_cat->term_id, 'thumbnail_id', true);
+                                $thumbnail_id = get_term_meta($child_product_cat->term_id, 'thumbnail_id', true);
                                 $image = wp_get_attachment_url($thumbnail_id);
                             ?>
                                 <li>

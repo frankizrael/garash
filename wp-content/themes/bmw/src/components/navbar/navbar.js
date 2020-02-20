@@ -19,11 +19,16 @@ $(".button-close").on("click", function(e) {
   $(".menuMobile").hide();
 });
 
-$(".menuMobile__content ul li.menu-item:not(.page_item) a").map((key, res) => {
-  $(res).attr("href", "javascript:void(0)");
+$(".menuMobile__content ul li.menu-item-has-children a").map((key, res) => {
+  $(res).addClass('mobileMenuDisplay');
+});
+$(".menuMobile__content ul li.menu-item-has-children .sub-menu a").map((key, res) => {
+  $(res).removeClass('mobileMenuDisplay');
 });
 
-$(".menuMobile__content ul li.menu-item:not(.page_item) a").on(
+
+
+$(".mobileMenuDisplay").on(
   "click",
   function(e) {
     e.preventDefault();

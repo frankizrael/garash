@@ -82,6 +82,9 @@
         border: 1px solid $gray-5;
         margin-bottom: 20px;
         padding: 24px;
+        @include rsp(apn) {
+          display: block;
+        }
         &.active {
           border: 1px solid $blue;
         }
@@ -89,6 +92,9 @@
           display: flex;
           max-width: 60%;
           flex: 1 1 100%;
+          @include rsp(apn) {
+            max-width: 100%;
+          }
           .logo {
             img {
               width: 102px;
@@ -96,9 +102,15 @@
               border: none !important;
               object-fit: contain;
             }
+            @include rsp(apn) {
+              width: 85px;
+            }
           }
           .address {
             margin-left: 30px;
+            @include rsp(apn) {
+              width: calc(100% - 110px);
+            }
             .title {
               font-size: 14px;
               color: $black;
@@ -114,6 +126,10 @@
         .control {
           max-width: 40%;
           flex: 1 1 100%;
+          @include rsp(apn) {
+            max-width: 100%;
+            margin-top: 20px;
+          }
           a {
             padding: 16px 5px;
             background-color: white;
@@ -294,6 +310,11 @@
 .MyButton {
   margin-top: 30px;
   width: calc(100% - 30% - 30px);
+  @include rsp(apn) {
+    margin-top: 0px;
+    width: calc(100% - 40px);
+    margin-left: 20px;
+  }
   .button {
     &:hover {
       color: white !important;

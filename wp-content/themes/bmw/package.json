@@ -10,6 +10,7 @@
     "dev": "npm run clean && SET NODE_ENV=dev && webpack --watch --progress",
     "start": "yarn run clean && SET NODE_ENV=dev && webpack --watch --progress",
     "build:prod": "yarn run clean && SET NODE_ENV=prod && webpack --optimize-minimize --progress",
+    "preprod": "npm run clean && SET NODE_ENV=prod && webpack --optimize-minimize --progress",
     "clean": "rimraf ./dist/*"
   },
   "author": "",

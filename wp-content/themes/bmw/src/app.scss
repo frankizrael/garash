@@ -54,7 +54,10 @@
     }
   }
 }
-
+.x-pagination {
+  position: relative;
+  overflow: hidden;
+}
 .tabs {
   &__links {
     position: relative;

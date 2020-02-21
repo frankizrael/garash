@@ -27,7 +27,7 @@ window.onload = function() {
   }
 };
 
-$(".tabs ul li a").click(function(e) {
+$(".tabs ul.tabs__links li a").click(function(e) {
   e.preventDefault();
   const _this = $(this);
   var position = _this.parent().position();

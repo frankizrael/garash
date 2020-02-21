@@ -358,6 +358,8 @@
             @include rsp(apn) {
               width: 100%;
               margin: 0 0 10px;
+              position: relative;
+              overflow: hidden;
             }
           }
         }

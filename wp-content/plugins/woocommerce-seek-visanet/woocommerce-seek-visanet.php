@@ -32,7 +32,7 @@ function init_your_gateway_class() {
 				$this,
 				'process_admin_options'
 			) );
-			add_action( 'woocommerce_order_details_after_customer_details', array( $this, 'receipt_page' ) );
+			add_action( 'woocommerce_order_details_after_order_table', array( $this, 'receipt_page' ), 10, 1 );
 			if ( empty( $_POST ) ) {
 				add_filter( 'woocommerce_thankyou_order_received_text', '__return_false' );
 			}
@@ -71,11 +71,9 @@ function init_your_gateway_class() {
 		}
 
 		public function process_payment( $order_id ) {
-			global $woocommerce;
 
 			$order = new WC_Order( $order_id );
 			$order->update_status( 'pending' );
-			$woocommerce->cart->empty_cart();
 
 			return array(
 				'result'   => 'success',
@@ -153,7 +151,7 @@ function init_your_gateway_class() {
 				'countable'   => true,
 				'order'       => array(
 					'amount'         => $order->get_total(),
-					'currency'       => 'USD',
+					'currency'       => 'PEN',
 					'productId'      => 1,
 					'purchaseNumber' => $order->get_order_number(),
 					'tokenId'        => $transaction
@@ -178,7 +176,8 @@ function init_your_gateway_class() {
 		}
 
 		function receipt_page( $order_id ) {
-			$order = new WC_Order( $order_id );
+			$order = new WC_Order( $order_id ); ?>
+			<?php
 			if ( empty( $_POST ) ) {
 				if ( $order->has_status( 'pending' ) ): ?>
                     <section class="woocommerce woocommerce-seek-visanet">
@@ -201,9 +200,13 @@ function init_your_gateway_class() {
 				$charge      = $this->create_charge( $order_id, $transaction );
 				if ( isset( $charge->errorMessage ) ) {
 					$order->update_status( 'failed' ); ?>
-                    <h1>Error</h1>
+                    <h1>Error al procesar la compra</h1>
+                    <div><?php echo $charge->data->ACTION_DESCRIPTION ?></div>
 					<?php
 				} else {
+					global $woocommerce;
+					$woocommerce->cart->empty_cart();
+
 					$order->update_status( 'processing' );
 					if ( wp_redirect( '/gracias-checkout/?key=' . $order->get_order_key() ) ) {
 						exit;

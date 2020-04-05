@@ -1,6 +1,6 @@
 <?php
 
-define('DB_NAME', 'seek_bmw');
+define('DB_NAME', 'bmw-ecommerce');
 
 /** MySQL database username */
 define('DB_USER', 'root');

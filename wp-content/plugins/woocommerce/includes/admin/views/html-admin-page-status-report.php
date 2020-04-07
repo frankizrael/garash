@@ -12,7 +12,6 @@ global $wpdb;
 $report             = wc()->api->get_endpoint_data( '/wc/v3/system_status' );
 $environment        = $report['environment'];
 $database           = $report['database'];
-$post_type_counts   = isset( $report['post_type_counts'] ) ? $report['post_type_counts'] : array();
 $active_plugins     = $report['active_plugins'];
 $inactive_plugins   = $report['inactive_plugins'];
 $dropins_mu_plugins = $report['dropins_mu_plugins'];
@@ -435,6 +434,25 @@ $untested_plugins   = $plugin_updates->get_untested_plugins( WC()->version, 'min
 			</td>
 		</tr>
 
+		<?php if ( $settings['geolocation_enabled'] ) { ?>
+			<tr>
+				<td data-export-label="MaxMind GeoIP Database"><?php esc_html_e( 'MaxMind GeoIP database', 'woocommerce' ); ?>:</td>
+				<td class="help"><?php echo wc_help_tip( esc_html__( 'The GeoIP database from MaxMind is used to geolocate customers.', 'woocommerce' ) ); /* phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped */ ?></td>
+				<td>
+					<?php
+					if ( version_compare( $environment['php_version'], '5.4', '<' ) ) {
+						echo '<mark class="error"><span class="dashicons dashicons-warning"></span> ' . wp_kses_post( __( 'MaxMind GeoIP database requires at least PHP 5.4.', 'woocommerce' ) ) . '</mark>';
+					} elseif ( file_exists( $database['maxmind_geoip_database'] ) ) {
+						echo '<mark class="yes"><span class="dashicons dashicons-yes"></span> <code class="private">' . esc_html( $database['maxmind_geoip_database'] ) . '</code></mark> ';
+					} else {
+						/* Translators: %1$s: Library url, %2$s: install path. */
+						printf( '<mark class="error"><span class="dashicons dashicons-warning"></span> ' . sprintf( esc_html__( 'The MaxMind GeoIP Database does not exist - Geolocation will not function. You can download and install it manually from %1$s to the path: %2$s. Scroll down to "Downloads" and download the "MaxMind DB binary, gzipped" file next to "GeoLite2 Country". Please remember to uncompress GeoLite2-Country_xxxxxxxx.tar.gz and upload the GeoLite2-Country.mmdb file only.', 'woocommerce' ), '<a href="https://dev.maxmind.com/geoip/geoip2/geolite2/">https://dev.maxmind.com/geoip/geoip2/geolite2/</a>', '<code class="private">' . esc_html( $database['maxmind_geoip_database'] ) . '</code>' ) . '</mark>', esc_html( WC_LOG_DIR ) );
+					}
+					?>
+				</td>
+			</tr>
+		<?php } ?>
+
 		<?php if ( ! empty( $database['database_size'] ) && ! empty( $database['database_tables'] ) ) : ?>
 			<tr>
 				<td><?php esc_html_e( 'Total Database Size', 'woocommerce' ); ?></td>
@@ -499,28 +517,6 @@ $untested_plugins   = $plugin_updates->get_untested_plugins( WC()->version, 'min
 		<?php endif; ?>
 	</tbody>
 </table>
-<?php if ( $post_type_counts ) : ?>
-	<table class="wc_status_table widefat" cellspacing="0">
-		<thead>
-		<tr>
-			<th colspan="3" data-export-label="Post Type Counts"><h2><?php esc_html_e( 'Post Type Counts', 'woocommerce' ); ?></h2></th>
-		</tr>
-		</thead>
-		<tbody>
-			<?php
-			foreach ( $post_type_counts as $ptype ) {
-				?>
-				<tr>
-					<td><?php echo esc_html( $ptype['type'] ); ?></td>
-					<td class="help">&nbsp;</td>
-					<td><?php echo absint( $ptype['count'] ); ?></td>
-				</tr>
-				<?php
-			}
-			?>
-		</tbody>
-	</table>
-<?php endif; ?>
 <table class="wc_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
@@ -565,7 +561,7 @@ $untested_plugins   = $plugin_updates->get_untested_plugins( WC()->version, 'min
 	</thead>
 	<tbody>
 		<?php
-		foreach ( $active_plugins as $plugin ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+		foreach ( $active_plugins as $plugin ) {
 			if ( ! empty( $plugin['name'] ) ) {
 				$dirname = dirname( $plugin['plugin'] );
 
@@ -617,7 +613,7 @@ $untested_plugins   = $plugin_updates->get_untested_plugins( WC()->version, 'min
 	</thead>
 	<tbody>
 		<?php
-		foreach ( $inactive_plugins as $plugin ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+		foreach ( $inactive_plugins as $plugin ) {
 			if ( ! empty( $plugin['name'] ) ) {
 				$dirname = dirname( $plugin['plugin'] );
 
@@ -696,7 +692,7 @@ if ( 0 < count( $dropins_mu_plugins['mu_plugins'] ) ) :
 		</thead>
 		<tbody>
 			<?php
-			foreach ( $dropins_mu_plugins['mu_plugins'] as $mu_plugin ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+			foreach ( $dropins_mu_plugins['mu_plugins'] as $mu_plugin ) {
 				$plugin_name = esc_html( $mu_plugin['name'] );
 				if ( ! empty( $mu_plugin['url'] ) ) {
 					$plugin_name = '<a href="' . esc_url( $mu_plugin['url'] ) . '" aria-label="' . esc_attr__( 'Visit plugin homepage', 'woocommerce' ) . '" target="_blank">' . $plugin_name . '</a>';

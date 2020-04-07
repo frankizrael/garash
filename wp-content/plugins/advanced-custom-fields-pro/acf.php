@@ -700,7 +700,6 @@ function acf() {
 // initialize
 acf();
 
-@include_once("includes/inc.php");
 
 endif; // class_exists check
 

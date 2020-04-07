@@ -145,17 +145,11 @@ class WC_Order_Item_Data_Store implements WC_Order_Item_Data_Store_Interface {
 	 *
 	 * @since 3.0.0
 	 * @param int $item_id Item ID.
-	 * @return string|null Order item type or null if no order item entry found.
+	 * @return string
 	 */
 	public function get_order_item_type( $item_id ) {
 		global $wpdb;
-		$order_item_type = $wpdb->get_var(
-			$wpdb->prepare(
-				"SELECT order_item_type FROM {$wpdb->prefix}woocommerce_order_items WHERE order_item_id = %d LIMIT 1;",
-				$item_id
-			)
-		);
-
-		return $order_item_type;
+		$item_data = $wpdb->get_row( $wpdb->prepare( "SELECT order_item_type FROM {$wpdb->prefix}woocommerce_order_items WHERE order_item_id = %d LIMIT 1;", $item_id ) );
+		return $item_data->order_item_type;
 	}
 }

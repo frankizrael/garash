@@ -668,7 +668,7 @@ class WC_Webhook extends WC_Legacy_Webhook {
 	}
 
 	/**
-	 * Get webhook created date.
+	 * Get webhopk created date.
 	 *
 	 * @since  3.2.0
 	 * @param  string $context  What the value is for.
@@ -680,7 +680,7 @@ class WC_Webhook extends WC_Legacy_Webhook {
 	}
 
 	/**
-	 * Get webhook modified date.
+	 * Get webhopk modified date.
 	 *
 	 * @since  3.2.0
 	 * @param  string $context  What the value is for.

@@ -1,0 +1,110 @@
+.contactPage {
+    margin-top: 100px;
+    .bar {
+	    margin-bottom: 20px;
+	}
+	.flex {
+	    display: flex;
+	    flex-wrap: wrap;
+	    justify-content: space-between;
+	    .left {
+		    width: 300px;
+		    flex: none;
+		}
+		.right {
+		    width: calc(100% - 400px);
+		    max-width: 720px;
+		}
+		.contact-data {
+			&__item {
+				margin-bottom: 20px;
+			    border-bottom: solid 1px rgba(88, 88, 88, 0.21);
+			    padding-bottom: 20px;
+			    p {
+				    font-size: 16px;
+				    color: #8e8e8e;
+				}
+				h3 {
+				    margin-bottom: 10px;
+				    font-size: 16px;
+				    &:after {
+					    content: '';
+					    display: inline-block;
+					    width: 10px;
+					    height: 2px;
+					    background: #03a77a;
+					    margin-left: 3px;
+					}
+				}
+				&:last-child {
+				    border: none;
+				}
+			}
+		}
+	}
+	.boxContact {
+	    padding: 20px;
+	    box-sizing: border-box;
+	    box-shadow: 0px 7px 13px rgba(0, 0, 0, 0.36);
+	    margin-bottom: 40px;
+	    .subtitle {
+		    font-size: 16px;
+		    line-height: 20px;
+		    font-weight: 700;
+		    margin-bottom: 30px;
+		    border-bottom: solid 1px #b3b3b33d;
+		    padding-bottom: 20px;
+		}
+		label {
+		    color: #03a77a;
+		    font-weight: 700;
+		}
+		br {
+			display: none;
+		}
+	}
+	form {
+		.customSelect {
+			&:before {
+			    right: 5px;
+			    top: 43px;
+			}
+		}
+		.control {
+			input[type=radio] {
+			    border-radius: 50%;
+			    padding: 0px;
+			    width: 15px;
+			    height: 15px;
+			    position: relative;
+			    top: 2px;
+			    margin-left: 5px;
+			    &:checked {
+				    background: #03a77a;
+				    border-color: #03a77a;
+				}
+			}
+			textarea {
+			    min-height: 75px;
+			    height: 75px;
+			}
+		}
+		.wpcf7-list-item {
+			&.first {
+			    margin-left: 0px;
+			}
+		}
+		.lonely {
+		    font-size: 10px;
+		}
+		.emisep {
+		    border: solid 1px #03a77a;
+		    background: #efefef;
+		    text-align: center;
+		    padding: 20px;
+		    margin-bottom: 5px;
+		    font-weight: 700;
+		    color: #03a77a;
+		}
+	}
+}

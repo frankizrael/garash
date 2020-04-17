@@ -1,41 +1,36 @@
 <?php /* Importer */
+require_once 'master.php';
+
+function parse_file( $file, $delimiter = ',' ) {
+  $data        = [];
+  $file_handle = fopen( $file, 'r' );
+
+  while ( ! feof( $file_handle ) ) {
+    $data[] = fgetcsv( $file_handle, 0, $delimiter );
+  }
+
+  fclose( $file_handle );
+
+  return $data;
+}
 
 function import_products() {
-  $products = array(
-    array(
-      '80142463108',
-      'PAÑUELO TRIANGULAR PARA NIÑOS BMW CLASSIC',
-      '2',
-      '63645257000015',
-      '100.00',
-    ),
-    array(
-      '80142460983',
-      'SUDADERA BMW ACTIVE DE CABALLERO',
-      '4',
-      '01205054090016',
-      '90.00',
-    ),
-    array(
-      '80442411558',
-      'BMW RC MINIATURA I8',
-      '6',
-      '02775258006014',
-      '200.00'
-    )
-  );
+  $products = parse_file( get_template_directory() . '/stock.csv' );
+  array_shift( $products );
 
   foreach ( $products as $product ) {
-    $sku   = $product[0];
-    $name  = $product[1];
-    $stock = $product[2];
-    $code  = $product[3];
-    $price = $product[4];
+    $sku         = $product[0];
+    $extra       = $product[1];
+    $name        = $product[2];
+    $description = $product[3];
+    $stock       = 2;
+    $code        = $product[5];
+    $price       = 90;
 
     $categories = array(
-      get_master_value( substr( $code, 0, 2 ) ),
-      get_master_value( substr( $code, 4, 2 ) ),
-      get_master_value( substr( $code, 6, 2 ) ),
+      get_collection_value( substr( $code, 0, 2 ) ),
+      get_category_value( substr( $code, 4, 2 ) ),
+      get_sub_category_value( substr( $code, 6, 2 ) ),
     );
     $cat_ids    = array();
 
@@ -53,7 +48,7 @@ function import_products() {
     }
 
     $tags     = array(
-      get_master_value( substr( $code, 2, 2 ) )
+      get_product_type_value( substr( $code, 2, 2 ) )
     );
     $tags_ids = array();
 
@@ -73,15 +68,15 @@ function import_products() {
     $attributes = array(
       array(
         'name'  => 'Talla',
-        'value' => get_master_value( substr( $code, 8, 2 ) )
+        'value' => get_size_value( substr( $code, 8, 2 ) )
       ),
       array(
         'name'  => 'Escala',
-        'value' => get_master_value( substr( $code, 10, 2 ) )
+        'value' => get_scale_value( substr( $code, 10, 2 ) )
       ),
       array(
         'name'  => 'Color',
-        'value' => get_master_value( substr( $code, 12, 2 ) )
+        'value' => get_color_value( substr( $code, 12, 2 ) )
       )
     );
     $attrs      = array();
@@ -97,14 +92,36 @@ function import_products() {
       }
     }
 
-    $pid = wc_get_product_id_by_sku( $sku );
+    $pid = get_page_by_title( $name, 'OBJECT', 'product' );
+
+    $pid = $pid != null ? $pid->ID : 0;
+
     if ( $attrs ) {
       $p = new WC_Product_Variable( $pid );
     } else {
       $p = new WC_Product( $pid );
     }
+
+    if ( $pid != 0 ) {
+      $data = $p->get_attributes();
+
+      foreach ( $attrs as $attribute ) {
+        $key = sanitize_key( $attribute->get_name() );
+
+        if ( array_key_exists( $key, $data ) ) {
+          $options = $data[ $key ]['options'];
+
+          if ( ! in_array( $attribute->get_options()[0], $options ) ) {
+            array_push( $options, $attribute->get_options()[0] );
+            $attribute->set_options( $options );
+          }
+        }
+      }
+    }
+
     $p->set_sku( $sku );
     $p->set_name( $name );
+    $p->set_description( $description );
     $p->set_manage_stock( true );
     $p->set_stock_status( 'instock' );
     $p->set_stock_quantity( $stock );
@@ -115,21 +132,15 @@ function import_products() {
     $id = $p->save();
 
     if ( $attrs ) {
-      $vid = 0;
+      $vid = wc_get_product_id_by_sku( $sku . $extra );
       $att = array();
 
-      foreach ( $attrs as $attribute ) {
-        $att[ 'attribute_' . sanitize_key( $attribute->get_name() ) ] = $attribute->get_options()[0];
-      }
-
-      foreach ( $p->get_available_variations() as $var ) {
-        if ( $var['attributes'] == $att ) {
-          $vid = $var['variation_id'];
-          break;
-        }
+      foreach ( $attributes as $attribute ) {
+        $att[ 'attribute_' . sanitize_key( $attribute['name'] ) ] = $attribute['value'];
       }
 
       $variation = new WC_Product_Variation( $vid );
+      $variation->set_sku( $sku . $extra );
       $variation->set_parent_id( $id );
       $variation->set_manage_stock( true );
       $variation->set_stock_status( 'instock' );
@@ -138,5 +149,7 @@ function import_products() {
       $variation->set_attributes( $att );
       $variation->save();
     }
+
+    echo $p->get_sku() . ': ' . $p->get_name() . "\n";
   }
 }

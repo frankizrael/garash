@@ -6,4 +6,4 @@ define( 'ALLOW_UNFILTERED_UPLOADS', true );
 
 require dirname( __FILE__ ) . '/inc/config.php';
 require dirname( __FILE__ ) . '/inc/woo.php';
-require dirname( __FILE__ ) . '/inc/master.php';
+require dirname( __FILE__ ) . '/inc/importer.php';

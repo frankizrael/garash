@@ -56,3 +56,4 @@ build/
 nbbuild/
 .nb-gradle/
 wp-content/uploads/cache/
+.DS_Store

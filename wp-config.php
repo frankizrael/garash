@@ -21,7 +21,8 @@ foreach($environments as $environment => $hostname) {
 
 
 // Exit if ENVIRONMENT is undefined
-if (!defined('ENVIRONMENT')) exit('No database configured for this host');
+//if (!defined('ENVIRONMENT')) exit('No database configured for this host');
+if (!defined('ENVIRONMENT')) define('ENVIRONMENT', 'local');
 
 // Location of environment-specific configuration
 $wp_db_config = 'wp-config/wp-db-' . ENVIRONMENT . '.php';

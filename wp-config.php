@@ -1,7 +1,11 @@
 <?php
 
 $environments = array(
+<<<<<<< HEAD
     'local'       => 'dev.garash.com',
+=======
+    'local'       => 'bmw-ecommerce.loc',
+>>>>>>> 3f51656587a31c3ae427f93d37316c9461d50a32
     'development' => 'bmw-ecommerce.seekdev.com',
     'production'  => 'bmw.com.pe'
 );
@@ -21,7 +25,8 @@ foreach($environments as $environment => $hostname) {
 
 
 // Exit if ENVIRONMENT is undefined
-if (!defined('ENVIRONMENT')) exit('No database configured for this host');
+//if (!defined('ENVIRONMENT')) exit('No database configured for this host');
+if (!defined('ENVIRONMENT')) define('ENVIRONMENT', 'local');
 
 // Location of environment-specific configuration
 $wp_db_config = 'wp-config/wp-db-' . ENVIRONMENT . '.php';

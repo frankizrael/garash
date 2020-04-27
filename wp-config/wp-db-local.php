@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 define('DB_NAME', 'dc_garash');
+=======
+define('DB_NAME', 'bmw-ecommerce');
+>>>>>>> 3f51656587a31c3ae427f93d37316c9461d50a32
 
 /** MySQL database username */
 define('DB_USER', 'root');

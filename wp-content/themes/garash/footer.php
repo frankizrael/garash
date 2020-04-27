@@ -70,7 +70,43 @@
         </div>
     </div>
 </div>
+<?php
+    if(get_field('encuesta','options')) {
+?>
+<div class="encuesta" style="display: none;">
+    <div class="x-container">
+        <div class="encuesta__flex">
+            <div class="encuesta__left">
+                <?php the_field('encuesta_text','options');?>
+            </div>
+            <div class="encuesta__right">
+                <a href="<?php the_field('encuesta_link','options');?>" class="btn">
+                    Ver encuesta
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    setTimeout(function(){        
+        jQuery('.slick-dots').addClass('encuesta_slick');
+        jQuery('.footer .box').addClass('encuesta_footer');
+        jQuery('.encuesta__right .btn').on('click',function(){
+            localStorage.setItem("cookie", "1");
+        });
 
+        if (localStorage.getItem("cookie") == "1") {
+            jQuery('.slick-dots').removeClass('encuesta_slick');
+            jQuery('.footer .box').removeClass('encuesta_footer');
+            jQuery('.encuesta').hide();
+        } else {
+            jQuery('.encuesta').show();
+        }
+    },700);    
+</script>
+<?php
+    } 
+?>
 <?php
 wp_footer();
 $filePath = 'dist/assets.json';

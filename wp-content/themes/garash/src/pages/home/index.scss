@@ -1,11 +1,11 @@
 .sliderHome {
   width: 100%;
   position: relative;
-  height: calc(100vh - 50px);
+  height: 100vh;
   .slider {
     img {
       width: 100%;
-      height: calc(100vh - 50px);
+      height: 100vh;
       object-fit: cover;
     }
 
@@ -84,7 +84,8 @@
     }
 }
 .sectionCategories {
-  margin-top: 50px;
+  padding: 50px 0px;
+  background: #f3f3f3;
   &__content {
     padding: 30px 0;
     @include rsp(apn) {

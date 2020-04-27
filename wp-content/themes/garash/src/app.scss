@@ -3,15 +3,49 @@
     content: none !important;
   }
 }
+.encuesta {
+  position: fixed;
+  bottom: 0px;
+  z-index: 5;
+  width: 100%;
+  background: #017b5a;
+  box-shadow: 0px -3px 8px rgba(0, 0, 0, 0.35);
+  &__flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    padding: 10px 0px;
+    font-size: 14px;
+    .btn {
+      background: #03a77a;
+      padding: 15px 10px;
+      font-size: 14px;
+      color: white;
+      border-radius: 7px;
+      min-width: 200px;
+      text-align: center;
+      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.28);
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+    }
+  }
+}
 .slick-dots {
   position: absolute;
-  bottom: -25px;
+  bottom: 50px;
   display: block;
   width: 100%;
   padding: 0;
   margin: 0;
   list-style: none;
-  text-align: center;
+  text-align: center;  
+  &.encuesta_slick {
+    bottom: 100px;
+  }
+  @include rsp(apn) {
+    bottom: 20px;
+  }
   li {
     position: relative;
     display: inline-block;
@@ -44,13 +78,31 @@
         border-radius: 50%;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background: #707070;
+        background: white;
       }
     }
     &.slick-active button:before {
       opacity: 1;
       color: black;
       background: $blue;
+    }
+  }
+}
+.prod {
+  .slick-dots {
+    position: relative;
+    bottom: 0px !important;
+    li {
+      button {      
+        &:before {
+          background: #505050;
+        }
+      }
+      &.slick-active button:before {
+        opacity: 1;
+        color: black;
+        background: $blue;
+      }
     }
   }
 }

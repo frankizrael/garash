@@ -107,7 +107,8 @@ const config = {
     page_returns_customer_support: "./src/pages/services/customer-support/index.js",
     page_thank_checkout: "./src/pages/thank-checkout/index.js",
     page_search: "./src/pages/search/index.js",
-    page_contact: "./src/pages/contact/index.js"
+    page_contact: "./src/pages/contact/index.js",    
+    page_encuesta: "./src/pages/encuesta/index.js"
   },
   resolve: {
     modules: [

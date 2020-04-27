@@ -143,7 +143,7 @@ get_template_part('partials/global/content', 'navbar');
                 </a>
             </div>
 
-            <div class="slider">
+            <div class="slider prod">
                 <?php
                 echo do_shortcode('[products limit="6" columns="6" orderby="popularity" class="quick-sale" ]');
                 ?>
@@ -215,7 +215,7 @@ get_template_part('partials/global/content', 'navbar');
                     Ver todas las ofertas
                 </a>
             </div>
-            <div class="slider">
+            <div class="slider prod">
                 <?php
                 echo do_shortcode('[products limit="6" columns="6" orderby="popularity" class="quick-sale" ]');
                 ?>

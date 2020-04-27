@@ -1,0 +1,83 @@
+.encuestaPage {
+    margin-top: 100px;
+    .bar {
+	    margin-bottom: 20px;
+	}
+	.encuesta-intent {
+		.title {
+		    font-size: 22px;
+		    font-weight: 700;
+		    margin-bottom: 20px;
+		    position: relative;
+		    border-bottom: solid 1px #dedede;
+		    padding-bottom: 10px;
+		    max-width: 720px;
+		}
+		.item_encuesta {
+		    display: flex;
+		    flex-wrap: wrap;
+		    justify-content: space-between;
+		    padding: 30px 15px;
+		    background: #efefef;
+		    border-bottom: solid 1px #d8d8d8;
+		    &:hover {
+			    background: #eaeaea;
+			}
+		    .left {
+			    width: 400px;
+			    flex: none;
+			    font-size: 16px;
+			    line-height: 26px;
+			    color: #017b5a;
+			}
+			.right {
+			    flex: none;
+			    width: calc(100% - 450px);
+			    .top {
+				    display: flex;
+				    justify-content: space-between;
+				    font-weight: 700;
+				    color: #777777;
+				}
+				.bottom {
+				    display: flex;
+				    justify-content: space-between;
+				    margin-top: 7px;
+				    i {
+					    font-style: normal;
+					    width: 30px;
+					    height: 30px;
+					    background: transparent;
+					    text-align: center;
+					    line-height: 30px;
+					    border-radius: 50%;
+					    border: solid 1px #017b5a;
+					    color: #017b5a;
+					    font-size: 16px;
+					    cursor: pointer;
+					    &:hover, &.active {
+						    background: #017b5a;
+						    color: white;
+						}						
+					}
+				}
+			}
+		}
+		.soft_send {
+			margin:10px 0px;
+			text-align: right;
+			.btn {
+				background: #017b5a;
+			    font-size: 18px;
+			    font-weight: 700;
+			    color: white;
+			    padding: 20px 0px;
+			    min-width: 200px;
+			    border-radius: 5px;
+			    text-align: center;
+			}
+		}
+	}
+}
+
+ 

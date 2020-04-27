@@ -1,7 +1,11 @@
 <div class="navbar <?= isset($class) ? $class : ''; ?>">
     <div class="navbar__content x-container">
 
-
+        <div class="logo">
+            <figure>
+                <img src="<?php echo get_template_directory_uri() . '/assets/garash_logo.png'  ?>" alt="Logo BMW">
+            </figure>
+        </div>
         <div class="menu">
             <button type="button" class="button-menu">
                 <i>
@@ -102,12 +106,7 @@
             <!-- /Icons -->
 
         </div>
-
-        <div class="logo">
-            <figure>
-                <img src="<?php echo get_template_directory_uri() . '/assets/garash_logo.png'  ?>" alt="Logo BMW">
-            </figure>
-        </div>
+        
     </div>
     <div class="box">
         <div class="box__search x-container">

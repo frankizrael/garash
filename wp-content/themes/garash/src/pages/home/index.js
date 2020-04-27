@@ -2,7 +2,7 @@ import "./index.scss";
 import "slick-carousel";
 import utils from "../../helpers/utils";
 
-utils.initHeight();
+//utils.initHeight();
 
 $(".sliderHome .slider").slick({
   slidesToShow: 1,

@@ -30,7 +30,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
 ?>
 
-<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
+<form name="checkout" id="checkout-form" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
 	<div class="box-checkout">
 		<?php if ($checkout->get_checkout_fields()) : ?>
 
@@ -58,9 +58,9 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
 		<?php do_action('woocommerce_checkout_after_order_review'); ?>
 	</div>
-	<div class="MyButton">
+	<!--div class="MyButton">
 		<button type="submit" class="button">Proceder con el pago</button>
-	</div>
+	</div-->
 
 
 </form>

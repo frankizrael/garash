@@ -208,7 +208,7 @@ function add_percentage_to_sale_badge($html, $post, $product)
 
 function woocommerce_button_proceed_to_checkout()
 {
-    $checkout_url = WC()->cart->get_checkout_url();
+    $checkout_url = wc_get_checkout_url();
 ?>
     <a href="<?php echo $checkout_url; ?>" class="checkout-button button alt wc-forward"><?php _e('Continuar con mi compra', 'woocommerce'); ?></a>
 <?php

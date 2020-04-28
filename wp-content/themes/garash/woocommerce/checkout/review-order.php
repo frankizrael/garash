@@ -26,7 +26,7 @@ defined('ABSPATH') || exit;
 
 		foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
 			$_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
-			$thumb = get_the_post_thumbnail($cart_item['data']->id, array(32, 50));
+			$thumb = get_the_post_thumbnail($cart_item['data']->get_id(), array(32, 50));
 			if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key)) {
 		?>
 				<tr class="<?php echo esc_attr(apply_filters('woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key)); ?>">

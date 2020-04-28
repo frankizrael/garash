@@ -2,8 +2,8 @@
 
 $environments = array(
     'local'       => 'dev.garash.com',
-    'development' => 'bmw-ecommerce.seekdev.com',
-    'production'  => 'bmw.com.pe'
+    'development' => 'digitalcook.info',
+    'production'  => 'garash.com'
 );
 
 // Get the hostname
@@ -53,7 +53,7 @@ if ( !defined('ABSPATH') )
     define('ABSPATH', dirname(__FILE__) . '/');
 
 define('WP_MEMORY_LIMIT', '256M');
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 define('AUTOSAVE_INTERVAL', 300);
 define('WP_POST_REVISIONS', false);
 define ('YWSL_FINAL_SLASH', true);

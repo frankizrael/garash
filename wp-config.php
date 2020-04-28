@@ -1,12 +1,8 @@
 <?php
 
 $environments = array(
-<<<<<<< HEAD
     'local'       => 'dev.garash.com',
-=======
-    'local'       => 'bmw-ecommerce.loc',
->>>>>>> 3f51656587a31c3ae427f93d37316c9461d50a32
-    'development' => 'bmw-ecommerce.seekdev.com',
+    'development' => 'digitalcook.info/garash',
     'production'  => 'bmw.com.pe'
 );
 

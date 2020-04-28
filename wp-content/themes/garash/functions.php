@@ -7,3 +7,4 @@ define( 'ALLOW_UNFILTERED_UPLOADS', true );
 require dirname( __FILE__ ) . '/inc/config.php';
 require dirname( __FILE__ ) . '/inc/woo.php';
 require dirname( __FILE__ ) . '/inc/importer.php';
+require_once dirname( __FILE__ ) . '/inc/woocommerce-culqi.php';

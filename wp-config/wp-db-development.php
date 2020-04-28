@@ -1,12 +1,12 @@
 <?php
 
-define('DB_NAME', 'seekdev_bmw-ecommerce');
+define('DB_NAME', 'garash');
 
 /** MySQL database username */
-define('DB_USER', 'seekdev_bmw');
+define('DB_USER', 'digitalcook');
 
 /** MySQL database password */
-define('DB_PASSWORD', '70z{Wv;@0A;Z');
+define('DB_PASSWORD', 'XMNiCUrNq4dszE8X');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');

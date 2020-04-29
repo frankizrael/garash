@@ -8,17 +8,6 @@ function setup_woocommerce()
 add_action('after_setup_theme', 'setup_woocommerce');
 
 
-
-
-function woo_remove_product_tabs($tabs)
-{
-    unset($tabs['description']);
-    unset($tabs['reviews']);
-    unset($tabs['additional_information']);
-    return $tabs;
-}
-add_filter('woocommerce_product_tabs', 'woo_remove_product_tabs', 98);
-
 add_action('woocommerce_single_product_summary', 'your_function_name', 19);
 
 function your_function_name()

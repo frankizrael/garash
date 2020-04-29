@@ -41,7 +41,9 @@ get_template_part('partials/global/content', 'navbar');
                         <h4 class="title">Filtro</h4>
                     </div>
                     <div class="sidebar__content">
-                        <?php dynamic_sidebar('primary'); ?>
+                        <?php
+                            woocommerce_get_sidebar();
+                        ?>
                     </div>
 
                 </div>
@@ -53,6 +55,63 @@ get_template_part('partials/global/content', 'navbar');
                             <?php echo $page_object->name; ?>
                         </h3>
                     <?php endif; ?>
+                    <div class="custom-filters">
+                        <?php
+                        if(is_shop()){
+                            $args = array(
+                                'parent' => 0,
+                                'hide_empty' => false
+                            );
+                            $terms = get_terms( 'product_cat', $args );
+                            if ( !empty($terms)) {
+                                ?>
+                                <div class="cf_content">
+                                    <?php
+                                    foreach ( $terms as $term ) {
+                                        $term_id = $term->term_id;
+                                        $name = $term->name;
+                                        $enlace = get_term_link($term_id, 'product_cat');
+                                        $thumbnail_id = get_term_meta( $term_id, 'thumbnail_id', true );
+                                        ?>
+                                        <div class="cf-item">
+                                            <div class="title">
+                                                <h3><?php echo $name; ?></h3>
+                                            </div>
+                                            <div class="content">
+                                                <a href="<?php echo $enlace; ?>" title="<?php echo $name; ?>">
+                                                    <?php allinone_image_tag($thumbnail_id, 'lazyload', $name); ?>
+                                                </a>
+                                            <div class="action">
+                                                <a href="<?php echo $enlace; ?>" title="<?php echo $name; ?>"><?php echo $name; ?></a>                                          
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                                <?php
+                            }
+                        }else{
+                            if(isset(get_queried_object()->term_id)){
+                                $term_id = get_queried_object()->term_id;
+                                $filtro = get_field('listado_filtro', 'product_cat_'.$term_id);
+                            }
+                            if(!empty($filtro)) {
+                                foreach($filtro as $item_filtro){
+                                    ?>
+                                    <div class="item-filtro">
+                                        <h2><?php echo $item_filtro['titulo_filtro']; ?></h2>
+                                    <?php
+                                    echo do_shortcode('[searchandfilter id="' . $item_filtro['filtro'] . '"]');
+                                    ?>
+                                    </div>
+                                    <?php
+                                }
+                            }
+                        }
+                        ?>
+                    </div>
                     <button class="button-filter">
                         <svg xmlns="http://www.w3.org/2000/svg" width="17.075" height="15.367" viewBox="0 0 17.075 15.367">
                             <path id="Icon_feather-filter" data-name="Icon feather-filter" d="M3,4.5H20.075l-6.83,8.076V18.16L9.83,19.867V12.576Z" transform="translate(-3 -4.5)" fill="#bbb" />

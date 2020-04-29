@@ -2,7 +2,7 @@
 
 $environments = array(
     'local'       => 'dev.garash.com',
-    'development' => 'digitalcook.info/garash',
+    'development' => 'digitalcook.info',
     'production'  => 'garash.com'
 );
 

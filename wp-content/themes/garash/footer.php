@@ -107,6 +107,147 @@
 <?php
     } 
 ?>
+
+<style type="text/css">
+    .searchandfilter ul li li input {
+        display: none;
+    }
+
+    .searchandfilter ul li li input:checked + label:before {
+        background: #00a779;
+    }
+    .searchandfilter ul li li input:checked + label:after {
+        content: '';
+        width: 3px;
+        height: 7px;
+        border-right: solid 1px white;
+        border-bottom: solid 1px white;
+        position: absolute;
+        transform: rotate(45deg);
+        left: 5px;
+        top: 4px;
+    }
+    .searchandfilter ul li li label:before {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border: solid 1px #00a779;
+        top: 2px;
+        left: 0px;
+    }
+    .searchandfilter ul li li label {
+        padding-left: 15px !important;
+        position: relative;
+        color: #060404;
+    }
+    .searchandfilter h4 {
+        border-bottom: solid 1px #dedede;
+        margin-bottom: 10px;
+    }
+    .searchandfilter .noUi-connect {
+        background-color: #00a779;
+    }
+    .item-filtro ul li {
+        margin-right: 25px;
+    }
+    .item-filtro ul {
+        display: flex;
+        margin: 30px 0px;
+        flex-wrap: wrap;
+        align-items: flex-end;
+    }
+    .searchandfilter select.sf-input-select {
+        min-width: 170px;
+        background: linear-gradient(#fff 20%,#f6f6f6 50%,#eee 52%,#f4f4f4 100%);
+        padding: 4px 0px 4px 8px;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+    }
+    .chosen-container .chosen-results {
+        display: block;
+    }
+    li.sf-field-taxonomy-product_cat ul {
+        margin: 0px;
+    }
+    li.sf-field-submit input {
+        border: none;
+        background: #00a779;
+        font-size: 16px;
+        padding: 10px 15px;
+        display: block;
+        color: white;
+        border-radius: 5px;
+    }
+    .searchandfilter ul li.sf-level-0 .children {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .searchandfilter ul li.sf-level-0 .children input {
+        display: none !important;
+    }
+    .cf_content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .cf_content .cf-item {
+        width: 135px;
+        border: solid 1px #d0d0d0;
+        padding: 10px 10px;
+    }
+    .cf_content .cf-item .title {
+        font-size: 10px;
+        text-align: center;
+    }
+    .cf_content .cf-item .content {
+        max-width: 100%;
+        padding: 0px;
+    }
+    .cf_content .cf-item .content {
+        margin-top: 5px;
+    }
+    .cf_content .cf-item .content .action {
+        display: none;
+    }
+    li.sf-level-1.sf-option-active .children {
+        display: block;
+    }
+    li.sf-level-1 .children {
+        display: none;
+    }
+    .navbar .menu .icons .cart svg {
+        width: 23px;
+        height: 23px;
+    }
+    .div_terms {
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .div_cvv {
+        display: inline-block;
+        width: calc(33.33% - 5px);
+    }
+    .div_year {
+        display: inline-block;
+        width: calc(33.33% - 5px);
+        margin: 0px 4px;
+    }
+    .div_month {
+        display: inline-block;
+        width: calc(33.33% - 5px);
+    }
+    .culqi_div_form input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+    .div_mail, .div_card {
+        margin-bottom: 5px;
+    }
+</style>
 <?php
 wp_footer();
 $filePath = 'dist/assets.json';

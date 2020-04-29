@@ -3,9 +3,6 @@
 # Las directivas (líneas) entre `BEGIN WordPress` y `END WordPress` se generan dinámicamente
 # , y solo se deberían modificar mediante filtros de WordPress.
 # Cualquier cambio en las directivas que hay entre esos marcadores se sobreescribirán.
-<IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-</IfModule>
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /garash/

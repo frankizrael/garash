@@ -363,6 +363,24 @@
             }
           }
         }
+        .custom-filters{
+          .sf-field-taxonomy-product_cat{
+            li.sf-level-0{
+              display: none;
+              &.sf-option-active{
+                display: block;
+                input, label{
+                  display: none
+                }
+              }
+              li.sf-level-1{
+                input, label{
+                  display: block
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

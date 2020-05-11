@@ -2,9 +2,11 @@
     <div class="navbar__content x-container">
 
         <div class="logo">
+            <a href="<?php echo site_url(); ?>">
             <figure>
                 <img src="<?php echo get_template_directory_uri() . '/assets/garash_logo.png'  ?>" alt="Logo BMW">
             </figure>
+            </a>
         </div>
         <div class="menu">
             <button type="button" class="button-menu">
@@ -23,7 +25,7 @@
                 </i>
             </button>
             <nav>
-                <?php wp_nav_menu(); ?>
+                <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
             </nav>
 
             <!-- Icons -->

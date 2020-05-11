@@ -18,5 +18,5 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-
+get_template_part('partials/global/content', 'formsearch');
 the_title( '<h1 class="product_title entry-title">', '</h1>' );

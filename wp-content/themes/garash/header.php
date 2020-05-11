@@ -115,6 +115,7 @@ error_reporting(E_ALL);
     .item-filtro ul li {
         width: 100%;
         margin: 0px !important;
+        margin-bottom: 15px !important;
     }
     .item-filtro ul {
         display: flex;

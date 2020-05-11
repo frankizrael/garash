@@ -66,6 +66,7 @@ get_template_part('partials/global/content', 'navbar');
                     </div>
                     <?php endif; ?>
                     <div class="custom-filters">
+                        <div class="custom-filters-open"></div>
                         <?php
                         if(is_shop()){
                             $args = array(
@@ -122,8 +123,8 @@ get_template_part('partials/global/content', 'navbar');
                         }
                         ?>
                         <button class="button-filter-sf">
-                        Buscar
-                    </button>
+                         Buscar
+                        </button>
                     </div>
 
                     <div class="filter-top">
@@ -184,6 +185,13 @@ get_template_part('partials/global/content', 'footer');
     });
     jQuery('.button-filter-sf').click(function(e){
         filter_form.submit();
+    });
+    setTimeout(function(){
+        jQuery('.custom-filters').addClass('close');    
+    },500);
+    
+    jQuery('.custom-filters-open').on('click',function(){
+        jQuery('.custom-filters').toggleClass('close');    
     });
 });
 </script>
@@ -343,6 +351,38 @@ get_template_part('partials/global/content', 'footer');
     }
     .sidebar .searchandfilter ul li:nth-child(1), .searchandfilter ul li:nth-child(2) {
         display: block;
+    }
+    .custom-filters {        
+        transition: 0.3s;
+    }
+    .custom-filters.close {
+        transform: translateX(275px);
+    }
+    .custom-filters-open:before {
+        content: '';
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border-left: solid 2px white;
+        border-bottom: solid 2px white;
+        transform: rotate(45deg);
+        top: 14px;
+        left: 20px;
+    }
+    .custom-filters-open {
+        position: absolute;
+        top: 250px;
+        left: -49px;
+        background: #a5a5a5;
+        width: 50px;
+        height: 50px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        cursor: pointer;
+    }
+    .custom-filters.close .custom-filters-open:before {
+        transform: rotate(-135deg);
+        left: 10px;
     }
 </style>
 <?php

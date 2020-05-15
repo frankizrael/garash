@@ -46,24 +46,30 @@ get_template_part('partials/global/content', 'navbar');
         $args = array(
             'taxonomy' => 'product_cat',
             'hide_empty' => false,
-            'parent'   => 0
+            'parent'   => 0,
         );
         $product_cat = get_terms($args);
 
         ?>
         <div class="tabs">
             <ul class="tabs__links">
-                <?php foreach ($product_cat as $key => $parent_product_cat) : 
-                    ?>
-                    <?php
-                    if ($key === 0) :
-                    ?>
-                        <div class="line"></div>
-                    <?php endif; ?>
-                    <li class="<?php echo $key === 0 ? 'active' : '' ?>">
+                <div class="line"></div>
+                <?php foreach ($product_cat as $key => $parent_product_cat) :
+                    $child_args_f = array(
+                        'taxonomy' => 'product_cat',
+                        'hide_empty' => false,
+                        'parent'   => $parent_product_cat->term_id
+                    );
+                    $child_product_cats_f = get_terms($child_args_f);
+                    $cc = count($child_product_cats_f);
+                    if ($cc != 0) {
+                    ?>                    
+                    <li class="">
                         <a href="javascript:void(0)" id="<?php echo $parent_product_cat->slug; ?>"><?php echo $parent_product_cat->name ?></a>
                     </li>
-                <?php endforeach; ?>
+                <?php 
+                    }
+                endforeach; ?>
             </ul>
             <div class="tabs__content">
                 <?php foreach ($product_cat as $key => $parent_product_cat) : ?>
@@ -74,8 +80,10 @@ get_template_part('partials/global/content', 'navbar');
                         'parent'   => $parent_product_cat->term_id
                     );
                     $child_product_cats = get_terms($child_args);
+                    $cd = count($child_product_cats);
+                    if ($cd != 0) {
                     ?>
-                    <div class="tab-item <?php echo $key === 0 ? 'active' : '' ?>" id="<?php echo $parent_product_cat->slug; ?>">
+                    <div class="tab-item" id="<?php echo $parent_product_cat->slug; ?>">
                         <ul class="lists">
                             <?php
                             foreach ($child_product_cats as $child_product_cat) :
@@ -109,7 +117,9 @@ get_template_part('partials/global/content', 'navbar');
                             <?php endforeach; ?>
                         </ul>
                     </div>
-                <?php endforeach; ?>
+                <?php 
+                    }
+                endforeach; ?>
             </div>
         </div>
         <div class="link">
@@ -250,3 +260,14 @@ get_template_part('partials/global/content', 'footer');
 
 
 <?php get_footer('footer'); ?>
+<script type="text/javascript">
+    jQuery('.tabs__links li').eq(0).addClass('active');
+    jQuery('.tab-item').eq(0).addClass('active');
+    let wid = jQuery('.tabs__links li').eq(0).width();
+    jQuery('.line').css('width',wid)
+    jQuery('.tabs__links li').on('click',function(){
+        let thisS = jQuery(this);
+        jQuery('.tabs__links li').removeClass('active');
+        thisS.addClass('active');
+    });
+</script>

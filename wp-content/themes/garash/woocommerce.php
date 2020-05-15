@@ -41,32 +41,32 @@ get_template_part('partials/global/content', 'navbar');
                         <h4 class="title">Filtro</h4>
                     </div>
                     <div class="sidebar__content">
+                        <div class="addet">
+                            <?php $page_object = get_queried_object();
+                            if (isset($page_object->name) && $page_object->name !== 'product') :
+                            ?>
+                            <div class="taxonomy-content">
+                                <div class="image-taxonomy">
+                                    <?php
+                                    $thumbnail_id = get_term_meta( $page_object->term_id, 'thumbnail_id', true ); 
+                                    $image = wp_get_attachment_url( $thumbnail_id ); 
+                                    echo "<img src='{$image}' alt='{$page_object->nam}' />";
+                                    ?>
+                                </div>
+                                <h3 class="title-taxonomy">
+                                    <?php echo $page_object->name; ?>
+                                </h3>
+                            </div>
+                            <?php endif; ?>  
+                        </div>
                         <?php
                             woocommerce_get_sidebar();
                         ?>
                     </div>
 
                 </div>
-                <div class="content">
-                    <?php $page_object = get_queried_object();
-                    if (isset($page_object->name) && $page_object->name !== 'product') :
-                    ?>
-                    <?php get_template_part('partials/global/content', 'formsearch'); ?>
-                    <div class="taxonomy-content">
-                        <div class="image-taxonomy">
-                            <?php
-                            $thumbnail_id = get_term_meta( $page_object->term_id, 'thumbnail_id', true ); 
-                            $image = wp_get_attachment_url( $thumbnail_id ); 
-                            echo "<img src='{$image}' alt='{$page_object->nam}' />";
-                            ?>
-                        </div>
-                        <h3 class="title-taxonomy">
-                            <?php echo $page_object->name; ?>
-                        </h3>
-                    </div>
-                    <?php endif; ?>
-                    <div class="custom-filters">
-                        <div class="custom-filters-open"></div>
+                <div class="content">                                               
+                    <div class="custom-filters <?php if(is_shop()){ echo 'fullcats'; }?>">
                         <?php
                         if(is_shop()){
                             $args = array(
@@ -110,15 +110,26 @@ get_template_part('partials/global/content', 'navbar');
                             }
                             if(!empty($filtro)) {
                                 foreach($filtro as $item_filtro){
+                                    $image = get_field('imagen_ayuda',$item_filtro['filtro']);
+                                    $class = get_field('class_filter',$item_filtro['filtro']);
                                     ?>
-                                    <div class="item-filtro">
+                                    <div class="item-filtro <?php if($class) { echo $class; }?>">
                                         <h2><?php echo $item_filtro['titulo_filtro']; ?></h2>
-                                    <?php
-                                    echo do_shortcode('[searchandfilter id="' . $item_filtro['filtro'] . '"]');
-                                    ?>
+                                        <?php
+                                            echo do_shortcode('[searchandfilter id="' . $item_filtro['filtro'] . '"]');
+                                        ?>
+                                        <?php if($image) {?>
+                                        <div class="imagen">
+                                            <img src="<?php echo $image;?>">
+                                        </div>
+                                        <?php } ?>
                                     </div>
                                     <?php
                                 }
+                            } else {
+                                ?>
+                                <script type="text/javascript">jQuery('.custom-filters').hide();</script>
+                                <?php
                             }
                         }
                         ?>
@@ -126,7 +137,6 @@ get_template_part('partials/global/content', 'navbar');
                          Buscar
                         </button>
                     </div>
-
                     <div class="filter-top">
                         <?php do_action('woocommerce_before_shop_loop'); ?>
                     </div>
@@ -186,204 +196,19 @@ get_template_part('partials/global/content', 'footer');
     jQuery('.button-filter-sf').click(function(e){
         filter_form.submit();
     });
-    setTimeout(function(){
-        jQuery('.custom-filters').addClass('close');    
-    },500);
-    
-    jQuery('.custom-filters-open').on('click',function(){
-        jQuery('.custom-filters').toggleClass('close');    
+
+    let lt = jQuery('.item-filtro').length;
+    jQuery('.item-filtro').eq(lt-1).append(jQuery('.button-filter-sf'));
+
+    var singleProductfilter_form = jQuery('.singleProduct .searchandfilter');
+    jQuery('.singleProduct .button-filter-sf').click(function(e){
+        singleProductfilter_form.submit();
     });
+
 });
 </script>
 <style type="text/css">
-    .searchandfilter ul li li input,.searchandfilter_css ul li li input {
-        display: none;
-    }
-
-    .searchandfilter ul li li input:checked + label:before, .searchandfilter_css ul li li input:checked + label:before {
-        background: #00a779;
-    }
-    .searchandfilter ul li li input:checked + label:after, .searchandfilter_css ul li li input:checked + label:after {
-        content: '';
-        width: 3px;
-        height: 7px;
-        border-right: solid 1px white;
-        border-bottom: solid 1px white;
-        position: absolute;
-        transform: rotate(45deg);
-        left: 5px;
-        top: 4px;
-    }
-    .searchandfilter ul li li label:before, .searchandfilter_css ul li li label:before {
-        content: '';
-        position: absolute;
-        width: 12px;
-        height: 12px;
-        border: solid 1px #00a779;
-        top: 2px;
-        left: 0px;
-    }
-    .searchandfilter ul li li label, .searchandfilter_css ul li li label {
-        padding-left: 15px !important;
-        position: relative;
-        color: #060404;
-    }
-    .searchandfilter h4, .searchandfilter_css h4 {
-        border-bottom: solid 1px #dedede;
-        margin-bottom: 10px;
-    }
-    .searchandfilter .noUi-connect, .searchandfilter_css .noUi-connect {
-        background-color: #00a779;
-    }
-    .item-filtro ul li {
-        margin-right: 25px;
-    }
-    .item-filtro ul {
-        display: flex;
-        margin: 30px 0px;
-        flex-wrap: wrap;
-        align-items: flex-end;
-    }
-    .searchandfilter select.sf-input-select, .searchandfilter_css select.sf-input-select {
-        min-width: 170px;
-        background: linear-gradient(#fff 20%,#f6f6f6 50%,#eee 52%,#f4f4f4 100%);
-        padding: 4px 0px 4px 8px;
-        border: 1px solid #aaa;
-        border-radius: 5px;
-    }
-    .chosen-container .chosen-results {
-        display: block;
-    }
-    li.sf-field-taxonomy-product_cat ul {
-        margin: 0px;
-    }
-    li.sf-field-submit input {
-        border: none;
-        background: #00a779;
-        font-size: 16px;
-        padding: 10px 15px;
-        display: block;
-        color: white;
-        border-radius: 5px;
-    }
-    .searchandfilter ul li.sf-level-0 .children, .searchandfilter_css ul li.sf-level-0 .children {
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    .searchandfilter ul li.sf-level-0 .children input, .searchandfilter_css ul li.sf-level-0 .children input {
-        display: none !important;
-    }
-    .cf_content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-    .cf_content .cf-item {
-        width: 135px;
-        border: solid 1px #d0d0d0;
-        padding: 10px 10px;
-    }
-    .cf_content .cf-item .title {
-        font-size: 10px;
-        text-align: center;
-    }
-    .cf_content .cf-item .content {
-        max-width: 100%;
-        padding: 0px;
-    }
-    .cf_content .cf-item .content {
-        margin-top: 5px;
-    }
-    .cf_content .cf-item .content .action {
-        display: none;
-    }
-    li.sf-level-1.sf-option-active .children {
-        display: block;
-    }
-    li.sf-level-1 .children {
-        display: none;
-    }
-    .navbar .menu .icons .cart svg {
-        width: 23px;
-        height: 23px;
-    }
-    .div_terms {
-        display: flex;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    .div_cvv {
-        display: inline-block;
-        width: calc(33.33% - 5px);
-    }
-    .div_year {
-        display: inline-block;
-        width: calc(33.33% - 5px);
-        margin: 0px 4px;
-    }
-    .div_month {
-        display: inline-block;
-        width: calc(33.33% - 5px);
-    }
-    .culqi_div_form input {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 10px;
-    }
-    .div_mail, .div_card {
-        margin-bottom: 5px;
-    }
-    #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-menu-item > a.mega-menu-link, #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-menu-ancestor > a.mega-menu-link, #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-page-ancestor > a.mega-menu-link {
-        background: transparent !important;
-        padding-bottom: 10px;
-        display: block;
-        height: auto;
-        padding-top: 10px;
-    }
-    #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link {
-        height: auto;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    .sidebar .searchandfilter ul li {
-        display: none;
-    }
-    .sidebar .searchandfilter ul li:nth-child(1), .searchandfilter ul li:nth-child(2) {
-        display: block;
-    }
-    .custom-filters {        
-        transition: 0.3s;
-    }
-    .custom-filters.close {
-        transform: translateX(275px);
-    }
-    .custom-filters-open:before {
-        content: '';
-        position: absolute;
-        width: 22px;
-        height: 22px;
-        border-left: solid 2px white;
-        border-bottom: solid 2px white;
-        transform: rotate(45deg);
-        top: 14px;
-        left: 20px;
-    }
-    .custom-filters-open {
-        position: absolute;
-        top: 250px;
-        left: -49px;
-        background: #a5a5a5;
-        width: 50px;
-        height: 50px;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-        cursor: pointer;
-    }
-    .custom-filters.close .custom-filters-open:before {
-        transform: rotate(-135deg);
-        left: 10px;
-    }
+    
 </style>
 <?php
 get_footer();

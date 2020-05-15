@@ -1,0 +1,898 @@
+/*header*/
+.navbar__content {
+  flex-wrap: wrap;
+}
+.navbarMenu {
+  width: 100%;
+  flex: none;
+  display: flex;
+}
+.navbar .menu {
+  justify-content: flex-end;
+}
+.navbar .box {
+  top: 99px;
+  z-index: 3;
+}
+.navbarMenuContent {
+  flex: none;
+  width: 100%;
+}
+.icons {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.icons a {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.icons i, .icons svg {
+  margin-right: 8px;
+}
+.icons i svg {
+    margin-right: 0px;
+}
+.icons button {
+  display: flex;
+  align-items: center;
+}
+.navbar .menu .icons .account {
+  border-left: solid 1px white;
+  border-right: solid 1px white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.navbar .menu .icons .cart {
+  border-right: solid 1px white;
+  padding-right: 20px;
+  padding-left: 5px;
+}
+.navbar.is-active .icons span {
+  color: #8e8e8e;
+}
+.navbar.is-active .menu .icons .account {
+  border-left: solid 1px #8e8e8e;
+  border-right: solid 1px #8e8e8e;
+}
+.navbar.is-active .menu .icons .cart {
+  border-right: solid 1px #8e8e8e;
+}
+.sectionCategories__content .tabs__content .tab-item ul li img {
+  object-fit: cover;
+}
+ul#mega-menu-primary {
+  display: flex !important;
+  justify-content: space-between;
+}
+.searchandfilter ul li li input {
+  display: none;
+}
+.searchandfilter_css ul li li input {
+  display: none !important;
+}
+.searchandfilter ul li li input:checked + label:before, .searchandfilter_css ul li li input:checked + label:before {
+    background: #00a779;
+}
+.searchandfilter ul li li input:checked + label:after, .searchandfilter_css ul li li input:checked + label:after {
+    content: '';
+    width: 3px;
+    height: 7px;
+    border-right: solid 1px white;
+    border-bottom: solid 1px white;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 5px;
+    top: 4px;
+}
+.searchandfilter ul li li label:before, .searchandfilter_css ul li li label:before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: solid 1px #00a779;
+    top: 2px;
+    left: 0px;
+}
+.searchandfilter ul li li label, .searchandfilter_css ul li li label{
+    padding-left: 15px !important;
+    position: relative;
+    color: #060404;
+}
+.searchandfilter h4 {
+    border-bottom: solid 1px #dedede;
+    margin-bottom: 10px;
+}
+.searchandfilter .noUi-connect {
+    background-color: #00a779;
+}
+.item-filtro ul li {
+    width: 100%;
+    margin: 0px !important;
+    margin-bottom: 10px !important;
+}
+.item-filtro ul {
+    display: flex;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+.searchandfilter select.sf-input-select {
+    min-width: 170px;
+    background: linear-gradient(#fff 20%,#f6f6f6 50%,#eee 52%,#f4f4f4 100%);
+    padding: 4px 0px 4px 8px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+.chosen-container .chosen-results {
+    display: block;
+}
+li.sf-field-taxonomy-product_cat ul {
+    margin: 0px;
+}
+li.sf-field-submit input {
+    border: none;
+    background: #00a779;
+    font-size: 16px;
+    padding: 10px 15px;
+    display: block;
+    color: white;
+    border-radius: 5px;
+}
+.searchandfilter ul li.sf-level-0 .children {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.searchandfilter ul li.sf-level-0 .children input {
+    display: none !important;
+}
+.searchandfilter label {
+    width: 100%;
+}
+.woocommerce nav.woocommerce-pagination ul li {
+  width: 28px;
+}
+.custom-filters.fullcats .button-filter-sf {
+    display: none;
+}
+.cf_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 0px;
+    width: 100%;
+    flex: none;
+}
+.cf_content .cf-item {
+    width: calc(16% - 5px) !important;
+    border: solid 1px #d0d0d0;
+    padding: 10px 10px;
+    margin-bottom: 15px;
+}
+.cf_content .cf-item .title {
+    font-size: 10px;
+    text-align: center;
+}
+.cf_content .cf-item .content {
+    max-width: 100%;
+    padding: 0px;
+}
+.cf_content .cf-item .content {
+    margin-top: 5px;
+}
+.cf_content .cf-item .content .action {
+    display: none;
+}
+li.sf-level-1.sf-option-active .children {
+    display: block;
+}
+li.sf-level-1 .children {
+    display: none;
+}
+.navbar .menu .icons .cart svg {
+    width: 23px;
+    height: 23px;
+}
+.div_terms {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.div_cvv {
+    display: inline-block;
+    width: calc(33.33% - 5px);
+}
+.div_year {
+    display: inline-block;
+    width: calc(33.33% - 5px);
+    margin: 0px 4px;
+}
+.div_month {
+    display: inline-block;
+    width: calc(33.33% - 5px);
+}
+.culqi_div_form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.div_mail, .div_card {
+    margin-bottom: 5px;
+}
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-menu-item > a.mega-menu-link, #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-menu-ancestor > a.mega-menu-link, #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-page-ancestor > a.mega-menu-link {
+    background: transparent !important;
+    padding-bottom: 10px;
+    display: block;
+    height: auto;
+    padding-top: 10px;
+}
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item {
+    background: transparent !important;
+}
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#mega-menu-wrap-primary {
+    background: transparent;
+}
+a.mega-custom-icon.mega-menu-link {
+    background: transparent !important;
+}
+.sectionCategories__content .tabs__content .tab-item ul li .overlay {
+    z-index: 1;
+    opacity: 0.5;
+}
+.sectionCategories__content .tabs__content .tab-item ul li .x-caption a .name {
+    color: white;
+}
+.sectionCategories__content .tabs__content .tab-item ul li img {
+    z-index: 0;
+}
+.sectionCategories__content .tabs__content .tab-item ul li .x-caption {
+    z-index: 3;
+    color: white;
+    position: absolute;
+}
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link:hover {
+    background: transparent !important;
+}
+.navbar.is-active .mega-menu-link {
+  color: #8e8e8e!important;
+}
+.navbar .menu nav {
+  position: static;
+}
+#mega-menu-wrap-primary {
+  background: transparent;
+  position: static;
+}
+ul#mega-menu-primary {
+  position: static !important;
+}
+ul.mega-sub-menu {
+  left: 0px !important;
+  vertical-align: top !important;
+}
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-flyout ul.mega-sub-menu {
+  width: auto;
+  min-width: 250px;
+}
+a.mega-custom-icon.mega-menu-link {
+    white-space: nowrap !important;
+}
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-flyout ul.mega-sub-menu li.mega-menu-item ul.mega-sub-menu {
+  left: 100% !important;
+}
+#mega-menu-wrap-primary #mega-menu-primary li.mega-menu-item-has-children li.mega-menu-item-has-children > a.mega-menu-link > span.mega-indicator {
+    top: 7px;
+}
+.mega-menu-column a {
+  font-weight: 400 !important;
+  padding-right: 10px !important;
+  text-transform: none !important;
+}
+.mega-menu-column .mega-sub-menu .mega-menu-item {
+  width: auto !important;
+  border: solid 1px rgba(162, 162, 162, 0.48) !important;
+  background: white !important;
+  margin: 20px 10px !important;
+  overflow: hidden !important;
+  border-radius: 5px !important;
+  box-shadow: 0px 7px 9px #00000057 !important;
+  padding: 0px !important;
+  display: inline-block !important;
+  vertical-align: top !important;
+}
+section.sectionStore {
+  background: #f7f6f6;
+}
+.sidebar__content [class^="sf-field-taxonomy-"], .sidebar__content [class^="sf-field-post-meta-"] {
+  padding: 10px !important;
+  background: white;
+  box-shadow: 0px 3px 4px #00000052;
+  margin-bottom: 15px !important;
+  border-radius: 5px;
+  transition: 0.3s;
+  max-height: 44px;
+  overflow: hidden;
+}
+.minHeightA {
+  max-height: 3000px !important;
+}
+.custom-filters {
+  padding: 20px 15px;
+  background: white;
+  box-shadow: 0px 7px 12px #00000052;
+  margin-bottom: 30px !important;
+}
+.searchandfilter h4:before, .searchandfilter_css h4:before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-left: solid 1px black;
+  border-bottom: solid 1px black;
+  transform: rotate(-45deg);
+  right: 0px;
+  top: 9px;
+}
+.minHeightA .searchandfilter h4:before, .minHeightA .searchandfilter_css h4:before {
+  transform: rotate(135deg);
+  top: 11px;
+}
+.custom-filters .searchandfilter h4:before, .custom-filters .searchandfilter_css h4:before {
+  display: none;
+}
+.searchandfilter h4, .searchandfilter_css h4 {
+  font-size: 14px;
+  position: relative;
+  cursor: pointer;
+}
+.searchandfilter select.sf-input-select, .searchandfilter_css select.sf-input-select {
+  width: 100%;
+  border: solid 1px #e4e4e4;
+}
+.taxonomy-content {
+  padding: 10px !important;
+  background: white;
+  box-shadow: 0px 7px 12px #00000052;
+  margin-bottom: 20px !important;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+.image-taxonomy {
+  width: 80px;
+  height: 80px;
+  flex: none;
+}
+.item-filtro ul li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.item-filtro:last-child {
+  margin-bottom: 0px;
+}
+.item-filtro {
+  margin-bottom: 10px;
+}
+.title-taxonomy {
+    font-size: 23px;
+    font-weight: 400;
+    color: #01a778;
+    margin-left: 10px;
+    line-height: 22px;
+}
+.title-taxonomy:before {
+  content: 'Filtrado por';
+  display: block;
+  color: black;
+  font-size: 14px;
+  font-weight: 700;
+}
+li.sf-level-2 .children {
+  display: none !important;
+}
+.image-taxonomy img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+button.button-filter-sf:after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 13px;
+    background: white;
+    transform: rotate(-45deg);
+    left: 29px;
+    top: 25px;
+}
+button.button-filter-sf:before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: solid 2px white;
+    left: 10px;
+    top: 11px;
+}
+button.button-filter-sf {
+    background: #01a678;
+    color: white;
+    padding: 15px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+.sectionStore__content {
+  z-index: auto;
+}
+
+.woocommerce-tabs.wc-tabs-wrapper {
+  background: white;
+  box-shadow: 0px 4px 6px #00000042;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+    padding-left: 0px;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs::before {
+    display: none;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+    animation: none;
+    background: #fff;
+    z-index: 2;
+    border-bottom-color: #fff;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+  flex: 1;
+  padding: 0px;
+  text-align: center;
+  margin: 0px;
+  border: none;
+  border-radius: 0px;
+  background: #f1f1f1;
+  font-size: 14px;
+  font-weight: 400;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+    display: block;
+    padding: 15px 5px;
+    font-weight: 400;
+}
+.woocommerce div.product .woocommerce-tabs .panel {
+    padding: 10px;
+    line-height: 25px;
+    opacity: 0.7;
+}
+.content-form form .influx button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background: #01a678;
+    color: white;
+}
+.content-form form .influx select {
+    width: 100%;
+    padding: 10px 7px;
+    border-radius: 5px;
+    color: #565656;
+}
+.content-form form .influx {
+    width: calc(20% - 10px);
+}
+.content-form form {
+    display: flex;
+    justify-content: space-between;
+}
+.content-form h4 {
+    color: white;
+    margin-bottom: 10px;
+}
+.content-form {
+    background: #323232;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.woocommerce div.product div.summary .content-form {
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.woocommerce div.product div.summary {
+    background: white;
+    box-shadow: 0px 4px 6px #00000042;
+    padding: 10px;
+}
+.sectionStore__content .singleProduct .product_title.entry-title {
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
+    background: #323232;
+    text-transform: uppercase;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+.woocommerce div.product p.price, .woocommerce div.product span.price {
+    margin-bottom: 10px;
+    padding: 0px 15px;
+}
+.sectionStore__content .singleProduct .description-store {
+    padding: 10px 15px;
+    margin-bottom: 5px;
+}
+.woocommerce div.product p.stock {
+    padding: 5px 15px;
+}
+.custom-filters .item-filtro {
+    width: 200px;
+    margin-right: 15px;
+}
+li#mega-menu-item-302 .mega-sub-menu {
+    left: -100px !important;
+}
+.custom-filters {
+  display: flex;
+  flex-wrap: wrap;
+}
+.custom-filters h2 {
+    font-size: 14px;
+    color: #01a678;
+    border-bottom: solid 1px #0000001f;
+    padding-bottom: 10px;
+}
+.custom-filters h4 {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #9c9c9c;
+    font-size: 10px;
+}
+.item-filtro.filtro_neumaticos li.sf-field-taxonomy-pa_indice-de-velocidad {
+    top: 163px;
+    right: 0px;
+    padding-top: 10px;
+    padding-bottom: 47px;
+    background: white;
+    width: 45%;
+}
+.item-filtro.filtro_neumaticos li.sf-field-taxonomy-pa_fabricante {
+    top: 163px;
+    width: 45%;
+    padding-top: 10px;
+    padding-bottom: 47px;
+    background: white;
+}
+.item-filtro.filtro_neumaticos {
+    width: 100%;
+    margin-right: 0px;
+    padding-bottom: 40px;
+}
+.item-filtro.filtro_neumaticos .imagen {
+    width: 320px;
+    margin: auto;
+}
+.item-filtro.filtro_neumaticos li.sf-field-post-meta-_length {
+    right: 0px;
+    top: 0px;
+}
+.item-filtro.filtro_neumaticos li.sf-field-post-meta-_height {
+    left: 35%;
+    top: 0px;
+}
+.item-filtro.filtro_neumaticos ul {
+    position: relative;
+    padding-top: 65px;
+}
+.item-filtro.filtro_neumaticos li.sf-field-post-meta-_width {
+    left: 0px;
+    top: 0px;
+}
+.item-filtro.filtro_neumaticos li {
+    width: 30%;
+    position: absolute;
+    box-sizing: border-box;
+}
+.chosen-container {
+    width: 100% !important;
+}
+.item-filtro li select, .chosen-container-single .chosen-single {
+    width: 100% !important;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px #01a678 !important;
+    height: 40px;
+    box-sizing: border-box;
+}
+.item-filtro.filtro_neumaticos li.sf-field-post-meta-_width:before {
+    content: '';
+    position: absolute;
+    width: 112px;
+    height: 2px;
+    background: #01a678;
+    transform: rotate(21deg);
+    bottom: -21px;
+    right: -68px;
+}
+.item-filtro.filtro_neumaticos li.sf-field-post-meta-_height:before {
+    content: '';
+    width: 2px;
+    height: 24px;
+    background: #01a678;
+    bottom: -23px;
+    left: 50%;
+    position: absolute;
+    margin-left: -2px;
+}
+.item-filtro.filtro_neumaticos li.sf-field-post-meta-_length:before {
+    content: '';
+    position: absolute;
+    width: 112px;
+    height: 2px;
+    background: #01a678;
+    transform: rotate(-21deg);
+    bottom: -21px;
+    left: -68px;
+}
+.item-filtro.filtro_neumaticos button.button-filter-sf {
+    width: 250px;
+    margin: auto;
+    display: block;
+    margin-top: -20px;
+}
+
+
+
+.item-filtro.filtro_neumaticos_motos li.sf-field-taxonomy-pa_indice-de-velocidad {
+    top: 163px;
+    right: 0px;
+    padding-top: 10px;
+    padding-bottom: 47px;
+    background: white;
+    width: 45%;
+}
+.item-filtro.filtro_neumaticos_motos li.sf-field-taxonomy-pa_fabricante {
+    top: 163px;
+    width: 45%;
+    padding-top: 10px;
+    padding-bottom: 47px;
+    background: white;
+}
+.item-filtro.filtro_neumaticos_motos {
+    width: calc(100% - 250px);
+    margin-right: 0px;
+    padding-bottom: 40px;
+}
+.item-filtro.filtro_neumaticos_motos .imagen {
+    width: 320px;
+    margin: auto;
+}
+.item-filtro.filtro_neumaticos_motos li.sf-field-post-meta-_length {
+    right: 0px;
+    top: 0px;
+}
+.item-filtro.filtro_neumaticos_motos li.sf-field-post-meta-_height {
+    left: 25%;
+    top: 0px;
+}
+.item-filtro.filtro_neumaticos_motos ul {
+    position: relative;
+    padding-top: 65px;
+}
+.item-filtro.filtro_neumaticos_motos li.sf-field-post-meta-_width {
+    left: 0px;
+    top: 0px;
+}
+.item-filtro.filtro_neumaticos_motos li {
+    width: 20%;
+    position: absolute;
+    box-sizing: border-box;
+}
+.chosen-container {
+    width: 100% !important;
+}
+.item-filtro.filtro_neumaticos_motos li.sf-field-post-meta-_width:before {
+    content: '';
+    position: absolute;
+    width: 185px;
+    height: 2px;
+    background: #01a678;
+    transform: rotate(21deg);
+    bottom: -8px;
+    right: -140px;
+}
+.item-filtro.filtro_neumaticos_motos li.sf-field-post-meta-_height:before {
+    content: '';
+    width: 2px;
+    height: 50px;
+    background: #01a678;
+    bottom: -40px;
+    right: 0px;
+    position: absolute;
+    transform: rotate(-51deg);
+}
+.item-filtro.filtro_neumaticos_motos li.sf-field-post-meta-_length:before {
+    content: '';
+    position: absolute;
+    width: 182px;
+    height: 2px;
+    background: #01a678;
+    transform: rotate(-15deg);
+    bottom: -25px;
+    left: -139px;
+}
+.item-filtro.filtro_neumaticos_motos button.button-filter-sf {
+    width: 250px;
+    margin: auto;
+    display: block;
+    margin-top: -20px;
+}
+.item-filtro.filtro_neumaticos_motos li.sf-field-taxonomy-pa_tipo {
+    right: 25%;
+}
+.item-filtro.filtro_neumaticos_motos li.sf-field-taxonomy-pa_tipo:before {
+    content: '';
+    position: absolute;
+    width: 56px;
+    height: 2px;
+    background: #01a678;
+    transform: rotate(-34deg);
+    bottom: -17px;
+    left: -14px;
+}
+
+.item-filtro ul.children li {
+    margin-bottom: 5px !important;
+}
+.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {
+  width: 35% !important;
+}
+.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
+  width: calc(65% - 20px) !important;
+  padding: 0px;
+}
+.content_single-a {
+    display: flex;
+    justify-content: space-between;
+}
+.form-filter {
+    width: 230px;
+    padding: 10px 15px;
+    background: #e6e6e6;
+}
+.form-filter h2 {
+    font-size: 14px;
+    color: #989898;
+    margin-bottom: 10px;
+    border-bottom: solid 1px gainsboro;
+    padding-bottom: 5px;
+}
+.searchandfilter ul li {
+    list-style: none;
+    display: block;
+    padding: 10px 0;
+    margin: 0;
+}
+.form-filter li h4 {
+    font-size: 12px !important;
+    color: #01a678;
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+    border-bottom: none;
+}
+.form-filter li select {
+    padding: 10px !important;
+    border: solid 1px #01a678 !important;
+}
+.content_inside {
+    width: calc(100% - 230px);
+    box-shadow: 0px 4px 7px #00000045;
+}
+.navbar__content.x-container {
+    max-width: calc(100% - 20px);
+}
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    font-size: 12px;
+    padding-right: 5px;
+    white-space: nowrap;
+}
+.sectionStore {
+    margin-top: 160px;
+}
+.tabs__links {
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+.tabs__links::-webkit-scrollbar {
+  display: block !important;
+}
+.tabs__links::-webkit-scrollbar-thumb {
+    background: #d8d8d8;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.tabs__links::-webkit-scrollbar-track {
+    background: #e6e6e6;
+}
+.tabs__links::-webkit-scrollbar {
+    width: 12px;
+    height: 8px;
+}
+.sf-meta-range.sf-meta-range-slider label {
+    display: inline-block !important;
+    width: auto !important;
+}
+.item-filtro.filtro_baterias {
+    width: 100%;
+    margin-right: 0px;
+}
+.item-filtro.filtro_baterias ul li {
+    width: 16%;
+}
+.item-filtro.filtro_baterias ul {
+    justify-content: space-between;
+}
+.item-filtro.filtro_bateria_tres button {
+    max-width: 200px;
+    float: right;
+}
+.item-filtro.filtro_bateria_tres ul ul li {
+    white-space: nowrap;
+    width: auto;
+    margin-right: 8px !important;
+}
+.item-filtro.filtro_bateria_tres ul {
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.item-filtro.filtro_bateria_tres ul li {
+    width: calc(33.33% - 20px);
+}
+.item-filtro.filtro_bateria_tres {
+    width: calc(100% - 230px);
+}
+
+
+.item-filtro.filtro_accesorios button {
+    max-width: 200px;
+    float: right;
+}
+.item-filtro.filtro_accesorios ul ul li {
+    white-space: nowrap;
+    width: auto;
+    margin-right: 8px !important;
+}
+.item-filtro.filtro_accesorios ul {
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.item-filtro.filtro_accesorios ul li {
+    width: calc(20% - 10px);
+}
+.item-filtro.filtro_accesorios {
+    width: 100%;
+}
+
+
+.custom-filters .item-filtro.filtro_baterias_dos {
+    width: 200px;
+    flex: none;
+}
+.item-filtro.filtro_baterias ul.chosen-results li {
+    width: 100% !important;
+}

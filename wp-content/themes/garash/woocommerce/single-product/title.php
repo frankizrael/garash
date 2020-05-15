@@ -18,5 +18,24 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-get_template_part('partials/global/content', 'formsearch');
-the_title( '<h1 class="product_title entry-title">', '</h1>' );
+global $product;
+?>
+<div class="content_single-a">
+	<?php
+		$idsCat = $product->get_category_ids();
+		$count = count($idsCat)-1;
+		$catname = 'product_cat_'.$idsCat[$count];
+		$listadoFiltro = get_field('listado_filtro',$catname);
+		$countFiltro = count($listadoFiltro)-1;
+		$filterID = $listadoFiltro[$countFiltro]['filtro'];		
+	?>
+	<div class="form-filter">
+		<h2><?php echo $listadoFiltro[$countFiltro]['titulo_filtro']; ?></h2>
+        <?php
+            echo do_shortcode('[searchandfilter id="' . $filterID . '"]');
+        ?>
+        <button class="button-filter-sf">Buscar</button>
+	</div>
+	<div class="content_inside">
+	<?php
+	the_title( '<h1 class="product_title entry-title">', '</h1>' );

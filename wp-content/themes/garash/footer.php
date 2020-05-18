@@ -102,6 +102,11 @@
         }
     },700);    
 </script>
+<script type="text/javascript">
+    setTimeout(function(){
+        jQuery('.preload').addClass('active');
+    },500);
+</script>
 <?php
     } 
 ?>

@@ -75,3 +75,9 @@ error_reporting(E_ALL);
   <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css.css">
 </head>
 <body <?php body_class(); ?>>
+  <style type="text/css">
+  .preload {position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 99999;background: white;display: flex;align-items: center;justify-content: space-around;transition: 0.3s;}.preload.active {pointer-events: none;opacity: 0;}.preload img {max-width: 300px;}
+  </style>
+  <div class="preload">
+    <img src="<?php echo get_template_directory_uri() . '/assets/garash_logo.png'  ?>" alt="Logo Garash">
+  </div>

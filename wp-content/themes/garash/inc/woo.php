@@ -14,6 +14,9 @@ function your_function_name()
 {
 
     echo '<h3 class="description-store">Descripción</h3>';
+    echo '<div class="description-s">';
+    the_content();
+    echo '</div>';
 }
 
 add_filter('woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text');

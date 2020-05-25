@@ -41,7 +41,7 @@ get_template_part('partials/global/content', 'navbar');
 
                 </div>
                 <div class="sectionInfo__content">
-                    <? if (have_posts()) : while (have_posts()) : the_post();
+                    <?php if (have_posts()) : while (have_posts()) : the_post();
                             the_content();
                         endwhile;
                     endif; ?>

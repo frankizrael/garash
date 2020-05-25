@@ -205,6 +205,30 @@ get_template_part('partials/global/content', 'footer');
         singleProductfilter_form.submit();
     });
 
+    /* filter preside*/
+    var urlNeumaticos = "<?php echo site_url();?>/product-category/neumatico/";
+    var urlMotos = "<?php echo site_url();?>/product-category/neumaticos-para-motos/";
+    var urlCoches = "<?php echo site_url();?>/product-category/coche-de-turismo/";
+
+    var imgNeumaticos = "<?php echo get_template_directory_uri(); ?>/assets/4x4.png";
+    var imgMotos = "<?php echo get_template_directory_uri(); ?>/assets/bike.png";
+    var imgCoches = "<?php echo get_template_directory_uri(); ?>/assets/pickup-car.png";
+
+    function templateF(url,img,nombre){
+        var href = location.href;
+        var extraclass = '';
+        if (href == url) { extraclass = 'custom'; }
+        var template = '<div class="filterInsideCloud '+extraclass+'"><a href="'+url+'"><img src="'+img+'">'+nombre+'</div>';
+        return template;
+    }    
+
+    if (jQuery('.filtro_neumaticos').length > 0 || jQuery('.filtro_neumaticos_motos').length > 0) {
+        jQuery('.custom-filters').prepend('<div class="item-filtro filterByList"></div>');
+        jQuery('.filterByList').append(templateF(urlNeumaticos,imgNeumaticos,'Off-Road/4x4/SUV'));
+        jQuery('.filterByList').append(templateF(urlMotos,imgMotos,'Motos'));
+        jQuery('.filterByList').append(templateF(urlCoches,imgCoches,'Coche de turismo'));
+    }
+    
 });
 </script>
 <style type="text/css">

@@ -42,88 +42,25 @@ get_template_part('partials/global/content', 'navbar');
 <section class="sectionCategories">
     <div class="sectionCategories__content x-container">
         <h3 class="title">Categorías</h3>
-        <?php
-        $args = array(
-            'taxonomy' => 'product_cat',
-            'hide_empty' => false,
-            'parent'   => 0,
-        );
-        $product_cat = get_terms($args);
-
-        ?>
-        <div class="tabs">
-            <ul class="tabs__links">
-                <div class="line"></div>
-                <?php foreach ($product_cat as $key => $parent_product_cat) :
-                    $child_args_f = array(
-                        'taxonomy' => 'product_cat',
-                        'hide_empty' => false,
-                        'parent'   => $parent_product_cat->term_id
-                    );
-                    $child_product_cats_f = get_terms($child_args_f);
-                    $cc = count($child_product_cats_f);
-                    if ($cc != 0) {
-                    ?>                    
-                    <li class="">
-                        <a href="javascript:void(0)" id="<?php echo $parent_product_cat->slug; ?>"><?php echo $parent_product_cat->name ?></a>
-                    </li>
-                <?php 
-                    }
-                endforeach; ?>
-            </ul>
-            <div class="tabs__content">
-                <?php foreach ($product_cat as $key => $parent_product_cat) : ?>
-                    <?php
-                    $child_args = array(
-                        'taxonomy' => 'product_cat',
-                        'hide_empty' => false,
-                        'parent'   => $parent_product_cat->term_id
-                    );
-                    $child_product_cats = get_terms($child_args);
-                    $cd = count($child_product_cats);
-                    if ($cd != 0) {
-                    ?>
-                    <div class="tab-item" id="<?php echo $parent_product_cat->slug; ?>">
-                        <ul class="lists">
-                            <?php
-                            foreach ($child_product_cats as $child_product_cat) :
-                                $thumbnail_id = get_term_meta($child_product_cat->term_id, 'thumbnail_id', true);
-                                $image = wp_get_attachment_url($thumbnail_id);
-                            ?>
-                                <li>
-                                    <div class="overlay"></div>
-                                    <img src="<?php echo $image ?>" width="50" alt="">
-                                    <div class="x-caption">
-                                        <a href="<?php echo get_term_link($child_product_cat->term_id) ?>">
-                                            <div class="name">
-                                                <?php echo $child_product_cat->name ?>
-                                            </div>
-                                            <div class="icon">
-                                                <i>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="10.607" height="16.971" viewBox="0 0 10.607 16.971">
-                                                        <g transform="translate(-6.364 8.485) rotate(-45)">
-                                                            <rect width="12" height="3" transform="translate(12 12) rotate(180)" />
-                                                            <rect width="12" height="3" transform="translate(9 12) rotate(-90)" />
-                                                        </g>
-                                                    </svg>
-                                                </i>
-                                                Ver productos
-
-                                            </div>
-
-                                        </a>
-                                    </div>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                <?php 
-                    }
-                endforeach; ?>
+        <div class="categoryA">
+            <?php
+                $cat = get_field('categoria');
+                if ($cat) {
+                    foreach ($cat as $c) {
+            ?>
+            <div class="categoryA__item" style="background-image: url('<?php echo $c['imagen']; ?>');">
+                <div class="midTitle">
+                    <h3><?php echo $c['title']; ?></h3>
+                    <a href="<?php echo $c['link']; ?>">¡Ver ahora!</a>
+                </div>
             </div>
+            <?php
+                    }
+                }
+            ?>
         </div>
         <div class="link">
-            <a href="/" class="button button-primary">Ver categoría</a>
+            <a href="<?php echo site_url(); ?>/product-category/neumatico/" class="button button-primary">Ver categoría</a>
         </div>
     </div>
 </section>
@@ -140,17 +77,6 @@ get_template_part('partials/global/content', 'navbar');
                         endif;
                     ?>
                 </p>
-                <a href="">
-                    <i>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10.607" height="16.971" viewBox="0 0 10.607 16.971">
-                            <g transform="translate(-6.364 8.485) rotate(-45)">
-                                <rect width="12" height="3" transform="translate(12 12) rotate(180)"></rect>
-                                <rect width="12" height="3" transform="translate(9 12) rotate(-90)"></rect>
-                            </g>
-                        </svg>
-                    </i>
-                    Ver todas las ofertas
-                </a>
             </div>
 
             <div class="slider prod">
@@ -162,44 +88,7 @@ get_template_part('partials/global/content', 'navbar');
 </section>
 
 
-<section class="SectionOffers">
-    <div class="SectionOffers__content x-container">
-        <?php if( have_rows('offers') ): ?>
-            <ul class="list">
-                <?php while( have_rows('offers') ): the_row(); 
-                    $image = get_sub_field('offers_image');
-                    $title = get_sub_field('offers_title');
-                    $link = get_sub_field('offers_link');
-                    $discount = get_sub_field('offers_discount');
-                ?>
-                <li>
-                    <div class="title">
-                        <?php echo $title; ?>
-                    </div>
-                    <a href="">
-                        <i>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="10.607" height="16.971" viewBox="0 0 10.607 16.971">
-                                <g transform="translate(-6.364 8.485) rotate(-45)">
-                                    <rect width="12" height="3" transform="translate(12 12) rotate(180)" />
-                                    <rect width="12" height="3" transform="translate(9 12) rotate(-90)" />
-                                </g>
-                            </svg>
-                        </i>
-                        Ver ofertas
-                    </a>
-                    <figure>
-                        <img src="<?php echo $image; ?>" alt="">
-                    </figure>
-                    <?php if($discount): ?>
-                        <div class="not" style="background-color:  <?php echo $discount['offers_discount_color'];  ?>"><?php echo $discount['offers_discount_value']; ?></div>
-                    <?php endif; ?>
-                </li>
-                <?php endwhile; ?>
-            </ul>
-            <div class="x-pagination"></div>
-        <?php endif; ?>
-    </div>
-</section>
+
 
 
 <section class="sectionProducts woocommerceProducts">
@@ -213,17 +102,6 @@ get_template_part('partials/global/content', 'navbar');
                         endif;
                     ?>
                 </p>
-                <a href="">
-                    <i>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10.607" height="16.971" viewBox="0 0 10.607 16.971">
-                            <g transform="translate(-6.364 8.485) rotate(-45)">
-                                <rect width="12" height="3" transform="translate(12 12) rotate(180)"></rect>
-                                <rect width="12" height="3" transform="translate(9 12) rotate(-90)"></rect>
-                            </g>
-                        </svg>
-                    </i>
-                    Ver todas las ofertas
-                </a>
             </div>
             <div class="slider prod">
                 <?php

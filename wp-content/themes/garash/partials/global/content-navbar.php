@@ -2,7 +2,7 @@
     <div class="navbar__content x-container">
         <div class="navbarMenu">
             <div class="logo">
-                <a href="<?php echo site_url(); ?>">
+                <a href="<?php echo site_url(); ?>/ecommerce">
                 <figure>
                     <img src="<?php echo get_template_directory_uri() . '/assets/garash_logo.png'  ?>" alt="Logo Garash">
                 </figure>

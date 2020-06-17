@@ -4,7 +4,7 @@
             <div class="logo">
                 <a href="<?php echo site_url(); ?>/ecommerce">
                 <figure>
-                    <img src="<?php echo get_template_directory_uri() . '/assets/garash_logo.png'  ?>" alt="Logo Garash">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/garage_logo_min.jpeg'  ?>" alt="Logo Garash">
                 </figure>
                 </a>
             </div>

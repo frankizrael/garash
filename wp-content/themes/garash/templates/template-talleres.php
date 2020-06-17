@@ -6,8 +6,8 @@
 ?>
 <?php
 set_query_var('ASSETS_KEY_WORD', 'page_encuesta');
-set_query_var('class', 'is-active');
 get_header('header');
+set_query_var('class', 'is-active');
 get_template_part('partials/global/content', 'navbar');
 ?>
 <section class="encuestaPage">
@@ -215,4 +215,6 @@ get_template_part('partials/global/content', 'footer');
         let longitud = parseFloat(jQuery(id).attr('data-longitud'));
         centerMap(latitud, longitud , 13);        
     });
+
+    
 </script>

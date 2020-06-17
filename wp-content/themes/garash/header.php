@@ -79,5 +79,5 @@ error_reporting(E_ALL);
   .preload {position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 99999;background: white;display: flex;align-items: center;justify-content: space-around;transition: 0.3s;}.preload.active {pointer-events: none;opacity: 0;}.preload img {max-width: 300px;}
   </style>
   <div class="preload">
-    <img src="<?php echo get_template_directory_uri() . '/assets/garash_logo.png'  ?>" alt="Logo Garash">
+    <img src="<?php echo get_template_directory_uri() . '/assets/garage_logo_min.jpeg'  ?>" alt="Logo Garash">
   </div>

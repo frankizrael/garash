@@ -187,36 +187,6 @@ if (is_checkout()) {
 ?>
 
 
-
-<?php
-if (is_page('inicio')) {
-?>
-    <script>
-        jQuery(window).scroll(function() {
-            initScroll();
-        });
-        window.onload = function() {
-            initScroll();
-        };
-
-        function initScroll() {
-            var top = jQuery(window).scrollTop();
-            var isSearch = jQuery('.navbar').hasClass('is-search');
-            if (top > 150 && !isSearch) {
-                if (!jQuery(".navbar").hasClass("is-active")) {
-                    jQuery(".navbar").addClass("is-active");
-                }
-            } else {
-                if (top <= 150 && !isSearch) {
-                    jQuery(".navbar").removeClass("is-active");
-                }
-
-            }
-        }
-    </script>
-<?php
-}
-?>
 </body>
 
 </html>

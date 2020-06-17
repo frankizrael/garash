@@ -107,6 +107,38 @@
         jQuery('.preload').addClass('active');
     },500);
 </script>
+<style>
+.filterInsideCloud a {
+    background: white;
+}
+.filterInsideCloud.custom a {
+    color: #fa7915;
+}
+.item-filtro.filtro_neumaticos li.sf-field-taxonomy-pa_indice-de-velocidad {
+    background: #323232;
+}
+.item-filtro.filtro_neumaticos li.sf-field-taxonomy-pa_fabricante {
+    background: #323232;
+}
+.item-filtro.filtro_neumaticos li.sf-field-taxonomy-pa_fabricante {
+    background: #323232;
+    width: 55%;
+    padding-right: 10%;
+}
+.encuesta {
+    background: #fa7915;
+}
+.encuesta__flex .btn {
+    background: #e42928;
+}
+.sliderHome .slider__item .x-container .x-caption .title:after {
+    background: #f97815;
+}
+.sectionProducts__content .title:after {
+    background: #fa7915;
+}
+    
+</style>
 <?php
     } 
 ?>

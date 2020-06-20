@@ -224,7 +224,7 @@ get_template_part('partials/global/content', 'footer');
 
     if (jQuery('.filtro_neumaticos').length > 0 || jQuery('.filtro_neumaticos_motos').length > 0) {
         jQuery('.custom-filters').prepend('<div class="item-filtro filterByList"></div>');
-        jQuery('.filterByList').append(templateF(urlNeumaticos,imgNeumaticos,'Off-Road/4x4/SUV'));
+        jQuery('.filterByList').append(templateF(urlNeumaticos,imgNeumaticos,'Auto, SUV 4x4 y VAN'));
         jQuery('.filterByList').append(templateF(urlMotos,imgMotos,'Motos'));
         jQuery('.filterByList').append(templateF(urlCoches,imgCoches,'Coche de turismo'));
     }

@@ -1362,8 +1362,34 @@ article#article_8 .landing__parts__background {
     transform:  translateY(-5px);
   }
 }
+.slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: #000;
+    background: #f97815 !important;
+}
+.woocommerce ul.products li.product .price {
+    color: #262626;
+    font-weight: 700;
+}
+.sectionCategories__content .title:after {
+    background: #f97815;
+}
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-flyout ul.mega-sub-menu li.mega-menu-item a.mega-menu-link {
+    line-height: 23px;
+    padding: 5px 10px;
+}
 
 @media (max-width: 1000px) {
+  .listmark .listmarkItem {
+      width: 30%;
+  }
+  .navbar .menu a.talleres {
+      border-right: solid 1px #8e8e8e;
+      /* border-left: none; */
+  }
+  .navbar.is-active:before {
+    display: none;
+  }
   .landing__home__flex {
     flex-direction: column-reverse;
 }

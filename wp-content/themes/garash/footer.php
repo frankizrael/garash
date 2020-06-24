@@ -81,6 +81,9 @@
                 <a href="<?php the_field('encuesta_link','options');?>" class="btn">
                     Ver encuesta
                 </a>
+                <a href="javascript:void(0)" class="btn btn-ok">
+                    Cancelar
+                </a>
             </div>
         </div>
     </div>
@@ -90,10 +93,13 @@
         jQuery('.slick-dots').addClass('encuesta_slick');
         jQuery('.footer .box').addClass('encuesta_footer');
         jQuery('.encuesta__right .btn').on('click',function(){
-            localStorage.setItem("cookie", "1");
+            localStorage.setItem("cookie-2", "1");
+            jQuery('.slick-dots').removeClass('encuesta_slick');
+            jQuery('.footer .box').removeClass('encuesta_footer');
+            jQuery('.encuesta').hide();
         });
 
-        if (localStorage.getItem("cookie") == "1") {
+        if (localStorage.getItem("cookie-2") == "1") {
             jQuery('.slick-dots').removeClass('encuesta_slick');
             jQuery('.footer .box').removeClass('encuesta_footer');
             jQuery('.encuesta').hide();
@@ -102,6 +108,10 @@
         }
     },700);    
 </script>
+<style type="text/css">.encuesta__flex .btn.btn-ok {
+    background: #e8e8e8;
+    color: #232323;
+}</style>
 <script type="text/javascript">
     setTimeout(function(){
         jQuery('.preload').addClass('active');

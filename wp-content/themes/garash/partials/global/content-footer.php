@@ -114,12 +114,9 @@
         </div>
     </div>
     <div class="box">
-        <div class="box__content x-container">
-            <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
-            </p>
+        <div class="box__content x-container">            
             <div>
-                © 2020 iMarcux. Todos los Derechos Reservados
+                <a href="https://imarcux.com/" style="color:white;">iMarcux</a> © Since 2014 | Copyright © 2020 All right reserved | Power by <a href="https://imarcux.com/" style="color:white;">CETI</a> "Informatic Technology Bussiness Community"
             </div>
         </div>
     </div>

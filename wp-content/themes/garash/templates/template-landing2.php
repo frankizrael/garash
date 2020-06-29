@@ -15,7 +15,7 @@ get_header('header');
 		<div class="lp_container lp_flex">
 			<figure>
 				<a href="<?php echo site_url(); ?>">
-	            	<img src="<?php echo get_template_directory_uri() . '/garashlogo.jpeg'  ?>" alt="Logo Garash">
+	            	<img src="<?php echo get_template_directory_uri() . '/assets/garage_logo_min.jpeg'  ?>" alt="Logo Garash">
 	            </a>
 	        </figure>
 	        <div class="information">
@@ -84,9 +84,6 @@ get_header('header');
 				</div>
 			</div>
 		</div>
-		<div class="get_titlte">
-			<h1><?php the_title(); ?></h1>
-		</div>
 	</section>
 	<section class="lp_content">
 		<div class="lp_banner">
@@ -132,23 +129,6 @@ get_header('header');
                     <div class="swiper-button-next"></div>			
 			</div>
 		</div>
-		<div class="lp_banner lp_banner_2" style="background: url('<?php the_field('banner_imagen'); ?>');">
-			<div class="lp_tt">
-				<h2><?php the_field('banner_title'); ?></h2>
-			</div>
-			<div class="lp_flex">
-				<?php
-					$dat = get_field('banner_data_2');
-					foreach ($dat as $d) {
-						?>
-				<div class="lp_flex_l">
-					<?php echo $d['content']; ?>
-				</div>
-						<?php
-					}
-				?>
-			</div>
-		</div> 
 		<div class="lp_banner lp_banner_3" style="background: url('<?php the_field('banner_pagos_imagen'); ?>');">
 			<div class="lp_tt">
 				<h2><?php the_field('banner_pagos_title'); ?></h2>
@@ -196,6 +176,21 @@ get_header('header');
 <?php
 get_template_part('partials/global/content', 'footer');
 ?>
+<script type="text/javascript">
+    jQuery('.pterms').on('click',function(){
+        jQuery('.pterms').toggleClass('active');
+        jQuery('.buttonLabel button').toggleClass('btnOpacity');
+    });
+    jQuery('.pterms_uniq').on('click',function(){
+        jQuery('.pterms_uniq').toggleClass('active');
+        if (jQuery('.pterms_uniq').hasClass('active')) {
+            jQuery('#taller').val('Soy taller');
+        } else {
+            jQuery('#taller').val('');
+        }
+    });
+    
+</script>
 <style type="text/css">
 .swiper-pagination-bullet {
     background: white;
@@ -218,7 +213,7 @@ get_template_part('partials/global/content', 'footer');
     width: 100%;
     background: white;
     padding: 20px 0px;
-    border-bottom: solid 1px #0072c0;
+    border-bottom: solid 1px #fa7913;
     z-index: 15;
 }
 .lp_flex {
@@ -233,7 +228,7 @@ get_template_part('partials/global/content', 'footer');
 .lp_fixed {
     position: fixed;
     top: 50%;
-    left: 0;
+    right: 0;
     transform: translateY(-50%);
 }
 .lp_header .information a span {
@@ -241,8 +236,8 @@ get_template_part('partials/global/content', 'footer');
 }
 .sharedModalItem {
     overflow: hidden;
-    border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
 }
 .sharedModalItem a i {
     display: block;
@@ -300,9 +295,10 @@ section.lp_home video {
 .lp_contact {
     position: absolute;
     height: 100%;
-    right: 0;
+    left: 0;
     padding: 120px 0px;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.7);
+    top: 0;
 }
 .lp_form {
     padding: 0px 20px;
@@ -326,27 +322,30 @@ section.lp_home video {
     padding: 10px;
     border-radius: 5px;
     background: transparent;
-    border: solid 1px #0072c0;
+    border: solid 1px #e32422;
 }
 .inputLabel .icon svg {
     width: 40px;
     height: 40px;
 }
-.pterms {
+.pterms, .pterms_uniq {
     padding-left: 20px;
     font-size: 16px;
     line-height: 22px;
     position: relative;
     cursor: pointer;
 }
-.pterms:before {
+.pterms:before, .pterms_uniq:before {
     content: '';
     position: absolute;
     width: 15px;
     height: 15px;
-    border: solid 1px #0072c0;
+    border: solid 1px #e32422;
     left: 0px;
     top: 3px;
+}
+.pterms.active:before, .pterms_uniq.active:before {
+    background: #e32422;
 }
 .buttonLabel {
     margin-top: 20px;
@@ -354,19 +353,36 @@ section.lp_home video {
 .buttonLabel button {
     width: 100%;
     padding: 15px 0px;
-    background: #0072c0;
+    background: #e32422;
     border-radius: 5px;
     font-size: 16px;
     color: white;
 }
+.buttonLabel button.btnOpacity {
+    pointer-events: none;
+    opacity: 0.4;
+}
 .lp_banner {
-    background: #0072c0;
+    background: #fa7913;
     color: white;
     padding: 60px 20px;
 }
 .lp_banner .lp_flex {
     flex-wrap: wrap;
+    align-items: flex-start;
 }
+.lp_banner p a img {
+    position: relative;
+    filter: invert(1);
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    margin: 10px;
+}
+.lp_banner p {
+    display: block;
+}
+
 .lp_flex_l:first-child {
     border-left: none;
 }
@@ -399,10 +415,13 @@ section.lp_home video {
     margin-bottom: 20px;
     font-size: 25px;
     max-width: 900px;
+    text-transform: uppercase;
+}
+.lp_tt #whatsapp {
+    background: #e32422;
 }
 .lp_tt a {
     padding: 10px;
-    background: #0072c0;
     color: white;
     border-radius: 5px;
     font-size: 18px;
@@ -413,7 +432,6 @@ section.lp_home video {
     margin: 10px;
     border-radius: 5px;
     background: white;
-    border: solid 3px #424242;
     position: relative;
 }
 
@@ -447,18 +465,7 @@ section.lp_home video {
     margin: auto;
     position: relative;
 }
-.lp_batery_item:before {
-    content: '';
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px 0px 10px 25px;
-    border-color: transparent transparent transparent #007bff;
-    position: absolute;
-    transform: rotate(-45deg);
-    left: -5px;
-    bottom: -5px;
-}
+
 .lp_batery_item img {
     height: 200px;
     object-fit: contain;
@@ -476,7 +483,7 @@ section.lp_home video {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #0072c0;
+    background: #fa7913;
     z-index: -1;
     top: 0;
     left: 0;
@@ -545,7 +552,7 @@ section.lp_foot .lp_flex_l .text {
 section.lp_foot .lp_flex_l .text h2, section.lp_foot .lp_flex_l .text h3 {
     font-size: 18px;
     margin-bottom: 10px;
-    color: #0072c0;
+    color: #fa7913;
 }
 section.lp_foot .lp_flex_l .text p {
     font-size: 14px;
@@ -554,14 +561,14 @@ section.lp_foot .lp_flex_l .text p {
 .lp_header .information div {
     display: flex;
     align-items: center;
-    color: #0072c0;
+    color: #fa7913;
     font-size: 20px;
     margin-right: 25px;
 }
 .lp_header .information a {
     display: flex;
     align-items: center;
-    color: #0072c0;
+    color: #fa7913;
     font-size: 20px;
     position: relative;
     width: 250px;
@@ -569,7 +576,7 @@ section.lp_foot .lp_flex_l .text p {
 .lp_header .information a p {
     position: absolute;
     font-size: 12px;
-    bottom: -25px;
+    bottom: -20px;
     color: black;
 }
 .lp_header .information svg {
@@ -582,7 +589,7 @@ section.lp_foot .lp_flex_l .text p {
     align-items: center;
 }
 .lp_header figure a img {
-    max-width: 120px;
+    max-width: 250px;
 }
 .lp_header figure a {
     display: block;
@@ -592,7 +599,7 @@ section.lp_foot .lp_flex_l .text p {
 }
 .inputLabel .input span input, .inputLabel .input span textarea {
     background: transparent;
-    border: solid 1px #0072c0;
+    border: solid 1px #e32422;
     width: 100%;
     border-radius: 5px;
     padding: 10px;
@@ -602,7 +609,7 @@ section.lp_foot .lp_flex_l .text p {
     margin-left: 10px;
 }
 .inputLabel .icon svg path {
-    fill: #0072c0;
+    fill: #e32422;
 }
 .lp_banner_3:before {
     content: '';
@@ -673,6 +680,84 @@ section.lp_home.init .swiper-container {
         min-height: 44px;
     }
 }
+@media (max-width: 992px) {
+    .lp_header {
+        padding: 10px 0px;
+    }
+    .lp_header .information a p { display: none; }
+    .lp_header .lp_flex {
+        display: block;
+        margin: auto;
+        width: 300px;
+        text-align: center;
+    }
+    .lp_header figure a img {
+        max-width: 250px;
+        margin: auto;
+    }
+    .lp_header .information div {
+        font-size: 12px;
+        max-width: 150px;
+    }
+    .lp_header .information svg {
+        width: 20px;
+        height: 20px;
+    }
+    .lp_header .information a {
+        width: auto;
+    }
+    .lp_contact {
+        width: 310px;
+        padding-bottom: 0px;
+        transform: translateX(-310px);
+        transition: .3s;
+    }
+    .lp_contact.active {
+        transform: none;
+    }
+    .lp_contact_art {
+        position: absolute;
+        width: 25px;
+        height: 30px;
+        background: #f77816;
+        right: -25px;
+        cursor: pointer;
+    }
+    .lp_contact_art:before {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-right: solid 2px white;
+        border-bottom: solid 2px white;
+        transform: rotate(-45deg);
+        top: 8px;
+        right: 9px;
+    }
+    section.lp_home {
+        min-height: 740px;
+    }
+    .lp_flex_l {
+        width: 100%;
+        border: none;
+        flex: none;
+    }
+    .lp_flex_l p {
+        font-size: 20px;
+    }
+    .pterms, .pterms_uniq {
+        font-size: 14px;
+    }
+    .lp_footer_c .lp_flex {
+        flex-wrap: wrap;
+    }
+    section.lp_foot .lp_flex_l {
+        width: 100%;
+        flex: none;
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+}
 </style>
 <script type="text/javascript">
   var mySwiper = new Swiper ('.init .swiper-container', {
@@ -686,17 +771,34 @@ section.lp_home.init .swiper-container {
   });
 
  var mySwiper = new Swiper ('.lp_flex .swiper-container', {
-    speed: 400,
+    speed: 700,
     navigation: {
       nextEl: '.lp_flex .swiper-button-next',
       prevEl: '.lp_flex .swiper-button-prev',
     },
     autoplay: {
-        delay: 5000,
+        delay: 2500,
     },
-    slidesPerView: 5
+    slidesPerView: 5,
+    breakpoints: {
+        320: {
+          slidesPerView: 1
+        },
+        480: {
+          slidesPerView: 2
+        },
+        990: {
+          slidesPerView: 3
+        },
+        1100: {
+          slidesPerView: 5
+        }
+    }
   });
 
+  jQuery('.lp_contact_art').on('click',function(){
+    jQuery('.lp_contact').toggleClass('active');
+  });
       
 </script>
 <?php get_footer('footer'); ?>

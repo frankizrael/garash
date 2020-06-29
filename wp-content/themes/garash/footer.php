@@ -228,7 +228,16 @@ if (is_checkout()) {
 }
 ?>
 
-
+<style type="text/css">
+    .preload img {
+        max-width: 450px;
+    } 
+    @media (max-width: 768px) {
+        .preload img {
+            max-width: 280px;
+        }   
+    }
+</style>
 </body>
 
 </html>

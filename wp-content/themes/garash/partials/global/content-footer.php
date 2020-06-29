@@ -94,30 +94,43 @@
                     </i>
                     Libro de reclamaciones
                 </a>
+
+                <div class="addresses">
+                    <?php
+                    if (have_rows('store_list_option', 'option')) : ?>
+                        <?php while (have_rows('store_list_option', 'option')) : the_row();
+                            $name = get_sub_field('store_list_option_name');
+                            $address = get_sub_field('store_list_option_address');
+                        ?>
+                            <div class="addresses__item">
+                                <div class="title"><?php echo $name; ?></div>
+                                <p>
+                                    <?php echo $address; ?>
+                                </p>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </div>
             </div>
-        </div>
-        <div class="addresses">
-            <?php
-            if (have_rows('store_list_option', 'option')) : ?>
-                <?php while (have_rows('store_list_option', 'option')) : the_row();
-                    $name = get_sub_field('store_list_option_name');
-                    $address = get_sub_field('store_list_option_address');
-                ?>
-                    <div class="addresses__item">
-                        <div class="title"><?php echo $name; ?></div>
-                        <p>
-                            <?php echo $address; ?>
-                        </p>
-                    </div>
-                <?php endwhile; ?>
-            <?php endif; ?>
         </div>
     </div>
     <div class="box">
         <div class="box__content x-container">            
             <div>
-                <a href="https://imarcux.com/" style="color:white;">iMarcux</a> © Since 2014 | Copyright © 2020 All right reserved | Power by <a href="https://imarcux.com/" style="color:white;">CETI</a> "Informatic Technology Bussiness Community"
+                <a href="https://imarcux.com/" style="color:white;" target="_blank">iMarcux</a> ® Since 2014 | Copyright © 2020 All right reserved | Power by <a href="https://imarcux.com/" style="color:white;" target="_blank">CETI</a> "Informatic Technology Bussiness Community"
             </div>
         </div>
     </div>
 </footer>
+<style type="text/css">
+    .footer__content .addresses {
+        display: block;
+    }
+    .footer__content .addresses__item {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .footer__content .addresses__item p {
+        text-align: right;
+    }
+</style>

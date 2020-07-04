@@ -8,8 +8,8 @@
 set_query_var('ASSETS_KEY_WORD', 'page_home');
 get_header('header');
 ?>
-<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
 <div class="lp_wrapper">
 	<div class="lp_header">
 		<div class="lp_container lp_flex">

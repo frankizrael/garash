@@ -16,7 +16,7 @@ error_reporting(E_ALL);
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no, maximum-scale=1.0">
-  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/favicon.png" sizes="16x8" />
+  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/nav_blanco.png" sizes="16x8" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400,500, 600,700,900&display=swap" rel="stylesheet">
   <?php wp_head(); ?>
   <!-- assets -->

@@ -1,8 +1,8 @@
 <div class="bg"></div>
 <footer class="footer">
     <div class="footer__content x-container">
-        <div class="list">
-            <div class="group">
+        <div class="list" style="justify-content: space-between;">
+            <div class="group" style="display: none;">
                 <div class="item">
                     <div class="title">Servicio al cliente</div>
                     <ul>
@@ -117,7 +117,7 @@
     <div class="box">
         <div class="box__content x-container">            
             <div>
-                <a href="https://imarcux.com/" style="color:white;" target="_blank">iMarcux</a> ® Since 2014 | Copyright © 2020 All right reserved | Power by <a href="https://imarcux.com/" style="color:white;" target="_blank">CETI</a> "Informatic Technology Bussiness Community"
+                <a href="https://www.imarcux.com/" style="color:white;font-weight: 700;" target="_blank">iMarcux</a> ® Since 2014 | Copyright © 2020 All right reserved | Power by <a href="https://www.imarcux.com/" style="color:white;font-weight: 700;" target="_blank">CETI</a> "Informatic Technology Bussiness Community"
             </div>
         </div>
     </div>

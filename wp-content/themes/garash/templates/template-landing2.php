@@ -644,18 +644,6 @@ section.lp_home video {
 section.lp_home {
     z-index: 2;
 }
-section.lp_home .initCore:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: black;
-    top: 0;
-    z-index: 1;
-    left: 0;
-    opacity: 0.4;
-    pointer-events: none;
-}
 section.lp_home.init .swiper-container {
     z-index: 0;
 }
@@ -756,6 +744,11 @@ section.lp_home.init .swiper-container {
         flex: none;
         margin: 0px;
         margin-bottom: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .footer__content .list .group .item {
+        max-width: 100%;
     }
 }
 </style>

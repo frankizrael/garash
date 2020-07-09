@@ -63,7 +63,7 @@ get_header('header');
                             foreach($banner as $ban) {
                 ?>
                     <div class="swiper-slide">
-                        <div class="heightH initCore" style="background-image: url('<?php echo $ban['img']; ?>');">
+                        <div class="heightH initCore" style="background-image: url('<?php if (wp_is_mobile()) { echo $ban['img_mobile']; } else { echo $ban['img']; } ?>');">
                         </div>
                     </div>
                 <?php

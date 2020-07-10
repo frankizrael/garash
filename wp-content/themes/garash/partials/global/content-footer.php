@@ -117,7 +117,7 @@
     <div class="box">
         <div class="box__content x-container">            
             <div>
-                <a href="https://www.imarcux.com/" style="color:white;font-weight: 700;" target="_blank">iMarcux Inc. ®</a> Since 2014 <b>|</b> Copyright © 2020 All right reserved <b>|</b> Power by <a href="https://www.imarcux.com/" style="color:white;font-weight: 700;" target="_blank">CETI</a> "Informatic Technology Bussiness Community"
+                <a href="https://www.imarcux.com/" style="color:white;font-weight: 700;" target="_blank">iMARCUX Inc. ®</a> Since 2014 <b> | </b> Copyright © 2020. All right reserved. <b> | </b> Powered by: <a href="https://www.imarcux.com/" style="color:white;font-weight: 700;" target="_blank">CETI</a> "Informatic Technology Business Community"
             </div>
         </div>
     </div>

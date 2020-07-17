@@ -112,6 +112,10 @@
     background: #e8e8e8;
     color: #232323;
 }</style>
+
+<?php
+    } 
+?>
 <script type="text/javascript">
     setTimeout(function(){
         jQuery('.preload').addClass('active');
@@ -149,9 +153,6 @@
 }
     
 </style>
-<?php
-    } 
-?>
 <script type="text/javascript">
     jQuery('.searchandfilter h4, .searchandfilter_css h4').on('click',function(){
       let thisA = jQuery(this);

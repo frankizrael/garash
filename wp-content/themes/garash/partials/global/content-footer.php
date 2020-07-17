@@ -66,7 +66,7 @@
                 <ul>
                     <li><a href="<?php
                                     if (get_field('contact_option_email', 'option')) :
-                                        echo 'tel:' . get_field('contact_option_email', 'option');
+                                        echo 'mailTo:' . get_field('contact_option_email', 'option');
                                     else :
                                         echo 'javascript:void(0)';
                                     endif;
@@ -77,14 +77,14 @@
                             endif;
                             ?>
                         </a></li>
-                    <li><a href="tel:">
+                    <li>
 
                             <?php
                             if (get_field('contact_option_hours', 'option')) :
                                 the_field('contact_option_hours', 'option');
                             endif;
                             ?>
-                        </a></li>
+                        </li>
                 </ul>
                 <a href="<?php echo site_url(); ?>/servicio-al-cliente/libro-de-reclamaciones/" class="book">
                     <i>
